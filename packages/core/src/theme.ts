@@ -234,7 +234,7 @@ const Spacing: ISpacing = {
 }
 
 const GrayscaleColors: IGrayscaleColors = {
-  black: '#000000',
+  black: '#292929',
   darkGrey: '#313132',
   mediumGrey: '#606060',
   lightGrey: '#D3D3D3',
@@ -269,7 +269,7 @@ const BrandColors = {
   unorderedList: GrayscaleColors.white,
   unorderedListModal: GrayscaleColors.white,
   link: '#07489E',
-  text: GrayscaleColors.white,
+  text: GrayscaleColors.black,
   icon: GrayscaleColors.white,
   headerIcon: GrayscaleColors.white,
   headerText: GrayscaleColors.white,
@@ -344,12 +344,12 @@ export function createTextTheme(theme: { ColorPalette: IColorPalette }): ITextTh
     normal: {
       fontSize: 18,
       fontWeight: 'normal',
-      color: theme.ColorPalette.brand.text,
+      color: '#292929',
     },
     bold: {
       fontSize: 18,
       fontWeight: 'bold',
-      color: theme.ColorPalette.brand.text,
+      color: '#042645',
     },
     label: {
       fontSize: 14,
@@ -1042,6 +1042,7 @@ export function createOnboardingTheme(theme: { ColorPalette: IColorPalette; Text
     },
     headerText: {
       ...theme.TextTheme.bold,
+
     },
     bodyText: {
       ...theme.TextTheme.normal,
@@ -1080,7 +1081,7 @@ export function createDialogTheme(theme: { ColorPalette: IColorPalette }): IDial
       backgroundColor: theme.ColorPalette.brand.secondaryBackground,
     },
     titleText: {
-      color: theme.ColorPalette.grayscale.white,
+      color: theme.ColorPalette.grayscale.black,
     },
     description: {
       color: '#212121',
