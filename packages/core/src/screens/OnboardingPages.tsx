@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 
-import CredentialList from '../assets/img/credential-list.svg'
-import ScanShare from '../assets/img/scan-share.svg'
+import DigitalWallet from '../assets/img/digital-wallet 1.svg'
+import DigitalIdentity from '../assets/img/digital-identity 1.svg'
+import Folder from '../assets/img/folder 1.svg'
 import Button, { ButtonType } from '../components/buttons/Button'
 import { GenericFn } from '../types/fn'
 import { testIdWithKey } from '../utils/testable'
@@ -119,15 +120,20 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
 
 const guides: Array<{ image: React.FC<SvgProps>; title: string; body: string; devModeListener?: boolean }> = [
   {
-    image: CredentialList,
-    title: 'Lorem ipsum dolor sit amet',
-    body: 'Ipsum faucibus vitae aliquet nec ullamcorper sit amet risus.',
+    image: DigitalWallet,
+    title: 'ASTIg na wallet!',
+    body: 'DOST - ASTI Wallet helps you prove your identity in a digital manner. It does this by storing digital credentials issued by participating entities such as government services. n/n/Elevate your online presence!',
     devModeListener: true,
   },
   {
-    image: ScanShare,
-    title: 'Excepteur sint occaecat ',
-    body: 'Mollis aliquam ut porttitor leo a diam sollicitudin tempor.',
+    image: DigitalIdentity,
+    title: 'Digital credentials',
+    body: 'Digital credentials are the electronic equivalent of physical credentials such as certifications and permits offered by participating services n/n/Services are simplified and expected as organizations and individuals can confirm who you are with trusted information from digital credentials.',
+  },
+  {
+    image: Folder,
+    title: 'Private and confidential',
+    body: 'We created this app to protect your data! n/n/DOST-ASTI will not know where and when you use your digital credentials, unless you are interacting with them. n/n/You also have control who can access your credentials and data. Only the necessary information that is needed are taken. ',
   },
 ]
 
