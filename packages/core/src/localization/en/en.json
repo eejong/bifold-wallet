@@ -872,7 +872,8 @@
   },
   "Onboarding": {
     "SkipA11y": "Skip introduction to Aries Bifold",
-    "Attestation": "I have confirmed that this app is for me."
+    "Attestation": "I have confirmed that this app is for me.",
+    "IAgree": "I Agree"
   },
   "Preface": {
     "PrimaryHeading": "Is this app for you?",
