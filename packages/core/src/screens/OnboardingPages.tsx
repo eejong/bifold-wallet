@@ -6,7 +6,7 @@ import { SvgProps } from 'react-native-svg'
 
 import DigitalWallet from '../assets/img/digital-wallet 1.svg'
 import DigitalIdentity from '../assets/img/digital-identity 1.svg'
-import CheckBoxRow from '../components/inputs/CheckBoxRow'
+import CheckBox from '../components/inputs/CheckBoxRow'
 import Folder from '../assets/img/folder 1.svg'
 import SecureImage from '../assets/img/think.svg'
 import Button, { ButtonType } from '../components/buttons/Button'
@@ -109,7 +109,7 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
         </View>
       </ScrollView>
       <View style={{ marginTop: 'auto', margin: 20 }}>
-        <CheckBoxRow
+        <CheckBox
         title={t('Onboarding.Attestation')}
         accessibilityLabel={t('Onboarding.IAgree')}
         testID={testIdWithKey('IAgree')}
