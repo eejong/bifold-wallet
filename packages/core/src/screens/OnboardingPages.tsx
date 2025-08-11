@@ -110,8 +110,8 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
       </ScrollView>
       <View style={{ marginTop: 'auto', margin: 20 }}>
         <CheckBox
-        title={t('Onboarding.Attestation')}
-        accessibilityLabel={t('Onboarding.IAgree')}
+        title={String(t('Onboarding.Attestation'))}
+        accessibilityLabel={String(t('Onboarding.IAgree'))}
         testID={testIdWithKey('IAgree')}
         checked={checked}
         onPress={() => setChecked(!checked)}
