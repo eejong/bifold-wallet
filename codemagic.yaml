@@ -6,10 +6,16 @@ workflows:
         NODE_VERSION: 20
       node: $NODE_VERSION
     scripts:
-      - |
-        yarn install
-        yarn build
-        cd samples/app/android
-        ./gradlew assembleRelease
+      - name: Install dependencies and build JS
+        script: |
+          yarn install
+          yarn build
+      - name: Set gradlew executable
+        script: |
+          chmod +x samples/app/android/gradlew
+      - name: Build Android release APK
+        script: |
+          cd samples/app/android
+          ./gradlew assembleRelease
     artifacts:
       - samples/app/android/app/build/outputs/**/*.apk
