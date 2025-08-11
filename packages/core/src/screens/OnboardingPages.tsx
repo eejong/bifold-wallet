@@ -1,11 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useTranslation } from 'react-i18next'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 
+
 import DigitalWallet from '../assets/img/digital-wallet 1.svg'
 import DigitalIdentity from '../assets/img/digital-identity 1.svg'
+import CheckBoxRow from '../components/inputs/CheckBoxRow'
 import Folder from '../assets/img/folder 1.svg'
+import SecureImage from '../assets/img/think.svg'
 import Button, { ButtonType } from '../components/buttons/Button'
 import { GenericFn } from '../types/fn'
 import { testIdWithKey } from '../utils/testable'
@@ -89,23 +92,30 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
   const { t } = useTranslation()
   const styles = createStyles(OnboardingTheme)
   const imageDisplayOptions = createImageDisplayOptions(OnboardingTheme)
+  const [ checked, setChecked ] = useState(false)
   return (
     <>
       <ScrollView style={{ padding: 20 }}>
         <View style={{ alignItems: 'center' }}>
-          <Assets.svg.secureImage {...imageDisplayOptions} />
+          <SecureImage {...imageDisplayOptions} />
         </View>
         <View style={{ marginBottom: 20 }}>
           <ThemedText style={styles.headerText} testID={testIdWithKey('HeaderText')}>
-            Ornare suspendisse sed nisi lacus
+            Is this app for you?
           </ThemedText>
           <ThemedText style={[styles.bodyText, { marginTop: 25 }]} testID={testIdWithKey('BodyText')}>
-            Enim facilisis gravida neque convallis a cras semper. Suscipit adipiscing bibendum est ultricies integer
-            quis auctor elit sed.
+            DOST-ASTI wallet is new. The available digital credentials are currently limited. Are you sure you want to proceed?
           </ThemedText>
         </View>
       </ScrollView>
       <View style={{ marginTop: 'auto', margin: 20 }}>
+        <CheckBoxRow
+        title={t('Onboarding.Attestation')}
+        accessibilityLabel={t('Onboarding.IAgree')}
+        testID={testIdWithKey('IAgree')}
+        checked={checked}
+        onPress={() => setChecked(!checked)}
+        />
         <Button
           title={t('Global.GetStarted')}
           accessibilityLabel={t('Global.GetStarted')}
@@ -122,18 +132,18 @@ const guides: Array<{ image: React.FC<SvgProps>; title: string; body: string; de
   {
     image: DigitalWallet,
     title: 'ASTIg na wallet!',
-    body: 'DOST - ASTI Wallet helps you prove your identity in a digital manner. It does this by storing digital credentials issued by participating entities such as government services. n/n/Elevate your online presence!',
+    body: 'DOST - ASTI Wallet helps you prove your identity in a digital manner. It does this by storing digital credentials issued by participating entities such as government services. \n\nElevate your online presence!',
     devModeListener: true,
   },
   {
     image: DigitalIdentity,
     title: 'Digital credentials',
-    body: 'Digital credentials are the electronic equivalent of physical credentials such as certifications and permits offered by participating services n/n/Services are simplified and expected as organizations and individuals can confirm who you are with trusted information from digital credentials.',
+    body: 'Digital credentials are the electronic equivalent of physical credentials such as certifications and permits offered by participating services \n\nServices are simplified and expected as organizations and individuals can confirm who you are with trusted information from digital credentials.',
   },
   {
     image: Folder,
     title: 'Private and confidential',
-    body: 'We created this app to protect your data! n/n/DOST-ASTI will not know where and when you use your digital credentials, unless you are interacting with them. n/n/You also have control who can access your credentials and data. Only the necessary information that is needed are taken. ',
+    body: 'We created this app to protect your data! \n\nDOST-ASTI will not know where and when you use your digital credentials, unless you are interacting with them. \n\nYou also have control who can access your credentials and data. Only the necessary information that is needed are taken. ',
   },
 ]
 

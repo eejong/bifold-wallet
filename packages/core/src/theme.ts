@@ -248,7 +248,7 @@ const InlineErrorMessageColors: IErrorColors = {
 }
 
 const BrandColors = {
-  primary: '#42803E',
+  primary: '#07489E',
   primaryDisabled: `rgba(53, 130, 63, ${lightOpacity})`,
   secondary: '#FFFFFFFF',
   secondaryDisabled: `rgba(53, 130, 63, ${heavyOpacity})`,
@@ -256,19 +256,19 @@ const BrandColors = {
   tertiaryDisabled: `rgba(53, 130, 63, ${heavyOpacity})`,
   primaryLight: `rgba(53, 130, 63, ${lightOpacity})`,
   highlight: '#FCBA19',
-  primaryBackground: '#000000',
+  primaryBackground: '#ffffffff',
   secondaryBackground: '#313132',
   tertiaryBackground: '#313132',
-  modalPrimary: '#42803E',
+  modalPrimary: '#07489E',
   modalSecondary: '#FFFFFFFF',
   modalTertiary: '#FFFFFFFF',
-  modalPrimaryBackground: '#000000',
+  modalPrimaryBackground: '#ffffffff',
   modalSecondaryBackground: '#313132',
   modalTertiaryBackground: '#313132',
   modalIcon: GrayscaleColors.white,
   unorderedList: GrayscaleColors.white,
   unorderedListModal: GrayscaleColors.white,
-  link: '#42803E',
+  link: '#07489E',
   text: GrayscaleColors.white,
   icon: GrayscaleColors.white,
   headerIcon: GrayscaleColors.white,
@@ -1083,7 +1083,7 @@ export function createDialogTheme(theme: { ColorPalette: IColorPalette }): IDial
       color: theme.ColorPalette.grayscale.white,
     },
     description: {
-      color: theme.ColorPalette.grayscale.white,
+      color: '#212121',
     },
     closeButtonIcon: {
       color: theme.ColorPalette.grayscale.white,
