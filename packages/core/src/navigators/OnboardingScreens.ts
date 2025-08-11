@@ -2,6 +2,7 @@ import { ParamListBase, RouteConfig, StackNavigationState } from '@react-navigat
 import { StackNavigationOptions, TransitionPresets } from '@react-navigation/stack'
 import type { StackNavigationEventMap } from '@react-navigation/stack/lib/typescript/src/types'
 import { TFunction } from 'i18next'
+
 import { ScreenOptionsType, Screens } from '../types/navigators'
 
 type ScreenOptions = RouteConfig<

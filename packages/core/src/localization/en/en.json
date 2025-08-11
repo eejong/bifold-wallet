@@ -871,7 +871,8 @@
     "NoInternetConnectionMessage": "You're unable to access services using Bifold or receive credentials until you're back online.\n\nPlease check your internet connection."
   },
   "Onboarding": {
-    "SkipA11y": "Skip introduction to Aries Bifold"
+    "SkipA11y": "Skip introduction to Aries Bifold",
+    "Attestation": "I have confirmed that this app is for me."
   },
   "Preface": {
     "PrimaryHeading": "Is this app for you?",
