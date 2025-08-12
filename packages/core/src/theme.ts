@@ -581,7 +581,7 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
     },
     primary: {
       padding: 16,
-      borderRadius: 4,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primary,
     },
     primaryDisabled: {

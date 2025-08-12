@@ -5,7 +5,6 @@ import { useTheme } from '../../contexts/theme'
 
 import { Button, ButtonType, ButtonProps } from './Button-api'
 import { ThemedText } from '../texts/ThemedText'
-import { borderRadius } from 'theme'
 
 const ButtonImplComponent = (
   {
@@ -85,7 +84,6 @@ const ButtonImplComponent = (
       onPressOut={() => setIsActive(false)}
       testID={testID}
       style={[
-        {borderRadius:10},
         buttonStyles[buttonType].color,
         disabled && buttonStyles[buttonType].colorDisabled,
         isActive &&
