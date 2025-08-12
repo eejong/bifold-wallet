@@ -135,7 +135,7 @@ const Onboarding: React.FC<OnboardingProps> = ({
   return (
     <SafeAreaView style={style.container} edges={['left', 'right', 'bottom']}>
       <View>
-        <ThemedText style={style.pagerPosition}>About ASTI Wallet</ThemedText>
+        <ThemedText style={style.headerText}>About ASTI Wallet</ThemedText>
       </View>
       <FlatList
         ref={flatList}
