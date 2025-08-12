@@ -18,13 +18,14 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
     headerShown: false,
   },
   [Screens.Onboarding]: {
-    headerShown: false,
-  },
-   [Screens.CreatePIN]: {
-    headerBackTestID: testIdWithKey('Back'),
+    headerTintColor: 'white',
+    gestureEnabled: false,
   },
   [Screens.Terms]: {
     headerTintColor: OnboardingTheme.headerTintColor,
+    headerBackTestID: testIdWithKey('Back'),
+  },
+  [Screens.CreatePIN]: {
     headerBackTestID: testIdWithKey('Back'),
   },
   [Screens.ChangePIN]: {

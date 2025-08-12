@@ -58,9 +58,6 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
 
 export const createStyles = (OnboardingTheme: any) => {
   return StyleSheet.create({
-    title:{
-      ...OnboardingTheme.title,
-    },
     headerText: {
       ...OnboardingTheme.headerText,
     },
@@ -158,9 +155,7 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
 
   return (
     <ScrollView style={{ padding: 20 }}>
-      <View style={{ alignItems: 'center' }}>{
-        <PageImage style={imageDisplayOptions} />}
-      </View>
+      <View style={{ alignItems: 'center' }}>{<PageImage style={OnboardingTheme.imageDisplayOptions} />}</View>
       <View style={{ marginBottom: 20 }}>
         <ThemedText style={styles.headerText} testID={testIdWithKey('HeaderText')}>
           {title}
@@ -174,12 +169,10 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
 }
 
 const OnboardingPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any): Array<Element> => {
-  const styles = createStyles(OnboardingTheme)
   return [
     <View>
-      
       <ThemedText>
-        <ThemedText style={[styles.title,{alignItems: 'center' }]} testID={testIdWithKey('HeaderText')}>
+        <ThemedText style={[OnboardingTheme.headerText,{alignItems: 'center' }]} testID={testIdWithKey('HeaderText')}>
           About ASTI Wallet
         </ThemedText>
       </ThemedText>

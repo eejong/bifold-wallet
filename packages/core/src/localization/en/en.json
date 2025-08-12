@@ -794,8 +794,8 @@
   },
   "Screens": {
     "Splash": "Splash",
-    "Onboarding": "Onboarding",
-    "Preface": "Aries Bifold",
+    "Onboarding": "About ASTI Wallet",
+    "Preface": "ASTI Wallet",
     "Terms": "Terms & Conditions",
     "CreatePIN": "Create a PIN",
     "EnterPIN": "Enter PIN",

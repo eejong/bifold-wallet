@@ -1040,9 +1040,6 @@ export function createOnboardingTheme(theme: { ColorPalette: IColorPalette; Text
       fontWeight: 'bold',
       fontSize: 18,
     },
-    title:{
-      ...theme.TextTheme.headingOne,
-    },
     headerText: {
       ...theme.TextTheme.bold,
 
