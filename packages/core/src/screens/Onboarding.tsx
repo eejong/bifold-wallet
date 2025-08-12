@@ -11,6 +11,8 @@ import { DispatchAction } from '../contexts/reducers/store'
 import { useStore } from '../contexts/store'
 import { OnboardingStackParams } from '../types/navigators'
 import { testIdWithKey } from '../utils/testable'
+import { ThemedText } from '../components/texts/ThemedText'
+
 export interface OnboardingStyleSheet {
   container: ViewStyle
   carouselContainer: ViewStyle
@@ -132,6 +134,9 @@ const Onboarding: React.FC<OnboardingProps> = ({
 
   return (
     <SafeAreaView style={style.container} edges={['left', 'right', 'bottom']}>
+      <View>
+        <ThemedText style={style.pagerPosition}>About ASTI Wallet</ThemedText>
+      </View>
       <FlatList
         ref={flatList}
         horizontal

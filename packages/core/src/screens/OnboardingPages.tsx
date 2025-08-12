@@ -6,7 +6,7 @@ import { SvgProps } from 'react-native-svg'
 
 import DigitalWallet from '../assets/img/digital-wallet 1.svg'
 import DigitalIdentity from '../assets/img/digital-identity 1.svg'
-import CheckBox from '../components/inputs/CheckBox'
+import CheckBoxRow from '../components/inputs/CheckBoxRow'
 import Folder from '../assets/img/folder 1.svg'
 import SecureImage from '../assets/img/think.svg'
 import Button, { ButtonType } from '../components/buttons/Button'
@@ -111,7 +111,7 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
         </View>
       </ScrollView>
       <View style={{ marginTop: 'auto', margin: 20 }}>
-        <CheckBox
+        <CheckBoxRow
         title={t('Onboarding.Attestation')}
         accessibilityLabel={t('Onboarding.IAgree')}
         testID={testIdWithKey('IAgree')}
@@ -155,7 +155,7 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
 
   return (
     <ScrollView style={{ padding: 20 }}>
-      <View style={{ alignItems: 'center' }}>{<PageImage style={OnboardingTheme.imageDisplayOptions} />}</View>
+      <View style={{ alignItems: 'center' }}>{<PageImage style={imageDisplayOptions} />}</View>
       <View style={{ marginBottom: 20 }}>
         <ThemedText style={styles.headerText} testID={testIdWithKey('HeaderText')}>
           {title}
@@ -170,13 +170,6 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
 
 const OnboardingPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any): Array<Element> => {
   return [
-    <View>
-      <ThemedText>
-        <ThemedText style={[OnboardingTheme.headerText,{alignItems: 'center' }]} testID={testIdWithKey('HeaderText')}>
-          About ASTI Wallet
-        </ThemedText>
-      </ThemedText>
-    </View>,
     ...guides.map((g) => createPageWith(g.image, g.title, g.body, OnboardingTheme)),
     CustomPages(onTutorialCompleted, OnboardingTheme),
   ]
