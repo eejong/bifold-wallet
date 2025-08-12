@@ -34,7 +34,6 @@ const ButtonImplComponent = (
       colorDisabled: Buttons.primaryDisabled,
       text: Buttons.primaryText,
       textDisabled: Buttons.primaryTextDisabled,
-      borderRadius:10
     },
     [ButtonType.Secondary]: {
       color: Buttons.secondary,
@@ -86,6 +85,7 @@ const ButtonImplComponent = (
       onPressOut={() => setIsActive(false)}
       testID={testID}
       style={[
+        {borderRadius:10},
         buttonStyles[buttonType].color,
         disabled && buttonStyles[buttonType].colorDisabled,
         isActive &&
