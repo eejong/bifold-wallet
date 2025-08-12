@@ -5,6 +5,7 @@ import { useTheme } from '../../contexts/theme'
 
 import { Button, ButtonType, ButtonProps } from './Button-api'
 import { ThemedText } from '../texts/ThemedText'
+import { borderRadius } from 'theme'
 
 const ButtonImplComponent = (
   {
@@ -33,6 +34,7 @@ const ButtonImplComponent = (
       colorDisabled: Buttons.primaryDisabled,
       text: Buttons.primaryText,
       textDisabled: Buttons.primaryTextDisabled,
+      borderRadius:4
     },
     [ButtonType.Secondary]: {
       color: Buttons.secondary,

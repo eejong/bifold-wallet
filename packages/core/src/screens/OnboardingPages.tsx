@@ -120,7 +120,6 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
         onPress={() => setChecked(!checked)}
         />
         <Button
-          style={{borderRadius:5}}
           title={t('Global.GetStarted')}
           accessibilityLabel={t('Global.GetStarted')}
           testID={testIdWithKey('GetStarted')}
