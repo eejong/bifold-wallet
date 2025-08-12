@@ -7,7 +7,7 @@ import { LayoutProps } from '../layout/ScreenLayout'
 export enum Screens {
   AttemptLockout = 'Temporarily Locked',
   Splash = 'Splash',
-  Onboarding = 'Onboarding',
+  Onboarding = 'About ASTI Wallet',
   Terms = 'Terms',
   Preface = 'Preface',
   CreatePIN = 'Create a PIN',
