@@ -34,7 +34,7 @@ const ButtonImplComponent = (
       colorDisabled: Buttons.primaryDisabled,
       text: Buttons.primaryText,
       textDisabled: Buttons.primaryTextDisabled,
-      borderRadius:4
+      borderRadius:10
     },
     [ButtonType.Secondary]: {
       color: Buttons.secondary,
