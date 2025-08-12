@@ -20,11 +20,11 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
   [Screens.Onboarding]: {
     headerShown: false,
   },
-  [Screens.Terms]: {
-    headerTintColor: OnboardingTheme.headerTintColor,
+   [Screens.CreatePIN]: {
     headerBackTestID: testIdWithKey('Back'),
   },
-  [Screens.CreatePIN]: {
+  [Screens.Terms]: {
+    headerTintColor: OnboardingTheme.headerTintColor,
     headerBackTestID: testIdWithKey('Back'),
   },
   [Screens.ChangePIN]: {

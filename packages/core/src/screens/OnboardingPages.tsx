@@ -6,7 +6,7 @@ import { SvgProps } from 'react-native-svg'
 
 import DigitalWallet from '../assets/img/digital-wallet 1.svg'
 import DigitalIdentity from '../assets/img/digital-identity 1.svg'
-import CheckBox from '../components/inputs/CheckBoxRow'
+import CheckBox from '../components/inputs/CheckBox'
 import Folder from '../assets/img/folder 1.svg'
 import SecureImage from '../assets/img/think.svg'
 import Button, { ButtonType } from '../components/buttons/Button'
@@ -17,6 +17,7 @@ import { useTheme } from '../contexts/theme'
 
 import { ThemedText } from '../components/texts/ThemedText'
 import { OnboardingStyleSheet } from './Onboarding'
+import { borderRadius } from 'theme'
 
 export const createCarouselStyle = (OnboardingTheme: any) => {
   return StyleSheet.create<OnboardingStyleSheet>({
@@ -119,6 +120,7 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
         onPress={() => setChecked(!checked)}
         />
         <Button
+          style={{borderRadius:5}}
           title={t('Global.GetStarted')}
           accessibilityLabel={t('Global.GetStarted')}
           testID={testIdWithKey('GetStarted')}
@@ -170,6 +172,7 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
 
 const OnboardingPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any): Array<Element> => {
   return [
+    
     ...guides.map((g) => createPageWith(g.image, g.title, g.body, OnboardingTheme)),
     CustomPages(onTutorialCompleted, OnboardingTheme),
   ]
