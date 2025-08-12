@@ -18,8 +18,7 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
     headerShown: false,
   },
   [Screens.Onboarding]: {
-    headerTintColor: OnboardingTheme.headerTintColor,
-    gestureEnabled: false,
+    headershown: false,
   },
   [Screens.Terms]: {
     headerTintColor: OnboardingTheme.headerTintColor,
