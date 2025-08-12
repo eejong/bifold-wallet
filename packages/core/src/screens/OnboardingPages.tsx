@@ -17,7 +17,6 @@ import { useTheme } from '../contexts/theme'
 
 import { ThemedText } from '../components/texts/ThemedText'
 import { OnboardingStyleSheet } from './Onboarding'
-import { borderRadius } from 'theme'
 
 export const createCarouselStyle = (OnboardingTheme: any) => {
   return StyleSheet.create<OnboardingStyleSheet>({
@@ -59,6 +58,9 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
 
 export const createStyles = (OnboardingTheme: any) => {
   return StyleSheet.create({
+    title:{
+      ...OnboardingTheme.title,
+    },
     headerText: {
       ...OnboardingTheme.headerText,
     },
@@ -98,11 +100,6 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
   const [ checked, setChecked ] = useState(false)
   return (
     <>
-      <View>
-        <ThemedText style={[styles.bodyText, { marginTop: 25 }]}>
-          About ASTI Wallet
-        </ThemedText>
-      </View>
       <ScrollView style={{ padding: 20 }}>
         <View style={{ alignItems: 'center' }}>
           <SecureImage {...imageDisplayOptions} />
@@ -160,14 +157,10 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
   const imageDisplayOptions = createImageDisplayOptions(OnboardingTheme)
 
   return (
-    <>
-    <View>
-        <ThemedText style={[styles.bodyText, { marginTop: 25 }]}>
-          About ASTI Wallet
-        </ThemedText>
+    <ScrollView style={{ padding: 20 }}>
+      <View style={{ alignItems: 'center' }}>{
+        <PageImage style={imageDisplayOptions} />}
       </View>
-      <ScrollView style={{ padding: 20 }}>
-      <View style={{ alignItems: 'center' }}>{<PageImage style={imageDisplayOptions} />}</View>
       <View style={{ marginBottom: 20 }}>
         <ThemedText style={styles.headerText} testID={testIdWithKey('HeaderText')}>
           {title}
@@ -177,14 +170,20 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
         </ThemedText>
       </View>
     </ScrollView>
-    </>
-    
   )
 }
 
 const OnboardingPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any): Array<Element> => {
+  const styles = createStyles(OnboardingTheme)
   return [
-    
+    <View>
+      
+      <ThemedText>
+        <ThemedText style={[styles.title,{alignItems: 'center' }]} testID={testIdWithKey('HeaderText')}>
+          About ASTI Wallet
+        </ThemedText>
+      </ThemedText>
+    </View>,
     ...guides.map((g) => createPageWith(g.image, g.title, g.body, OnboardingTheme)),
     CustomPages(onTutorialCompleted, OnboardingTheme),
   ]
