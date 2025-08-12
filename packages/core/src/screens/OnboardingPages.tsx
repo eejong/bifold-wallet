@@ -89,7 +89,7 @@ const createImageDisplayOptions = (OnboardingTheme: any) => {
   }
 }
 
-const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
+const CustomPages = ({ onTutorialCompleted, OnboardingTheme }: {onTutorialCompleted: GenericFn, OnboardingTheme: any}) => {
   const { Assets } = useTheme()
   const { t } = useTranslation()
   const styles = createStyles(OnboardingTheme)
@@ -124,6 +124,7 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
           testID={testIdWithKey('GetStarted')}
           onPress={onTutorialCompleted}
           buttonType={ButtonType.Primary}
+          disabled={!checked}
         />
       </View>
     </>
@@ -168,11 +169,21 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
   )
 }
 
-const OnboardingPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any): Array<Element> => {
+const OnboardingPages = (
+  onTutorialCompleted: GenericFn,
+  OnboardingTheme: any
+): Array<JSX.Element> => {
   return [
-    ...guides.map((g) => createPageWith(g.image, g.title, g.body, OnboardingTheme)),
-    CustomPages(onTutorialCompleted, OnboardingTheme),
+    ...guides.map((g, index) => (
+      <React.Fragment key={`guide-${index}`}>
+        {createPageWith(g.image, g.title, g.body, OnboardingTheme)}
+      </React.Fragment>
+    )),
+    <CustomPages
+      key="custom"
+      onTutorialCompleted={onTutorialCompleted}
+      OnboardingTheme={OnboardingTheme}
+    />,
   ]
 }
-
 export default OnboardingPages
