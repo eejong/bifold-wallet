@@ -273,7 +273,7 @@ const BrandColors = {
   icon: GrayscaleColors.black,
   headerIcon: GrayscaleColors.white,
   headerText: GrayscaleColors.black,
-  buttonText: GrayscaleColors.black,
+  buttonText: GrayscaleColors.white,
   tabBarInactive: GrayscaleColors.black,
   inlineError: InlineErrorMessageColors.error,
   inlineWarning: InlineErrorMessageColors.warning,

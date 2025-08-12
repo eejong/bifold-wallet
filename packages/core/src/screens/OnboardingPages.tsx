@@ -85,8 +85,8 @@ const createImageDisplayOptions = (OnboardingTheme: any) => {
     ...OnboardingTheme.imageDisplayOptions,
     height: 180,
     width: 180,
-    marginTop:20,
-    marginBottom: 20,
+    marginTop:30,
+    marginBottom:30,
   }
 }
 
@@ -98,6 +98,11 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
   const [ checked, setChecked ] = useState(false)
   return (
     <>
+      <View>
+        <ThemedText style={[styles.bodyText, { marginTop: 25 }]}>
+          About ASTI Wallet
+        </ThemedText>
+      </View>
       <ScrollView style={{ padding: 20 }}>
         <View style={{ alignItems: 'center' }}>
           <SecureImage {...imageDisplayOptions} />
@@ -155,8 +160,14 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
   const imageDisplayOptions = createImageDisplayOptions(OnboardingTheme)
 
   return (
-    <ScrollView style={{ padding: 20 }}>
-      <View style={{ alignItems: 'center' }}>{<PageImage style={OnboardingTheme.imageDisplayOptions} />}</View>
+    <>
+    <View>
+        <ThemedText style={[styles.bodyText, { marginTop: 25 }]}>
+          About ASTI Wallet
+        </ThemedText>
+      </View>
+      <ScrollView style={{ padding: 20 }}>
+      <View style={{ alignItems: 'center' }}>{<PageImage style={imageDisplayOptions} />}</View>
       <View style={{ marginBottom: 20 }}>
         <ThemedText style={styles.headerText} testID={testIdWithKey('HeaderText')}>
           {title}
@@ -166,6 +177,8 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
         </ThemedText>
       </View>
     </ScrollView>
+    </>
+    
   )
 }
 
