@@ -255,7 +255,7 @@ const BrandColors = {
   tertiary: '#FFFFFFFF',
   tertiaryDisabled: `rgba(53, 130, 63, ${heavyOpacity})`,
   primaryLight: `rgba(53, 130, 63, ${lightOpacity})`,
-  highlight: '#FCBA19',
+  highlight: '#07489E',
   primaryBackground: '#ffffffff',
   secondaryBackground: '#ffffffff',
   tertiaryBackground: '#ffffffff',
