@@ -35,7 +35,7 @@ const Onboarding: React.FC<OnboardingProps> = ({
   nextButtonText,
   previousButtonText,
   style,
-  disableSkip = false,
+  disableSkip = true,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const flatList: Ref<FlatList> = useRef(null)

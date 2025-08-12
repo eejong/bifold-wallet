@@ -63,6 +63,7 @@ export const getOnboardingScreens = (
     name: Screens.Onboarding,
     children: components.OnboardingScreen,
     options: () => ({
+      headershown: false,
       ...TransitionPresets.SlideFromRightIOS,
       title: t('Screens.Onboarding'),
       headerLeft: () => false,

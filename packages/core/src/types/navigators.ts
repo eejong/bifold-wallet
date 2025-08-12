@@ -106,9 +106,9 @@ export type TabStackParams = {
 export type OnboardingStackParams = {
   [Screens.Preface]: undefined
   [Screens.Onboarding]: undefined
+  [Screens.CreatePIN]: { setAuthenticated: (status: boolean) => void } | undefined
   [Screens.Terms]: undefined
   [Screens.AttemptLockout]: undefined
-  [Screens.CreatePIN]: { setAuthenticated: (status: boolean) => void } | undefined
   [Screens.EnterPIN]: { setAuthenticated: (status: boolean) => void } | undefined
   [Screens.Biometry]: undefined
   [Screens.NameWallet]: undefined

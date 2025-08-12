@@ -84,6 +84,8 @@ const createImageDisplayOptions = (OnboardingTheme: any) => {
     ...OnboardingTheme.imageDisplayOptions,
     height: 180,
     width: 180,
+    marginTop:10,
+    marginBottom: 20,
   }
 }
 
@@ -110,8 +112,8 @@ const CustomPages = (onTutorialCompleted: GenericFn, OnboardingTheme: any) => {
       </ScrollView>
       <View style={{ marginTop: 'auto', margin: 20 }}>
         <CheckBox
-        title={String(t('Onboarding.Attestation'))}
-        accessibilityLabel={String(t('Onboarding.IAgree'))}
+        title={t('Onboarding.Attestation')}
+        accessibilityLabel={t('Onboarding.IAgree')}
         testID={testIdWithKey('IAgree')}
         checked={checked}
         onPress={() => setChecked(!checked)}
@@ -153,7 +155,7 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
 
   return (
     <ScrollView style={{ padding: 20 }}>
-      <View style={{ alignItems: 'center' }}>{<PageImage style={imageDisplayOptions} />}</View>
+      <View style={{ alignItems: 'center' }}>{<PageImage style={[imageDisplayOptions,{height: 180, with:180, marginTop:10, marginBottom: 20, }]} />}</View>
       <View style={{ marginBottom: 20 }}>
         <ThemedText style={styles.headerText} testID={testIdWithKey('HeaderText')}>
           {title}
