@@ -37,7 +37,7 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     },
     pagerDot: {
       ...OnboardingTheme.pagerDot,
-      borderWidth: 1,
+      borderWidth: 2,
       borderStyle: 'solid',
     },
     pagerDotActive: {
@@ -55,8 +55,15 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     },
     headerText: {
       ...OnboardingTheme.headerText,
+      fontSize: 24,
+      fontWeight: 'bold',
       marginTop:10,
       marginBottom:10,
+    },
+    imageicon: {
+      ...OnboardingTheme.imageDisplayOptions,
+      height: 180,
+      width: 180,
     },
   })
 }

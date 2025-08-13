@@ -249,7 +249,7 @@ const InlineErrorMessageColors: IErrorColors = {
 
 const BrandColors = {
   primary: '#07489E',
-  primaryDisabled: `rgba(53, 130, 63, ${lightOpacity})`,
+  primaryDisabled: '#848A94',
   secondary: '#FFFFFFFF',
   secondaryDisabled: `rgba(53, 130, 63, ${heavyOpacity})`,
   tertiary: '#FFFFFFFF',
@@ -570,80 +570,80 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
 
   const viewStyles = StyleSheet.create({
     critical: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       backgroundColor: theme.ColorPalette.brand.primary,
     },
     criticalDisabled: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     primary: {
-      padding: 16,
+      padding: 20,
       borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primary,
     },
     primaryDisabled: {
-      padding: 16,
-      borderRadius: 4,
+      padding: 20,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     secondary: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.primary,
     },
     secondaryDisabled: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.secondaryDisabled,
     },
     tertiary: {
-      padding: 16,
+      padding: 20,
     },
     tertiaryDisabled: {
-      padding: 16,
+      padding: 20,
     },
     modalCritical: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       backgroundColor: theme.ColorPalette.brand.primary,
     },
     modalCriticalDisabled: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     modalPrimary: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       backgroundColor: theme.ColorPalette.brand.modalPrimary,
     },
     modalPrimaryDisabled: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     modalSecondary: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.modalPrimary,
     },
     modalSecondaryDisabled: {
-      padding: 16,
+      padding: 20,
       borderRadius: 4,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.secondaryDisabled,
     },
     modalTertiary: {
-      padding: 16,
+      padding: 20,
     },
     modalTertiaryDisabled: {
-      padding: 16,
+      padding: 20,
     },
   })
 
@@ -1039,6 +1039,7 @@ export function createOnboardingTheme(theme: { ColorPalette: IColorPalette; Text
       color: theme.ColorPalette.brand.primary,
       fontWeight: 'bold',
       fontSize: 18,
+      margin:20,
     },
     headerText: {
       ...theme.TextTheme.bold,

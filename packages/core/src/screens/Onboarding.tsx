@@ -12,6 +12,7 @@ import { useStore } from '../contexts/store'
 import { OnboardingStackParams } from '../types/navigators'
 import { testIdWithKey } from '../utils/testable'
 import { ThemedText } from '../components/texts/ThemedText'
+import SierraIcon from '../assets/img/sierra-icon.svg'
 
 export interface OnboardingStyleSheet {
   container: ViewStyle
@@ -23,6 +24,7 @@ export interface OnboardingStyleSheet {
   pagerPosition: ViewStyle
   pagerNavigationButton: ViewStyle
   headerText: ViewStyle
+  imageicon: ViewStyle
 }
 
 interface OnboardingProps {
@@ -135,8 +137,8 @@ const Onboarding: React.FC<OnboardingProps> = ({
 
   return (
     <SafeAreaView style={style.container} edges={['left', 'right', 'bottom']}>
-      <View>
-        <View></View>
+      <View style={style.imageicon}>
+        <SierraIcon />
         <ThemedText style={style.headerText}>About ASTI Wallet</ThemedText>
       </View>
       <FlatList
