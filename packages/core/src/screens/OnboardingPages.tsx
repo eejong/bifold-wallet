@@ -55,6 +55,8 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     },
     headerText: {
       ...OnboardingTheme.headerText,
+      marginTop:10,
+      marginBottom:10,
     },
   })
 }
