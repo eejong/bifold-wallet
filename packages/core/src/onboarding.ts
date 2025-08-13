@@ -16,12 +16,12 @@ export const isOnboardingTutorialComplete = (didCompleteTutorial: boolean): Onbo
   return { name: Screens.Onboarding, completed: didCompleteTutorial }
 }
 
-export const isTermsComplete = (didAgreeToTerms: number, termsVersion: number): OnboardingTask => {
-  return { name: Screens.Terms, completed: didAgreeToTerms === termsVersion }
-}
-
 export const isPINCreationComplete = (didCreatePIN: boolean): OnboardingTask => {
   return { name: Screens.CreatePIN, completed: didCreatePIN }
+}
+
+export const isTermsComplete = (didAgreeToTerms: number, termsVersion: number): OnboardingTask => {
+  return { name: Screens.Terms, completed: didAgreeToTerms === termsVersion }
 }
 
 export const isBiometryComplete = (didConsiderBiometry: boolean): OnboardingTask => {
@@ -63,8 +63,8 @@ export const generateOnboardingWorkflowSteps = (
   const {
     didSeePreface,
     didCompleteTutorial,
-    didAgreeToTerms,
     didCreatePIN,
+    didAgreeToTerms,
     didConsiderBiometry,
     didConsiderPushNotifications,
     didNameWallet,
@@ -78,8 +78,8 @@ export const generateOnboardingWorkflowSteps = (
     isPrefaceComplete(didSeePreface, showPreface ?? false),
     isUpdateCheckComplete(),
     isOnboardingTutorialComplete(didCompleteTutorial),
-    isTermsComplete(Number(didAgreeToTerms), termsVersion),
     isPINCreationComplete(didCreatePIN),
+    isTermsComplete(Number(didAgreeToTerms), termsVersion),
     isBiometryComplete(didConsiderBiometry),
     isPushNotificationComplete(didConsiderPushNotifications, enablePushNotifications),
     isNameWalletComplete(didNameWallet, enableWalletNaming),
