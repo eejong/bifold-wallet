@@ -33,7 +33,7 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
       flexShrink: 1,
       flexDirection: 'row',
       alignItems: 'center',
-      marginBottom: 20,
+      marginBottom: 30,
     },
     pagerDot: {
       ...OnboardingTheme.pagerDot,
@@ -98,7 +98,7 @@ const createImageDisplayOptions = (OnboardingTheme: any) => {
     height: 180,
     width: 180,
     marginTop:30,
-    marginBottom:30,
+    marginBottom:50,
   }
 }
 
@@ -123,14 +123,14 @@ const CustomPages = ({ onTutorialCompleted, OnboardingTheme }: {onTutorialComple
           </ThemedText>
         </View>
       </ScrollView>
-      <CheckBoxRow 
+      <CheckBoxRow
         title={t('Onboarding.Attestation')}
         accessibilityLabel={t('Onboarding.IAgree')}
         testID={testIdWithKey('IAgree')}
         checked={checked}
         onPress={() => setChecked(!checked)}
         />
-      <View style={{ marginTop: 50, marginHorizontal: 30 }}>
+      <View style={{ marginTop: 'auto', margin: 20 }}>
         <Button
           title={t('Global.GetStarted')}
           accessibilityLabel={t('Global.GetStarted')}

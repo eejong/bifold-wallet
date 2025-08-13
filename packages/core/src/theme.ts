@@ -349,7 +349,7 @@ export function createTextTheme(theme: { ColorPalette: IColorPalette }): ITextTh
     bold: {
       fontSize: 18,
       fontWeight: 'bold',
-      color: '#042645',
+      color: '#ffffffff',
     },
     label: {
       fontSize: 14,
@@ -571,12 +571,12 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
   const viewStyles = StyleSheet.create({
     critical: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primary,
     },
     criticalDisabled: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     primary: {
@@ -591,13 +591,13 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
     },
     secondary: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.primary,
     },
     secondaryDisabled: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.secondaryDisabled,
     },
@@ -609,33 +609,33 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
     },
     modalCritical: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primary,
     },
     modalCriticalDisabled: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     modalPrimary: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.modalPrimary,
     },
     modalPrimaryDisabled: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     modalSecondary: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.modalPrimary,
     },
     modalSecondaryDisabled: {
       padding: 20,
-      borderRadius: 4,
+      borderRadius: 10,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.secondaryDisabled,
     },
