@@ -115,7 +115,7 @@ const CustomPages = ({ onTutorialCompleted, OnboardingTheme }: {onTutorialComple
   const [ checked, setChecked ] = useState(false)
   return (
     <>
-      <ScrollView style={{ padding: 20 }}>
+      <ScrollView style={{ padding: 30 }}>
         <View style={{ alignItems: 'center' }}>
           <SecureImage {...imageDisplayOptions} />
         </View>
@@ -173,7 +173,7 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
   const imageDisplayOptions = createImageDisplayOptions(OnboardingTheme)
 
   return (
-    <ScrollView style={{ padding: 20 }}>
+    <ScrollView style={{ padding: 30 }}>
       <View style={{ alignItems: 'center' }}>{<PageImage {...imageDisplayOptions} />}</View>
       <View style={{ marginBottom: 20 }}>
         <ThemedText style={styles.headerText} testID={testIdWithKey('HeaderText')}>
