@@ -130,7 +130,7 @@ const CustomPages = ({ onTutorialCompleted, OnboardingTheme }: {onTutorialComple
         checked={checked}
         onPress={() => setChecked(!checked)}
         />
-      <View style={{ marginTop: 50, margin: 10 }}>
+      <View style={{ marginTop: 50, marginHorizontal: 30 }}>
         <Button
           title={t('Global.GetStarted')}
           accessibilityLabel={t('Global.GetStarted')}

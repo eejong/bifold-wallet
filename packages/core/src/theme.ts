@@ -1039,7 +1039,7 @@ export function createOnboardingTheme(theme: { ColorPalette: IColorPalette; Text
       color: theme.ColorPalette.brand.primary,
       fontWeight: 'bold',
       fontSize: 18,
-      margin:20,
+      marginHorizontal:30,
     },
     headerText: {
       ...theme.TextTheme.bold,
@@ -1239,14 +1239,14 @@ export const Assets = {
   },
   img: {
     logoPrimary: {
-      src: require('./assets/img/logo-large.png'),
+      src: require('./assets/img/sierra-icon.png'),
       aspectRatio: 1,
       height: '33%',
       width: '33%',
       resizeMode: 'contain',
     },
     logoSecondary: {
-      src: require('./assets/img/logo-large.png'),
+      src: require('./assets/img/sierra-icon.png'),
       aspectRatio: 1,
       height: 120,
       width: 120,
