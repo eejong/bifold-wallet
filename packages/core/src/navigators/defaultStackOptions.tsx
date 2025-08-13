@@ -21,11 +21,11 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
     headerTintColor: 'white',
     gestureEnabled: false,
   },
-  [Screens.Terms]: {
-    headerTintColor: OnboardingTheme.headerTintColor,
+  [Screens.CreatePIN]: {
     headerBackTestID: testIdWithKey('Back'),
   },
-  [Screens.CreatePIN]: {
+  [Screens.Terms]: {
+    headerTintColor: OnboardingTheme.headerTintColor,
     headerBackTestID: testIdWithKey('Back'),
   },
   [Screens.ChangePIN]: {

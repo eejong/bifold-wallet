@@ -349,7 +349,7 @@ export function createTextTheme(theme: { ColorPalette: IColorPalette }): ITextTh
     bold: {
       fontSize: 18,
       fontWeight: 'bold',
-      color: '#ffffffff',
+      color: '#042645',
     },
     label: {
       fontSize: 14,
