@@ -156,7 +156,7 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
 
   return (
     <ScrollView style={{ padding: 20 }}>
-      <View style={{ alignItems: 'center' }}>{<PageImage style={imageDisplayOptions} />}</View>
+      <View style={{ alignItems: 'center' }}>{<PageImage {...imageDisplayOptions} />}</View>
       <View style={{ marginBottom: 20 }}>
         <ThemedText style={styles.headerText} testID={testIdWithKey('HeaderText')}>
           {title}
