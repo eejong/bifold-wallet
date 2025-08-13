@@ -53,6 +53,9 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     pagerNavigationButton: {
       ...OnboardingTheme.pagerNavigationButton,
     },
+    headerText: {
+      ...OnboardingTheme.headerText,
+    },
   })
 }
 

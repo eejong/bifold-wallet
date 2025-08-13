@@ -2,7 +2,7 @@ import { useNavigation, useFocusEffect } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import React, { Ref, useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Animated, BackHandler, FlatList, View, ViewStyle, useWindowDimensions, Text } from 'react-native'
+import { Animated, BackHandler, FlatList, View, ViewStyle, useWindowDimensions } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 import IconButton, { ButtonLocation } from '../components/buttons/IconButton'
@@ -22,6 +22,7 @@ export interface OnboardingStyleSheet {
   pagerDotInactive: ViewStyle
   pagerPosition: ViewStyle
   pagerNavigationButton: ViewStyle
+  headerText: ViewStyle
 }
 
 interface OnboardingProps {
@@ -136,7 +137,7 @@ const Onboarding: React.FC<OnboardingProps> = ({
     <SafeAreaView style={style.container} edges={['left', 'right', 'bottom']}>
       <View>
         <View></View>
-        <Text style={{color:'#042645', fontWeight: 800, alignSelf:'center' }}>About ASTI Wallet</Text>
+        <ThemedText style={style.headerText}>About ASTI Wallet</ThemedText>
       </View>
       <FlatList
         ref={flatList}
