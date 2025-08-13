@@ -81,9 +81,9 @@ export const createStyles = (OnboardingTheme: any) => {
     point: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginLeft: 20,
+      marginLeft: 10,
       marginTop: 10,
-      marginRight: 20,
+      marginRight: 10,
       marginBottom: 10,
     },
     icon: {
