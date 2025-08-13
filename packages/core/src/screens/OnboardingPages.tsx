@@ -39,12 +39,18 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
       ...OnboardingTheme.pagerDot,
       borderWidth: 2,
       borderStyle: 'solid',
+      height: 15,
+      width: 15,
     },
     pagerDotActive: {
       ...OnboardingTheme.pagerDotActive,
+      height: 15,
+      width: 15,
     },
     pagerDotInactive: {
       ...OnboardingTheme.pagerDotInactive,
+      height: 15,
+      width: 15,
     },
     pagerPosition: {
       position: 'relative',
@@ -52,6 +58,7 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     },
     pagerNavigationButton: {
       ...OnboardingTheme.pagerNavigationButton,
+      margin: 30
     },
     headerText: {
       ...OnboardingTheme.headerText,
@@ -62,9 +69,7 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     imageicon: {
       ...OnboardingTheme.imageDisplayOptions,
       paddingTop:20,
-      height: 50,
-      width: 50,
-      left: '10%',
+      marginLeft: 20,
     },
   })
 }
