@@ -136,7 +136,7 @@ const Onboarding: React.FC<OnboardingProps> = ({
     <SafeAreaView style={style.container} edges={['left', 'right', 'bottom']}>
       <View>
         <View></View>
-        <Text style={{color:'#042645', fontweight: 800, alignSelf:'center' }}>About ASTI Wallet</Text>
+        <Text style={{color:'#042645', fontWeight: 800, alignSelf:'center' }}>About ASTI Wallet</Text>
       </View>
       <FlatList
         ref={flatList}
