@@ -72,7 +72,7 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     imageicon: {
       ...OnboardingTheme.imageDisplayOptions,
       paddingTop:20,
-      alignItems: 'flex-start',
+      left: 20
     },
   })
 }
