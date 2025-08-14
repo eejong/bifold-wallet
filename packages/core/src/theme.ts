@@ -504,6 +504,7 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
     },
     primaryTextDisabled: {
       ...theme.TextTheme.bold,
+      color:'#FFFFFF',
       textAlign: 'center',
     },
     secondaryText: {
