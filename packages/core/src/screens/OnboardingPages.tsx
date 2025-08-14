@@ -41,16 +41,19 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
       borderStyle: 'solid',
       height: 15,
       width: 15,
+      borderRadius:15,
     },
     pagerDotActive: {
       ...OnboardingTheme.pagerDotActive,
       height: 15,
       width: 15,
+      borderRadius:15,
     },
     pagerDotInactive: {
       ...OnboardingTheme.pagerDotInactive,
       height: 15,
       width: 15,
+      borderRadius:15,
     },
     pagerPosition: {
       position: 'relative',
@@ -58,7 +61,7 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     },
     pagerNavigationButton: {
       ...OnboardingTheme.pagerNavigationButton,
-      margin: 30
+      marginHorizontal: 30
     },
     headerText: {
       ...OnboardingTheme.headerText,
@@ -69,7 +72,7 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     imageicon: {
       ...OnboardingTheme.imageDisplayOptions,
       paddingTop:20,
-      marginLeft: 20,
+      alignItems: 'flex-start',
     },
   })
 }
