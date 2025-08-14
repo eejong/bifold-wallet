@@ -72,7 +72,8 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
     imageicon: {
       ...OnboardingTheme.imageDisplayOptions,
       paddingTop:20,
-      left: 20
+      left: 0,
+      position: 'absolute',
     },
   })
 }

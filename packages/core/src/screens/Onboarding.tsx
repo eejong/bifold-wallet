@@ -137,7 +137,7 @@ const Onboarding: React.FC<OnboardingProps> = ({
 
   return (
     <SafeAreaView style={style.container} edges={['left', 'right', 'bottom']}>
-      <View style={style.imageicon}>
+      <View style={[style.imageicon]}>
         <SierraIcon height={40} width={40}/>
       </View>
       <ThemedText style={style.headerText}>About ASTI Wallet</ThemedText>
