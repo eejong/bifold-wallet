@@ -76,7 +76,6 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
       marginRight:50,
       height:100,
       width: '100%',
-      position: 'absolute',
     },
   })
 }
