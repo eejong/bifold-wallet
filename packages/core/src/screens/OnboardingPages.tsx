@@ -73,6 +73,7 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
       ...OnboardingTheme.imageDisplayOptions,
       left: 20,
       top:20,
+      float: 'left',
     },
   })
 }
@@ -118,7 +119,7 @@ const CustomPages = ({ onTutorialCompleted, OnboardingTheme }: {onTutorialComple
   const [ checked, setChecked ] = useState(false)
   return (
     <>
-      <ScrollView style={{ padding: 30 }}>
+      <ScrollView style={{ padding: 20 }}>
         <View style={{ alignItems: 'center' }}>
           <SecureImage {...imageDisplayOptions} />
         </View>
@@ -176,7 +177,7 @@ export const createPageWith = (PageImage: React.FC<SvgProps>, title: string, bod
   const imageDisplayOptions = createImageDisplayOptions(OnboardingTheme)
 
   return (
-    <ScrollView style={{ padding: 30 }}>
+    <ScrollView style={{ padding: 20 }}>
       <View style={{ alignItems: 'center' }}>{<PageImage {...imageDisplayOptions} />}</View>
       <View style={{ marginBottom: 20 }}>
         <ThemedText style={styles.headerText} testID={testIdWithKey('HeaderText')}>
