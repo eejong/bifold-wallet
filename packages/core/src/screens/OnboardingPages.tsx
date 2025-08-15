@@ -24,7 +24,8 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
       ...OnboardingTheme.container,
       flex: 1,
       alignItems: 'center',
-      padding: 20,
+      marginTop: 20,
+      marginHorizontal: 20,
     },
     carouselContainer: {
       ...OnboardingTheme.carouselContainer,
@@ -74,7 +75,6 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
       ...OnboardingTheme.imageDisplayOptions,
       left: 20,
       top:20,
-      paddingLeft:20,
       height:70,
       width: '100%',
     },
