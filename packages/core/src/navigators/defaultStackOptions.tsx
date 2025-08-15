@@ -23,7 +23,7 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
   },
   [Screens.CreatePIN]: {
     headerBackTestID: testIdWithKey('Back'),
-  },      
+  },
   [Screens.Terms]: {
     headerTintColor: OnboardingTheme.headerTintColor,
     headerBackTestID: testIdWithKey('Back'),
