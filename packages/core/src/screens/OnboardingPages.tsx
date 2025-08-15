@@ -69,11 +69,10 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
       ...OnboardingTheme.headerText,
       fontSize: 32,
       fontWeight: 'bold',
-      marginTop:10,
+      marginTop: 10,
     },
     imageicon: {
       ...OnboardingTheme.imageDisplayOptions,
-      height:70,
       width: '100%',
     },
   })
@@ -105,8 +104,8 @@ export const createStyles = (OnboardingTheme: any) => {
 const createImageDisplayOptions = (OnboardingTheme: any) => {
   return {
     ...OnboardingTheme.imageDisplayOptions,
-    height: 180,
-    width: 180,
+    height: 150,
+    width: 150,
     marginTop:30,
     marginBottom:50,
   }
