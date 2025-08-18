@@ -31,7 +31,7 @@ const CheckBoxRow: React.FC<Props> = ({
       flex: 1,
       flexDirection: reverse ? 'row-reverse' : 'row',
       alignItems: 'center',
-      margin: 10,
+      margin: 20,
     },
     text: {
       ...Inputs.checkBoxText,

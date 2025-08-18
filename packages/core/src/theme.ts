@@ -462,7 +462,7 @@ export function createInputsTheme(theme: {
       color: theme.ColorPalette.grayscale.white,
     },
     checkBoxColor: {
-      color: theme.ColorPalette.brand.primary,
+      color: '#4A4A4A'
     },
     checkBoxText: {
       ...theme.TextTheme.normal,
