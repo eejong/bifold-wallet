@@ -54,7 +54,7 @@ const CheckBoxRow: React.FC<Props> = ({
         hitSlop={hitSlop}
       >
         {checked ? (
-          <Icon name={'check-box'} size={36} color={Inputs.checkBoxcheckedColor.color} />
+          <Icon name={'check-box'} size={36} color={'#07489E'} />
         ) : (
           <Icon name={'check-box-outline-blank'} size={36} color={Inputs.checkBoxColor.color} />
         )}
