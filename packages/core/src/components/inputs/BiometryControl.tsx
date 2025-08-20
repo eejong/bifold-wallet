@@ -150,7 +150,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
       )}
       <ScrollView style={styles.container}>
         <View style={{ alignItems: 'center' }}>
-          <BiometryImg height={200} />
+          <BiometryImg height={200} width={'100%'} />
         </View>
         {biometryAvailable ? (
           <View style={styles.biometryAvailableRowGap}>
