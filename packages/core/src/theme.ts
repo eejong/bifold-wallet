@@ -452,7 +452,7 @@ export function createInputsTheme(theme: {
       fontSize: 16,
       backgroundColor: theme.ColorPalette.brand.primaryBackground,
       color: theme.ColorPalette.notification.infoText,
-      borderWidth: 2,
+      borderWidth: 1,
       borderColor: theme.ColorPalette.brand.secondary,
     },
     singleSelectText: {
@@ -463,6 +463,10 @@ export function createInputsTheme(theme: {
     },
     checkBoxColor: {
       color: '#4A4A4A'
+    },
+    checkBoxcheckedColor: {
+      color: theme.ColorPalette.brand.primary,
+
     },
     checkBoxText: {
       ...theme.TextTheme.normal,
@@ -1028,22 +1032,22 @@ export const ChatTheme = createChatTheme({ ColorPalette, TextTheme })
 export function createOnboardingTheme(theme: { ColorPalette: IColorPalette; TextTheme: ITextTheme }): IOnboardingTheme {
   const textStyles = StyleSheet.create({
     pagerDot: {
-      borderColor: theme.ColorPalette.brand.primary,
+      borderColor: '#042645',
     },
     pagerDotActive: {
-      color: theme.ColorPalette.brand.primary,
+      color: '#042645',
     },
     pagerDotInactive: {
       color: theme.ColorPalette.brand.secondary,
     },
     pagerNavigationButton: {
-      color: theme.ColorPalette.brand.primary,
+      color: '#042645',
       fontWeight: 'bold',
       fontSize: 18,
       marginHorizontal:30,
     },
     headerText: {
-      ...theme.TextTheme.bold,
+      ...theme.TextTheme.headingFour,
 
     },
     bodyText: {
