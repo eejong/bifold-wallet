@@ -83,6 +83,7 @@ export const createStyles = (OnboardingTheme: any) => {
   return StyleSheet.create({
     headerText: {
       ...OnboardingTheme.headerText,
+      color: '#042645',
     },
     bodyText: {
       ...OnboardingTheme.bodyText,
