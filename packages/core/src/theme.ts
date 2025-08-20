@@ -339,7 +339,7 @@ export function createTextTheme(theme: { ColorPalette: IColorPalette }): ITextTh
     headingFour: {
       fontSize: 22,
       fontWeight: 'bold',
-      color: theme.ColorPalette.brand.text,
+      color: '#042645',
     },
     normal: {
       fontSize: 18,
