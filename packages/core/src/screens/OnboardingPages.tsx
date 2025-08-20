@@ -70,6 +70,7 @@ export const createCarouselStyle = (OnboardingTheme: any) => {
       fontSize: 32,
       fontWeight: 'bold',
       marginTop: 10,
+      color: '#042645',
     },
     imageicon: {
       ...OnboardingTheme.imageDisplayOptions,
@@ -86,6 +87,7 @@ export const createStyles = (OnboardingTheme: any) => {
     bodyText: {
       ...OnboardingTheme.bodyText,
       flexShrink: 1,
+      color: '#042645',
     },
     point: {
       flexDirection: 'row',
