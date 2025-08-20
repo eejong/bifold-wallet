@@ -11,7 +11,7 @@ import { useAuth } from '../../contexts/auth'
 import { useTheme } from '../../contexts/theme'
 import { testIdWithKey } from '../../utils/testable'
 import { getSupportedBiometryType, BIOMETRY_TYPE } from 'react-native-keychain'
-import BiometryImg from '../../assets/img/biometry.svg'
+import biometryIMg from '../../assets/img/biometrics.svg'
 
 const BIOMETRY_PERMISSION = PERMISSIONS.IOS.FACE_ID
 
@@ -37,7 +37,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
     image: {
       minWidth: 200,
       minHeight: 200,
-      marginBottom: 66,
+      marginVertical: 50,
     },
     biometryAvailableRowGap: {
       rowGap: 20,
@@ -150,7 +150,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
       )}
       <ScrollView style={styles.container}>
         <View style={{ alignItems: 'center' }}>
-          <Assets.svg.biometry />
+          <Assets.svg.biometrics style={styles.image} />
         </View>
         {biometryAvailable ? (
           <View style={styles.biometryAvailableRowGap}>
