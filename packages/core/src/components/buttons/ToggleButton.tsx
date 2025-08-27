@@ -55,7 +55,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
           width: 40,
           height: 22,
           borderRadius: 11,
-          borderWidth: 2,
+          borderWidth: 4,
           borderColor:  ColorPalette.brand.primary,            
           backgroundColor: isEnabled
           ? ColorPalette.brand.primary
