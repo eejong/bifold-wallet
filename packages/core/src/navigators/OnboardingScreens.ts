@@ -105,6 +105,7 @@ export const getOnboardingScreens = (
     options: () => ({
       ...TransitionPresets.SlideFromRightIOS,
       title: t('Screens.Biometry'),
+      headerShown: false,
       headerLeft: () => false,
       ...ScreenOptionsDictionary[Screens.Biometry],
     }),

@@ -52,7 +52,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
     >
       <Animated.View
         style={{
-          width: 32,
+          width: 28,
           height: 18,
           borderRadius: 11,
           borderWidth: 3,
