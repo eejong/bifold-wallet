@@ -344,12 +344,12 @@ export function createTextTheme(theme: { ColorPalette: IColorPalette }): ITextTh
     normal: {
       fontSize: 18,
       fontWeight: 'normal',
-      color: '#292929',
+      color: '#000000',
     },
     bold: {
       fontSize: 18,
       fontWeight: 'bold',
-      color: '#042645',
+      color: '#000000',
     },
     label: {
       fontSize: 14,

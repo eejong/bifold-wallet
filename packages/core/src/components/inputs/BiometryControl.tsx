@@ -35,8 +35,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
       backgroundColor: ColorPalette.brand.primaryBackground,
     },
     image: {
-      maxHeight: 200,
-      marginTop: 30,
+      marginVertical: 40,
     },
     biometryAvailableRowGap: {
       rowGap: 20,
@@ -156,7 +155,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
       )}
       <ScrollView style={styles.container}>
         <View>
-          <ThemedText style={styles.headerText}>About ASTI Wallet</ThemedText>
+          <ThemedText style={styles.headerText}>Biometrics</ThemedText>
         </View>  
         <View style={{ alignItems: 'center' }}>
           <Assets.svg.biometrics style={styles.image} />
