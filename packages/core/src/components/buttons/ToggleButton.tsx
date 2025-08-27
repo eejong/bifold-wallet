@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Pressable, Animated } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useTheme } from '../../contexts/theme'
 import { useTranslation } from 'react-i18next'
 
@@ -9,8 +8,6 @@ interface ToggleButtonProps {
   isAvailable: boolean
   toggleAction: () => void
   testID?: string
-  enabledIcon?: string
-  disabledIcon?: string
   disabled?: boolean
 }
 
@@ -19,8 +16,6 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   isAvailable,
   toggleAction,
   testID,
-  enabledIcon = 'check',
-  disabledIcon = 'close',
   disabled = false,
 }) => {
   const { ColorPalette } = useTheme()
@@ -31,18 +26,14 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
     Animated.timing(toggleAnim, {
       toValue: isEnabled ? 1 : 0,
       duration: 200,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start()
   }, [isEnabled, toggleAnim])
 
-  const backgroundColor = toggleAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [ColorPalette.grayscale.lightGrey, ColorPalette.brand.primary],
-  })
-
+  // Animate thumb position
   const translateX = toggleAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 24],
+    outputRange: [0, 18],
   })
 
   return (
@@ -51,40 +42,40 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
       testID={testID}
       accessibilityLabel={isEnabled ? t('Biometry.On') : t('Biometry.Off')}
       accessibilityRole="switch"
-      accessibilityState={{
-        checked: isEnabled,
-      }}
-      onPress={isAvailable && !disabled ? toggleAction : undefined} // Prevent onPress if not available or disabled
+      accessibilityState={{ checked: isEnabled }}
+      onPress={isAvailable && !disabled ? toggleAction : undefined}
       disabled={!isAvailable || disabled}
     >
       <Animated.View
         style={{
-          width: 55,
-          height: 30,
-          borderRadius: 25,
-          backgroundColor,
-          padding: 3,
+          width: 40,
+          height: 22,
+          borderRadius: 11,
+          borderWidth: 2,
+          borderColor: isEnabled
+            ? ColorPalette.brand.primary
+            : ColorPalette.grayscale.lightGrey,
+          backgroundColor: '#FFFFFF', // stays white like your screenshot
+          padding: 2,
           justifyContent: 'center',
-          opacity: disabled ? 0.5 : 1, // Visual feedback for disabled state
+          opacity: disabled ? 0.5 : 1,
         }}
       >
         <Animated.View
           style={{
             transform: [{ translateX }],
-            width: 25,
-            height: 25,
-            borderRadius: 20,
-            backgroundColor: '#FFFFFF',
-            justifyContent: 'center',
-            alignItems: 'center',
+            width: 18,
+            height: 18,
+            borderRadius: 9,
+            backgroundColor: isEnabled
+              ? ColorPalette.brand.primary
+              : ColorPalette.grayscale.lightGrey,
+            shadowColor: '#000',
+            shadowOpacity: 0.15,
+            shadowRadius: 2,
+            elevation: 2,
           }}
-        >
-          <Icon
-            name={isEnabled ? enabledIcon : disabledIcon}
-            size={15}
-            color={isEnabled ? ColorPalette.brand.primary : ColorPalette.grayscale.mediumGrey}
-          />
-        </Animated.View>
+        />
       </Animated.View>
     </Pressable>
   )
