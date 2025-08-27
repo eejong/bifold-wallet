@@ -7,7 +7,7 @@ import IconEdit from './assets/icons/pencil.svg'
 import IconCode from './assets/icons/code.svg'
 import ActivityIndicator from './assets/img/activity-indicator-circle.svg'
 import AppLockout from './assets/img/app-lockout.svg'
-import Biometrics from './assets/img/biometric.png.svg'
+import Biometrics from './assets/img/biometric.png'
 import ContactBook from './assets/img/contact-book.svg'
 import CredentialDeclined from './assets/img/credential-declined.svg'
 import DeleteNotification from './assets/img/delete-notification.svg'
@@ -73,7 +73,7 @@ import {
 export interface ISVGAssets {
   activityIndicator: React.FC<SvgProps>
   appLockout: React.FC<SvgProps>
-  biometrics: React.FC<SvgProps>
+  biometric: React.FC<SvgProps>
   contactBook: React.FC<SvgProps>
   credentialDeclined: React.FC<SvgProps>
   deleteNotification: React.FC<SvgProps>
