@@ -73,7 +73,7 @@ import {
 export interface ISVGAssets {
   activityIndicator: React.FC<SvgProps>
   appLockout: React.FC<SvgProps>
-  biometric: React.FC<SvgProps>
+  biometrics: React.FC<SvgProps>
   contactBook: React.FC<SvgProps>
   credentialDeclined: React.FC<SvgProps>
   deleteNotification: React.FC<SvgProps>
