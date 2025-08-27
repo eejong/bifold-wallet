@@ -177,8 +177,6 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
               isAvailable={true}
               toggleAction={toggleSwitch}
               disabled={false}
-              enabledIcon="check"
-              disabledIcon="close"
             />
           </View>
         </View>
