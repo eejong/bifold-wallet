@@ -52,10 +52,10 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
     >
       <Animated.View
         style={{
-          width: 40,
-          height: 22,
+          width: 32,
+          height: 18,
           borderRadius: 11,
-          borderWidth: 4,
+          borderWidth: 3,
           borderColor:  ColorPalette.brand.primary,            
           backgroundColor: isEnabled
           ? ColorPalette.brand.primary
@@ -72,8 +72,8 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
             height: 10,
             borderRadius: 9,
             backgroundColor: isEnabled
-              ? ColorPalette.brand.primary
-              : ColorPalette.grayscale.lightGrey,
+              ? ColorPalette.grayscale.white
+              : ColorPalette.brand.primary,
             elevation: 2,
           }}
         />
