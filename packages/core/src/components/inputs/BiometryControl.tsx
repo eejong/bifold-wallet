@@ -11,7 +11,7 @@ import { useAuth } from '../../contexts/auth'
 import { useTheme } from '../../contexts/theme'
 import { testIdWithKey } from '../../utils/testable'
 import { getSupportedBiometryType, BIOMETRY_TYPE } from 'react-native-keychain'
-import biometryIMg from '../../assets/img/biometrics.svg'
+
 
 const BIOMETRY_PERMISSION = PERMISSIONS.IOS.FACE_ID
 
@@ -177,6 +177,8 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
               isAvailable={true}
               toggleAction={toggleSwitch}
               disabled={false}
+              enabledIcon="check"
+              disabledIcon="close"
             />
           </View>
         </View>

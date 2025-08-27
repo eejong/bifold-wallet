@@ -8,6 +8,8 @@ interface ToggleButtonProps {
   isAvailable: boolean
   toggleAction: () => void
   testID?: string
+  enabledIcon?: string
+  disabledIcon?: string
   disabled?: boolean
 }
 
@@ -16,6 +18,8 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   isAvailable,
   toggleAction,
   testID,
+  enabledIcon,
+  disabledIcon,
   disabled = false,
 }) => {
   const { ColorPalette } = useTheme()
