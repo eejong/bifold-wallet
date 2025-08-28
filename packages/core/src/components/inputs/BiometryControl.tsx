@@ -36,7 +36,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
     },
     image: {
       marginVertical: 40,
-      maxHeight: 150,
+      maxHeight: 200,
     },
     biometryAvailableRowGap: {
       rowGap: 20,
@@ -157,10 +157,8 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
       <ScrollView style={styles.container}>
         <View>
           <ThemedText style={styles.headerText}>Biometrics</ThemedText>
-        </View>  
-        <View style={{ alignItems: 'center' }}>
           <Assets.svg.biometrics style={styles.image} />
-        </View>
+        </View>  
         {biometryAvailable ? (
           <View style={styles.biometryAvailableRowGap}>
             <ThemedText>{t('Biometry.EnabledText1')}</ThemedText>
