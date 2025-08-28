@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import React, { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { Modal, ScrollView, StyleSheet, View } from 'react-native'
 
 import { ButtonType } from '../components/buttons/Button-api'
 import CheckBoxRow from '../components/inputs/CheckBoxRow'
@@ -64,6 +64,7 @@ const Terms: React.FC = () => {
 
   return (
     <ScreenLayout screen={Screens.Terms}>
+      <Modal>
       <ScrollView style={style.container}>
         <InfoTextBox>Please agree to the terms and conditions below before using this application.</InfoTextBox>
         <ThemedText style={[style.bodyText, { marginTop: 20, marginBottom: 20 }]}>
@@ -120,6 +121,7 @@ const Terms: React.FC = () => {
           )}
         </View>
       </ScrollView>
+      </Modal>
     </ScreenLayout>
   )
 }

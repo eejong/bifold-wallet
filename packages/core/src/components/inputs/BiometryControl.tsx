@@ -36,7 +36,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
     },
     image: {
       marginVertical: 40,
-      maxHeight: 50,
+      maxHeight: 150,
     },
     biometryAvailableRowGap: {
       rowGap: 20,
@@ -176,7 +176,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
           </View>
         )}
         <View style={{ flexDirection: 'row', marginVertical: 20 }}>
-          <View style={{ flexShrink: 1, marginRight: 10, justifyContent: 'center' }}>
+          <View style={{ flexShrink: 1, marginRight: 30, justifyContent: 'center' }}>
             <ThemedText variant="bold">{t('Biometry.UseToUnlock')}</ThemedText>
           </View>
           <View style={{ justifyContent: 'center' }}>
