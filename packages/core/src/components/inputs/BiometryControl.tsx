@@ -39,6 +39,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
       minHeight: 200,
       maxHeight: 200,
       marginTop: 50,
+      marginLeft: 30,
       marginBottom: 66,
     },
     biometryAvailableRowGap: {
