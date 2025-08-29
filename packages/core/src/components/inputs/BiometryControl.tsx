@@ -35,8 +35,10 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
       backgroundColor: ColorPalette.brand.primaryBackground,
     },
     image: {
-      marginVertical: 40,
+      marginTop: 40,
+      marginLeft:20,
       maxHeight: 200,
+      
     },
     biometryAvailableRowGap: {
       rowGap: 20,
