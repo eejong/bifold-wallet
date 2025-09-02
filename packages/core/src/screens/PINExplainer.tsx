@@ -61,23 +61,22 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
         <View style={style.imageContainer}>
           <Assets.svg.sierra {...imageDisplayOptions} />
         </View>
-        <View>
-          <ThemedText variant="headingFour">{t('PINCreate.Explainer.WhyNeedPin.Header')}</ThemedText>
-          <ThemedText style={{ marginTop: 20, marginBottom: 20 }}>
-            {t('PINCreate.Explainer.WhyNeedPin.Paragraph')}
-          </ThemedText>
-          <BulletPoint text={t('PINCreate.Explainer.WhyNeedPin.ParagraphList1')} textStyle={TextTheme.normal} />
-          <BulletPoint text={t('PINCreate.Explainer.WhyNeedPin.ParagraphList2')} textStyle={TextTheme.normal} />
-        </View>
       </ScrollView>
       <View style={style.footer}>
         <Button
-          title={t('Global.Continue')}
-          accessibilityLabel={t('Global.Continue')}
+          title={t('PINCreate.CreateWallet')}
+          accessibilityLabel={t('PINCreate.CreateWallet')}
           testID={testIdWithKey('ContinueCreatePIN')}
           onPress={continueCreatePIN}
           buttonType={ButtonType.Primary}
         />
+        <Button
+          title={t('PINCreate.ImportWallet')}
+          accessibilityLabel={t('PINCreate.ImportWallet')}
+          testID={testIdWithKey('ContinueCreatePIN')}
+          onPress={continueCreatePIN}
+          buttonType={ButtonType.Secondary}
+        />  
       </View>
     </SafeAreaView>
   )
