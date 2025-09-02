@@ -121,7 +121,6 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
     <KeyboardView keyboardAvoiding={false}>
       <View style={style.screenContainer}>
         <View style={style.contentContainer}>
-          <PINHeader />
           <PINInput
             label={t('PINCreate.EnterPINTitle')}
             onPINChanged={(p: string) => {

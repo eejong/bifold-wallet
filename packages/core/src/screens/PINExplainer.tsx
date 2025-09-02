@@ -9,6 +9,7 @@ import { useTheme } from '../contexts/theme'
 import { testIdWithKey } from '../utils/testable'
 import { ThemedText } from '../components/texts/ThemedText'
 
+
 export interface PINExplainerProps {
   continueCreatePIN: () => void
 }
@@ -58,7 +59,7 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
           </ThemedText>
         </View>
         <View style={style.imageContainer}>
-          <Assets.svg.secureCheck {...imageDisplayOptions} />
+          <Assets.svg.sierra {...imageDisplayOptions} />
         </View>
         <View>
           <ThemedText variant="headingFour">{t('PINCreate.Explainer.WhyNeedPin.Header')}</ThemedText>
