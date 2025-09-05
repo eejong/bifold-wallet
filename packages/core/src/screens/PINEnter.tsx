@@ -23,7 +23,7 @@ import usePreventScreenCapture from '../hooks/screen-capture'
 import { BifoldError } from '../types/error'
 import { testIdWithKey } from '../utils/testable'
 import { getBuildNumber, getVersion } from 'react-native-device-info'
-
+import Terms from './Terms'
 interface PINEnterProps {
   setAuthenticated: (status: boolean) => void
 }
