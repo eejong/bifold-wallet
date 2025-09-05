@@ -94,7 +94,7 @@ export function useDefaultStackOptions({ ColorPalette }: ITheme): StackNavigatio
         borderBottomWidth: 0,
       },
       headerTitleAlign: 'center' as 'center' | 'left',
-      headerTitle: (props: { children: React.ReactNode }) => <HeaderTitle {...props} />,
+      headerTitle: false,
       header: (props) => <HeaderWithBanner {...props} />,
       headerBackAccessibilityLabel: t('Global.Back'),
     }
