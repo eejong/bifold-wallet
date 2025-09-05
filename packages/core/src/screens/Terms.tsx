@@ -63,7 +63,7 @@ const Terms: React.FC = () => {
   }
 const [modalVisible, setModalVisible] = useState(true);
   return (
-    <ScreenLayout screen={Screens.Terms}>
+   
       <Modal animationType="slide" 
       visible={modalVisible}
       onRequestClose={() => {
@@ -127,7 +127,6 @@ const [modalVisible, setModalVisible] = useState(true);
       </ScrollView>
        
       </Modal>
-    </ScreenLayout>
   )
 }
 
