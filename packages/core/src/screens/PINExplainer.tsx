@@ -70,13 +70,6 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
           onPress={continueCreatePIN}
           buttonType={ButtonType.Primary}
         />
-        <Button
-          title={t('PINCreate.ImportWallet')}
-          accessibilityLabel={t('PINCreate.ImportWallet')}
-          testID={testIdWithKey('ContinueCreatePIN')}
-          onPress={continueCreatePIN}
-          buttonType={ButtonType.Secondary}
-        />  
       </View>
     </SafeAreaView>
   )
