@@ -30,8 +30,8 @@ const InfoTextBox: React.FC<TextBoxProps> = ({
   const styles = StyleSheet.create({
     container: {
       padding: 20,
-      borderRadius: 10,
-      borderWidth: 1,
+      borderRadius: 15,
+
       backgroundColor: ColorPalette.notification.info,
       borderColor: ColorPalette.notification.infoBorder,
       ...style,
