@@ -64,12 +64,19 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
       </ScrollView>
       <View style={style.footer}>
         <Button
-          title={t('PINCreate.CreateWallet')}
-          accessibilityLabel={t('PINCreate.CreateWallet')}
+          title={t('PINCreate.Explainer.CreateWallet')}
+          accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
           testID={testIdWithKey('ContinueCreatePIN')}
           onPress={continueCreatePIN}
           buttonType={ButtonType.Primary}
         />
+        <Button
+          title={t('PINCreate.Explainer.ImportWallet')}
+          accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
+          testID={testIdWithKey('ContinueCreatePIN')}
+          onPress={continueCreatePIN}
+          buttonType={ButtonType.Secondary}
+        />  
       </View>
     </SafeAreaView>
   )
