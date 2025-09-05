@@ -61,7 +61,7 @@ const Terms: React.FC = () => {
 
     navigation.navigate(Screens.Onboarding)
   }
-const [modalVisible, setModalVisible] = useState(false);
+const [modalVisible, setModalVisible] = useState(true);
   return (
     <ScreenLayout screen={Screens.Terms}>
       <Modal animationType="slide" 
