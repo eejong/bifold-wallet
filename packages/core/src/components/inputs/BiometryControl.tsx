@@ -178,7 +178,7 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
           </View>
         )}
         <View style={{ flexDirection: 'row', marginVertical: 20 }}>
-          <View style={{ flexShrink: 1, marginRight: 30, justifyContent: 'center' }}>
+          <View style={{ flexShrink: 1, marginRight: 50, justifyContent: 'center' }}>
             <ThemedText variant="bold">{t('Biometry.UseToUnlock')}</ThemedText>
           </View>
           <View style={{ justifyContent: 'center' }}>

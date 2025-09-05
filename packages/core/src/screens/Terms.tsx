@@ -86,40 +86,7 @@ const Terms: React.FC = () => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
           est laborum.
         </ThemedText>
-        <View style={style.controlsContainer}>
-          {!(agreedToPreviousTerms && store.authentication.didAuthenticate) && (
-            <View style={{ marginBottom: agreedToPreviousTerms ? 20 : 0 }}>
-              <CheckBoxRow
-                title={t('Terms.Attestation')}
-                accessibilityLabel={t('Terms.IAgree')}
-                testID={testIdWithKey('IAgree')}
-                checked={!!checked}
-                onPress={() => setChecked(!checked)}
-              />
-              <View style={{ paddingTop: 10 }}>
-                <Button
-                  title={agreedToPreviousTerms ? t('Global.Accept') : t('Global.Continue')}
-                  accessibilityLabel={agreedToPreviousTerms ? t('Global.Accept') : t('Global.Continue')}
-                  testID={agreedToPreviousTerms ? testIdWithKey('Accept') : testIdWithKey('Continue')}
-                  disabled={!checked}
-                  onPress={onSubmitPressed}
-                  buttonType={ButtonType.Primary}
-                />
-              </View>
-            </View>
-          )}
-          {!agreedToPreviousTerms && (
-            <View style={{ paddingTop: 10, marginBottom: 20 }}>
-              <Button
-                title={t('Global.Back')}
-                accessibilityLabel={t('Global.Back')}
-                testID={testIdWithKey('Back')}
-                onPress={onBackPressed}
-                buttonType={ButtonType.Secondary}
-              />
-            </View>
-          )}
-        </View>
+        
       </ScrollView>
        <View style={style.controlsContainer}>
           {!(agreedToPreviousTerms && store.authentication.didAuthenticate) && (

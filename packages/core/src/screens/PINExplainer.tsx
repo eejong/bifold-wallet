@@ -35,6 +35,9 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
       paddingHorizontal: 20,
       paddingVertical: 10,
     },
+    button:{
+      marginVertical: 20,
+    }
   })
 
   const imageDisplayOptions = {
@@ -61,23 +64,26 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
         <View style={style.imageContainer}>
           <Assets.svg.sierra {...imageDisplayOptions} />
         </View>
-      </ScrollView>
-      <View style={style.footer}>
-        <Button
-          title={t('PINCreate.Explainer.CreateWallet')}
-          accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
-          testID={testIdWithKey('ContinueCreatePIN')}
-          onPress={continueCreatePIN}
-          buttonType={ButtonType.Primary}
-        />
-        <Button
-          title={t('PINCreate.Explainer.ImportWallet')}
-          accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
-          testID={testIdWithKey('ContinueCreatePIN')}
-          onPress={continueCreatePIN}
-          buttonType={ButtonType.Secondary}
-        />  
+        <View style={style.button}>
+          <Button
+            title={t('PINCreate.Explainer.CreateWallet')}
+            accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
+            testID={testIdWithKey('ContinueCreatePIN')}
+            onPress={continueCreatePIN}
+            buttonType={ButtonType.Primary}
+          />  
+        </View>
+        <View style={style.button}>
+          <Button
+            title={t('PINCreate.Explainer.ImportWallet')}
+            accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
+            testID={testIdWithKey('ContinueCreatePIN')}
+            onPress={continueCreatePIN}
+            buttonType={ButtonType.Secondary}
+          />  
       </View>
+      </ScrollView>
+      
     </SafeAreaView>
   )
 }
