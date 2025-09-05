@@ -65,8 +65,8 @@ const Terms: React.FC = () => {
   return (
     <ScreenLayout screen={Screens.Terms}>
       <Modal>
-      <ScrollView style={style.container}>
         <InfoTextBox>Please agree to the terms and conditions below before using this application.</InfoTextBox>
+      <ScrollView style={style.container}>
         <ThemedText style={[style.bodyText, { marginTop: 20, marginBottom: 20 }]}>
           <ThemedText style={[style.bodyText, { fontWeight: TextTheme.bold.fontWeight }]}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -121,6 +121,40 @@ const Terms: React.FC = () => {
           )}
         </View>
       </ScrollView>
+       <View style={style.controlsContainer}>
+          {!(agreedToPreviousTerms && store.authentication.didAuthenticate) && (
+            <View style={{ marginBottom: agreedToPreviousTerms ? 20 : 0 }}>
+              <CheckBoxRow
+                title={t('Terms.Attestation')}
+                accessibilityLabel={t('Terms.IAgree')}
+                testID={testIdWithKey('IAgree')}
+                checked={!!checked}
+                onPress={() => setChecked(!checked)}
+              />
+              <View style={{ paddingTop: 10 }}>
+                <Button
+                  title={agreedToPreviousTerms ? t('Global.Accept') : t('Global.Continue')}
+                  accessibilityLabel={agreedToPreviousTerms ? t('Global.Accept') : t('Global.Continue')}
+                  testID={agreedToPreviousTerms ? testIdWithKey('Accept') : testIdWithKey('Continue')}
+                  disabled={!checked}
+                  onPress={onSubmitPressed}
+                  buttonType={ButtonType.Primary}
+                />
+              </View>
+            </View>
+          )}
+          {!agreedToPreviousTerms && (
+            <View style={{ paddingTop: 10, marginBottom: 20 }}>
+              <Button
+                title={t('Global.Back')}
+                accessibilityLabel={t('Global.Back')}
+                testID={testIdWithKey('Back')}
+                onPress={onBackPressed}
+                buttonType={ButtonType.Secondary}
+              />
+            </View>
+          )}
+        </View>
       </Modal>
     </ScreenLayout>
   )
