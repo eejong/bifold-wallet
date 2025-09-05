@@ -61,10 +61,14 @@ const Terms: React.FC = () => {
 
     navigation.navigate(Screens.Onboarding)
   }
-
+const [modalVisible, setModalVisible] = useState(false);
   return (
     <ScreenLayout screen={Screens.Terms}>
-      <Modal>
+      <Modal animationType="slide" 
+      visible={modalVisible}
+      onRequestClose={() => {
+            setModalVisible(!modalVisible);
+      }}>
         <InfoTextBox>Please agree to the terms and conditions below before using this application.</InfoTextBox>
       <ScrollView style={style.container}>
         <ThemedText style={[style.bodyText, { marginTop: 20, marginBottom: 20 }]}>
@@ -86,9 +90,7 @@ const Terms: React.FC = () => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
           est laborum.
         </ThemedText>
-        
-      </ScrollView>
-       <View style={style.controlsContainer}>
+        <View style={style.controlsContainer}>
           {!(agreedToPreviousTerms && store.authentication.didAuthenticate) && (
             <View style={{ marginBottom: agreedToPreviousTerms ? 20 : 0 }}>
               <CheckBoxRow
@@ -116,12 +118,14 @@ const Terms: React.FC = () => {
                 title={t('Global.Back')}
                 accessibilityLabel={t('Global.Back')}
                 testID={testIdWithKey('Back')}
-                onPress={onBackPressed}
+                onPress={() => setModalVisible(!modalVisible)}
                 buttonType={ButtonType.Secondary}
               />
             </View>
           )}
         </View>
+      </ScrollView>
+       
       </Modal>
     </ScreenLayout>
   )

@@ -244,9 +244,9 @@
     "PINsDoNotMatch": "PINs do not match",
     "EnterPINTitle": "Enter a 6 digit PIN",
     "EnterPIN": "Enter PIN",
-    "ReenterPIN": "Re-enter PIN",
+    "ReenterPIN": "Re-enter your PIN",
     "CreatePIN": "Create PIN",
-    "RememberPIN": "Create a PIN to secure your wallet.",
+    "RememberPIN": "You will use this to unlock your wallet.",
     "PINDisclaimer": "If you forget it, you may need to set up your wallet again and re-add your cards.",
     "Show": "Show PIN",
     "Hide": "Hide PIN",
@@ -259,7 +259,7 @@
     "EnterOldPIN": "Enter your old PIN",
     "EnterPINTitle": "Enter a new 6 digit PIN",
     "ReenterPIN": "Re-enter new PIN",
-    "RememberChangePIN": "Change your PIN to secure your wallet.",
+    "RememberChangePIN": "",
     "ChangePIN": "Change PIN"
   },
   "PINEnter": {
