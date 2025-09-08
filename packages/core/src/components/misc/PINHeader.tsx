@@ -32,7 +32,7 @@ const PINHeader = ({ updatePin }: PINHeaderProps) => {
         </ThemedText>{' '}
         <ThemedText>
           {updatePin? t('PINCreate.SetPIN'): "" }
-        </ThemedText>
+        </ThemedText> {' '}
         
       </ThemedText>
     </View>
