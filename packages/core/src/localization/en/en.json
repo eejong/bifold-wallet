@@ -211,7 +211,6 @@
       },
       "CreateWallet":"Create a new wallet",
       "ImportWallet":"I already have a wallet",
-      "SetPIN": "Set a PIN to secure your wallet. If you forget it, you'll have to reset and recover your wallet."
     },
     "Message": {
       "CrossPatternValidation": "A pattern of cross was detected in your PIN. Please try again.",
@@ -247,6 +246,7 @@
     "EnterPIN": "Enter PIN",
     "ReenterPIN": "Re-enter your PIN",
     "CreatePIN": "Create PIN",
+    "SetPIN": "Set a PIN to secure your wallet. If you forget it, you'll have to reset and recover your wallet.",
     "RememberPIN": "You will use this to unlock your wallet.",
     "PINDisclaimer": "If you forget it, you may need to set up your wallet again and re-add your cards.",
     "Show": "Show PIN",

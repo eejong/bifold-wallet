@@ -14,6 +14,13 @@ const styles = StyleSheet.create({
       marginTop: 50,
       color: '#042645',
     },
+    subTitle:{
+      fontSize: 18,
+      textAlign: 'left',
+      color: '#4A4A4A',
+      fontWeight: 400,
+      marginVertical: 30
+    }
   })
 
 const PINHeader = ({ updatePin }: PINHeaderProps) => {
@@ -27,13 +34,9 @@ const PINHeader = ({ updatePin }: PINHeaderProps) => {
         </ThemedText>
       </View>
       <ThemedText style={{ marginBottom: 16, alignContent: 'center' }}>
-        <ThemedText style={{ fontWeight: TextTheme.bold.fontWeight }}>
-          {updatePin ? t('PINChange.RememberChangePIN') : t('PINCreate.RememberPIN')}
-        </ThemedText>
-        <ThemedText>
-            {updatePin ? t('PINChange.RememberChangePIN') : t('PINCreate.Explainer.SetPIN')}
-        </ThemedText> {' '}
-        
+        <ThemedText style={styles.subTitle}>
+          {updatePin ? t('PINChange.RememberChangePIN') : t('PINCreate.SetPIN')}
+        </ThemedText>        
       </ThemedText>
     </View>
   )

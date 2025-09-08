@@ -26,7 +26,8 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
     scrollViewContentContainer: {
       padding: 20,
       flexGrow: 1,
-      alignItems: 'center'
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     imageContainer: {
       alignItems: 'center',
@@ -37,7 +38,8 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
       paddingVertical: 10,
     },
     button:{
-      marginVertical: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
     }
   })
 

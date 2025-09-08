@@ -1129,17 +1129,17 @@ export type IPINEnterTheme = typeof PINEnterTheme
 export function createPINInputTheme(theme: { ColorPalette: IColorPalette }): IPINInputTheme {
   const textStyles = StyleSheet.create({
     cellText: {
-      color: theme.ColorPalette.brand.text,
+      color: '#2B2B2B',
     },
     icon: {
-      color: theme.ColorPalette.brand.headerIcon,
+      color:'#2B2B2B',
     },
   })
 
   const viewStyles = StyleSheet.create({
     cell: {
       backgroundColor: theme.ColorPalette.brand.secondaryBackground,
-      borderColor: theme.ColorPalette.brand.secondary,
+      borderColor: '#2B2B2B',
       borderWidth: 1,
     },
     focussedCell: {
