@@ -49,18 +49,16 @@ const Terms: React.FC = () => {
       marginBottom: 20,
     },
     modalContainer:{
-      margin: 20,
       backgroundColor: '#FFFFFF',
       borderRadius: 20,
-      padding: 35,
       alignItems: 'center',
       shadowColor: '#00000',
       shadowOffset: {
         width: 0,
-        height: 2,
+        height: 4,
       },
       shadowOpacity: 0.25,
-      shadowRadius: 4,
+      shadowRadius: 20,
     }
   })
 
