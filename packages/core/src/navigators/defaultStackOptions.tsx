@@ -19,10 +19,11 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
   },
   [Screens.Onboarding]: {
     headerTintColor: 'white',
-    gestureEnabled: false,
+    gestureEnabled: true,
   },
   [Screens.CreatePIN]: {
     headerBackTestID: testIdWithKey('Back'),
+    headerShown: false,
   },
   [Screens.Terms]: {
     headerTintColor: OnboardingTheme.headerTintColor,
@@ -30,6 +31,7 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
   },
   [Screens.ChangePIN]: {
     headerBackTestID: testIdWithKey('Back'),
+    headerShown: false,
   },
   [Screens.NameWallet]: {
     headerTintColor: OnboardingTheme.headerTintColor,

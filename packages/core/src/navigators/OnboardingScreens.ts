@@ -63,7 +63,6 @@ export const getOnboardingScreens = (
     name: Screens.Onboarding,
     children: components.OnboardingScreen,
     options: () => ({
-      headerShown: false,
       ...TransitionPresets.SlideFromRightIOS,
       title: t('Screens.Onboarding'),
       headerLeft: () => false,
@@ -80,16 +79,6 @@ export const getOnboardingScreens = (
       headerLeft: () => false,
       ...ScreenOptionsDictionary[Screens.CreatePIN],
     }),
-  },
-  {
-    name: Screens.Terms,
-    options: () => ({
-      ...TransitionPresets.SlideFromRightIOS,
-      title: t('Screens.Terms'),
-      headerLeft: () => false,
-      ...ScreenOptionsDictionary[Screens.Terms],
-    }),
-    component: components.Terms,
   },
   {
     name: Screens.NameWallet,

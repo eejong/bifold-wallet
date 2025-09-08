@@ -26,6 +26,7 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
     scrollViewContentContainer: {
       padding: 20,
       flexGrow: 1,
+      alignItems: 'center'
     },
     imageContainer: {
       alignItems: 'center',
@@ -36,7 +37,7 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
       paddingVertical: 10,
     },
     button:{
-      marginVertical: 20,
+      marginVertical: 10,
     }
   })
 
@@ -49,18 +50,6 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
   return (
     <SafeAreaView style={style.safeAreaView} edges={['bottom', 'left', 'right']}>
       <ScrollView contentContainerStyle={style.scrollViewContentContainer}>
-        <View>
-          <ThemedText variant="headingTwo">{t('PINCreate.Explainer.PrimaryHeading')}</ThemedText>
-          <ThemedText style={{ marginTop: 30, marginBottom: 30 }}>
-            <Trans
-              i18nKey="PINCreate.Explainer.PINReminder"
-              components={{
-                b: <ThemedText variant="bold" />,
-              }}
-              t={t}
-            />
-          </ThemedText>
-        </View>
         <View style={style.imageContainer}>
           <Assets.svg.sierra {...imageDisplayOptions} />
         </View>

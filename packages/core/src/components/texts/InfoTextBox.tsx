@@ -29,7 +29,7 @@ const InfoTextBox: React.FC<TextBoxProps> = ({
   const { ColorPalette } = useTheme()
   const styles = StyleSheet.create({
     container: {
-      padding: 20,
+      padding: 10,
       borderRadius: 15,
 
       backgroundColor: ColorPalette.notification.info,

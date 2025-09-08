@@ -30,6 +30,9 @@ const PINHeader = ({ updatePin }: PINHeaderProps) => {
         <ThemedText style={{ fontWeight: TextTheme.bold.fontWeight }}>
           {updatePin ? t('PINChange.RememberChangePIN') : t('PINCreate.RememberPIN')}
         </ThemedText>{' '}
+        <ThemedText>
+          {!updatePin? t('PINCreate.SetPIN'): '' }
+        </ThemedText>
         
       </ThemedText>
     </View>

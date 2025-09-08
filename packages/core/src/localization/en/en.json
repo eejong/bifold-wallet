@@ -210,7 +210,8 @@
         "ParagraphList2": "Or use your biometrics to open your wallet, and if your biometrics change change on your device you will need to use the PIN to authenticate your wallet"
       },
       "CreateWallet":"Create a new wallet",
-      "ImportWallet":"I already have a wallet"
+      "ImportWallet":"I already have a wallet",
+      "SetPIN": "Set a PIN to secure your wallet. If you forget it, you’ll have to reset and recover your wallet."
     },
     "Message": {
       "CrossPatternValidation": "A pattern of cross was detected in your PIN. Please try again.",
