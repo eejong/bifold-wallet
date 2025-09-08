@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
       color: '#042645',
     },
     subTitle:{
-      fontSize: 18,
+      fontSize: 24,
       textAlign: 'left',
       color: '#4A4A4A',
-      fontWeight: '300',
-      marginVertical: 30
+      fontWeight: 'bold',
+ 
     }
   })
 

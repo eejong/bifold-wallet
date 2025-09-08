@@ -1139,11 +1139,11 @@ export function createPINInputTheme(theme: { ColorPalette: IColorPalette }): IPI
   const viewStyles = StyleSheet.create({
     cell: {
       backgroundColor: theme.ColorPalette.brand.secondaryBackground,
-      borderColor: '#2B2B2B',
+     borderColor: '#2B2B2B', 
       borderWidth: 1,
     },
     focussedCell: {
-      borderColor: theme.ColorPalette.brand.headerIcon,
+      borderColor: '#2B2B2B',
     },
     codeFieldRoot: {
       justifyContent: 'flex-start',
