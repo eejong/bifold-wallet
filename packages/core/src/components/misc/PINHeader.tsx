@@ -31,7 +31,7 @@ const PINHeader = ({ updatePin }: PINHeaderProps) => {
           {updatePin ? t('PINChange.RememberChangePIN') : t('PINCreate.RememberPIN')}
         </ThemedText>{' '}
         <ThemedText>
-          {updatePin? t('PINCreate.SetPIN'): "" }
+          {updatePin ? t('PINCreate.SetPIN'): ' ' }
         </ThemedText> {' '}
         
       </ThemedText>
