@@ -78,10 +78,12 @@ const [modalVisible, setModalVisible] = useState(true);
    
       <Modal animationType="slide" 
       visible={modalVisible}
+      style={style.modalContainer}
       onRequestClose={() => {
             setModalVisible(!modalVisible);
+            
       }}>
-        <View style={style.modalContainer}>
+        <View >
           <InfoTextBox>Please agree to the terms and conditions below before using this application.</InfoTextBox>
           <ScrollView style={style.container}>
             <ThemedText style={[style.bodyText, { marginTop: 20, marginBottom: 20 }]}>

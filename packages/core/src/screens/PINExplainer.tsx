@@ -45,8 +45,8 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
 
   const imageDisplayOptions = {
     fill: ColorPalette.notification.infoText,
-    height: 150,
-    width: 150,
+    height: 300,
+    width: 300,
   }
 
   return (
@@ -55,26 +55,28 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
         <View style={style.imageContainer}>
           <Assets.svg.sierra {...imageDisplayOptions} />
         </View>
-        <View style={style.button}>
-          <Button
-            title={t('PINCreate.Explainer.CreateWallet')}
-            accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
-            testID={testIdWithKey('ContinueCreatePIN')}
-            onPress={continueCreatePIN}
-            buttonType={ButtonType.Primary}
-          />  
+        <View>
+          <View style={style.button}>
+            <Button
+              title={t('PINCreate.Explainer.CreateWallet')}
+              accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
+              testID={testIdWithKey('ContinueCreatePIN')}
+              onPress={continueCreatePIN}
+              buttonType={ButtonType.Primary}
+            />  
+          </View>
+          <View style={style.button}>
+            <Button
+              title={t('PINCreate.Explainer.ImportWallet')}
+              accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
+              testID={testIdWithKey('ContinueCreatePIN')}
+              onPress={continueCreatePIN}
+              buttonType={ButtonType.Secondary}
+            />  
+          </View>
         </View>
-        <View style={style.button}>
-          <Button
-            title={t('PINCreate.Explainer.ImportWallet')}
-            accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
-            testID={testIdWithKey('ContinueCreatePIN')}
-            onPress={continueCreatePIN}
-            buttonType={ButtonType.Secondary}
-          />  
-      </View>
-      </ScrollView>
-      
+        
+      </ScrollView>      
     </SafeAreaView>
   )
 }
