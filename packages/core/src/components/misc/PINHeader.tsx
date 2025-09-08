@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
       fontSize: 18,
       textAlign: 'left',
       color: '#4A4A4A',
-      fontWeight: 400,
+      fontWeight: '300',
       marginVertical: 30
     }
   })
