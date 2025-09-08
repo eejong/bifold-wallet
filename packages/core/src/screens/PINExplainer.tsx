@@ -39,7 +39,7 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
     },
     button:{
       paddingVertical: 10,
-      paddingHorizontal: 20,
+      marginHorizontal: 20,
     }
   })
 

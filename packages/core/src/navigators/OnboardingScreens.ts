@@ -82,6 +82,16 @@ export const getOnboardingScreens = (
     }),
   },
   {
+    name: Screens.Terms,
+    options: () => ({
+      ...TransitionPresets.SlideFromRightIOS,
+      title: t('Screens.Terms'),
+      headerLeft: () => false,
+      ...ScreenOptionsDictionary[Screens.Terms],
+    }),
+    component: components.Terms,
+  },
+  {
     name: Screens.NameWallet,
     options: () => ({
       title: t('Screens.NameWallet'),
