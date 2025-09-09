@@ -407,7 +407,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
           ))}
         </View>
         {biometricsErr && (
-          <Text style>
+          <Text style={style.biometricsErrorText}>
             {t('PINEnter.BiometricsError')}
             {t('PINEnter.BiometricsErrorEnterPIN')}
           </Text>
