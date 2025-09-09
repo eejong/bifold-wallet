@@ -22,6 +22,8 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
     safeAreaView: {
       flex: 1,
       backgroundColor: ColorPalette.brand.primaryBackground,
+      justifyContent: 'center',
+      margin: 20,
     },
     scrollViewContentContainer: {
       padding: 20,
@@ -39,7 +41,8 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
     },
     button:{
       paddingVertical: 10,
-    }
+    },
+
   })
 
   const imageDisplayOptions = {

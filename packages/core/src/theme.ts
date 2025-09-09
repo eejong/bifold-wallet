@@ -1160,7 +1160,7 @@ export function createPINInputTheme(theme: { ColorPalette: IColorPalette }): IPI
       paddingVertical: 4,
       alignItems: 'center',
       backgroundColor: theme.ColorPalette.brand.secondaryBackground,
-      borderColor: theme.ColorPalette.brand.secondary,
+      borderColor: '#07489E',
       borderWidth: 1,
     },
   })

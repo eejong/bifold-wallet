@@ -12,14 +12,15 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: 'bold',
       marginTop: 50,
+      marginBottom: 30,
       color: '#042645',
     },
     subTitle:{
-      fontSize: 24,
+      fontSize: 20,
       textAlign: 'left',
       color: '#4A4A4A',
       fontWeight: 'bold',
- 
+      marginBottom: 30,
     }
   })
 
