@@ -297,6 +297,15 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
       height: 70,
       margin: 15,
     },
+    buttonZero: {
+      backgroundColor: "transparent",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 70,
+      height: 70,
+      margin: 15,
+      marginLeft: 115,
+    },
     buttonText: {
       color: "black",
       fontSize: 22,
@@ -330,8 +339,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
 
   const HelpText = useMemo(() => {
     const showHelpText = store.lockout.displayNotification || biometricsEnrollmentChange || biometricsErr
-    //let header = t('PINEnter.Title')
-    //let subheader = t('PINEnter.SubText')
+    let header = t('PINEnter.Title')
+    let subheader = t('PINEnter.SubText')
     if (store.lockout.displayNotification) {
       header = t('PINEnter.LockedOut', { time: String(store.preferences.autoLockTime ?? defaultAutoLockTime) })
       subheader = t('PINEnter.ReEnterPIN')
@@ -427,7 +436,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
               disabled={!continueEnabled}
               onPress={loadWalletCredentials}
               >
-              <Assets.svg.fingerPrint />
+              <Assets.svg.fingerprint />
             </TouchableOpacity>
             </>
           )}
