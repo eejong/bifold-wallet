@@ -271,6 +271,11 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
       alignSelf: 'center',
       marginTop: 10,
     },
+    biometricsErrorText:{
+      alignSelf:'center',
+      marginBottom: 20,
+      color: '#FF0000',
+    },
     helpText: {
       alignSelf: 'auto',
       textAlign: 'left',
@@ -326,8 +331,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
       justifyContent: "center",
     },
     pincodeDigitUnfilled: {
-      backgroundColor: "black",
-      opacity: 0.5,
+      backgroundColor: '#EBEBEB',
     },
     pincodeDigitText: {
       color: "#fff",
@@ -340,7 +344,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
       marginHorizontal: 8,
     },
     pincodeDigitFilled: {
-      backgroundColor: "black",
+      backgroundColor:'#042645',
     },
   })
 
@@ -389,25 +393,6 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
           >
             {HelpText}
           </Pressable>
-          <ThemedText variant="bold" style={style.inputLabel}>
-            {t('PINEnter.EnterPIN')}
-          </ThemedText>
-          <PINInput
-            onPINChanged={(p: string) => {
-              setPIN(p)
-              if (p.length === minPINLength) {
-                Keyboard.dismiss()
-                onPINInputCompleted(p)
-              }
-            }}
-            testID={testIdWithKey('EnterPIN')}
-            accessibilityLabel={t('PINEnter.EnterPIN')}
-            autoFocus={true}
-            inlineMessage={inlineMessageField}
-            onSubmitEditing={() => {
-              onPINInputCompleted(PIN)
-            }}
-          />
         </View>
         <View style={style.pincodeContainer}>
           {[...Array(6).keys()].map((index) => (
@@ -422,10 +407,14 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
             ></View>
           ))}
         </View>
+        {biometricsErr && (
+          <Text style>
+            {t('PINEnter.BiometricsError.')}
+            {t('PINEntet.BiometricsErrorEnterPIN')}
+          </Text>
+        )}
         <View>
           <View style={style.buttonContainer}>
-            
-          
            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (
               <TouchableOpacity
                 key={digit}
