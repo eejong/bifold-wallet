@@ -391,7 +391,6 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
             onPress={enableHiddenDevModeTrigger ? incrementDeveloperMenuCounter : () => {}}
             testID={testIdWithKey('DeveloperCounter')}
           >
-            {HelpText}
           </Pressable>
         </View>
         <View style={style.pincodeContainer}>
@@ -410,7 +409,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
         {biometricsErr && (
           <Text style>
             {t('PINEnter.BiometricsError')}
-            {t('PINEntet.BiometricsErrorEnterPIN')}
+            {t('PINEnter.BiometricsErrorEnterPIN')}
           </Text>
         )}
         <View>
