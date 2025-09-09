@@ -266,7 +266,7 @@
   "PINEnter": {
     "Title": "Welcome back",
     "SubText": "Sign-in to access your wallet.",
-    "EnterPIN": "Enter your wallet PIN",
+    "EnterPIN": "Enter your PIN",
     "Unlock": "Unlock",
     "Or": "Or",
     "BiometricsUnlock": "Unlock with biometrics",

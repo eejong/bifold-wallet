@@ -8,6 +8,8 @@ import IconCode from './assets/icons/code.svg'
 import ActivityIndicator from './assets/img/activity-indicator-circle.svg'
 import AppLockout from './assets/img/app-lockout.svg'
 import Biometrics from './assets/img/biometric.svg'
+import Fingerprint from './assets/img/fingerprint.svg'
+import CarbonDelete from './assets/img/carbon_delete.svg'
 import ContactBook from './assets/img/contact-book.svg'
 import CredentialDeclined from './assets/img/credential-declined.svg'
 import DeleteNotification from './assets/img/delete-notification.svg'
@@ -75,6 +77,8 @@ export interface ISVGAssets {
   activityIndicator: React.FC<SvgProps>
   appLockout: React.FC<SvgProps>
   biometrics: React.FC<SvgProps>
+  fingerprint: React.FC<SvgProps>
+  carbondelete: React.FC<SvgProps>
   contactBook: React.FC<SvgProps>
   credentialDeclined: React.FC<SvgProps>
   deleteNotification: React.FC<SvgProps>
@@ -1185,6 +1189,8 @@ export const Assets = {
     activityIndicator: ActivityIndicator,
     appLockout: AppLockout,
     biometrics: Biometrics,
+    fingerprint: Fingerprint,
+    carbondelete: CarbonDelete,
     credentialDeclined: CredentialDeclined,
     deleteNotification: DeleteNotification,
     emptyWallet: EmptyWallet,
