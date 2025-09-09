@@ -39,19 +39,17 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
     },
     button:{
       paddingVertical: 10,
-      marginHorizontal: 20,
     }
   })
 
   const imageDisplayOptions = {
     fill: ColorPalette.notification.infoText,
-    height: 300,
-    width: 300,
+    height: 150,
+    width: 250,
   }
 
   return (
-    <SafeAreaView style={style.safeAreaView} edges={['bottom', 'left', 'right']}>
-      <ScrollView contentContainerStyle={style.scrollViewContentContainer}>
+    <SafeAreaView style={style.safeAreaView} edges={['bottom', 'left', 'right']}>   
         <View style={style.imageContainer}>
           <Assets.svg.sierra {...imageDisplayOptions} />
         </View>
@@ -74,9 +72,7 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
               buttonType={ButtonType.Secondary}
             />  
           </View>
-        </View>
-        
-      </ScrollView>      
+        </View>   
     </SafeAreaView>
   )
 }
