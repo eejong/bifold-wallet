@@ -167,8 +167,6 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
                     title={t('Terms.Attestation')}
                     accessibilityLabel={t('Terms.IAgree')}
                     testID={testIdWithKey('IAgree')}
-                    checked={!!checked}
-                    onPress={() => setChecked(!checked)}
                   />
 
         <View style={style.controlsContainer}>

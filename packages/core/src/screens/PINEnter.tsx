@@ -400,7 +400,9 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
           <TextTheme>{t('PINEnter.SubText')}</TextTheme>
         </View>
         <View>
-          <TextTheme>{t('PINEnter.EnterPIN')}</TextTheme>
+          <TextTheme style={style.biometricsErrorText}>
+            {t('PINEnter.EnterPIN')}
+          </TextTheme>
           <View style={style.pincodeContainer}>
           {[...Array(6).keys()].map((index) => (
             <View
