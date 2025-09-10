@@ -58,7 +58,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
   ] = useServices([TOKENS.UTIL_LOGGER, TOKENS.CONFIG])
   const [inlineMessageField, setInlineMessageField] = useState<InlineMessageProps>()
   const [inlineMessages] = useServices([TOKENS.INLINE_ERRORS])
-  const [alertModalMessage, setAlertModalMessage] = useState<string>('')
+  const [alertModalMessage, setAlertModalMessage] = useState<string>()
   const { getLockoutPenalty, attemptLockout, unMarkServedPenalty } = useLockout()
   const onBackPressed = () => setDevModalVisible(false)
   const onDevModeTriggered = () => {
@@ -314,7 +314,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
     enterPIN: {
       color: '#000000',
       fontSize: 20,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      alignSelf:'center'
     },
     buildNumberText: {
       fontSize: 14,
@@ -326,7 +327,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       backgroundColor: 'transparent',
       alignItems: 'center',
       justifyContent: 'center',
-      width: 40,
+      width: 70,
       height: 70,
       margin: 15,
     },
@@ -334,7 +335,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       backgroundColor: "transparent",
       alignItems: "center",
       justifyContent: "center",
-      width: 40,
+      width: 70,
       height: 70,
       margin: 15,
       marginLeft: 115,
@@ -442,7 +443,16 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
             ))}
           </View>
         </View>
-        
+    {biometricsErr ? (
+            <>
+              <Text style={[TextTheme.normal, { alignSelf: 'center', color: "red" }]}>{t('PINEnter.BiometricsError')}</Text>
+              <Text style={[TextTheme.normal, { alignSelf: 'center', color: "red" }]}>
+                {t('PINEnter.BiometricsErrorEnterPIN')}
+              </Text>
+            </>
+          ) : (
+            <Text style={[TextTheme.normal, { alignSelf: 'center', marginBottom: 16 }]}> </Text>
+          )}
         <View>
           <View style={style.buttonContainer}>
            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (

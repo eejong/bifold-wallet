@@ -68,7 +68,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   const styles = StyleSheet.create({
     container: {
       backgroundColor: ColorPalette.brand.modalPrimaryBackground,
-      borderRadius: 10,
+      borderRadius: 15,
       padding: 10,
       minWidth: width - 2 * 25,
     },
