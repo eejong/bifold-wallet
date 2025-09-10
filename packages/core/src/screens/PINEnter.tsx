@@ -58,7 +58,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
   ] = useServices([TOKENS.UTIL_LOGGER, TOKENS.CONFIG])
   const [inlineMessageField, setInlineMessageField] = useState<InlineMessageProps>()
   const [inlineMessages] = useServices([TOKENS.INLINE_ERRORS])
-  const [alertModalMessage, setAlertModalMessage] = useState()
+  const [alertModalMessage, setAlertModalMessage] = useState<string>('')
   const { getLockoutPenalty, attemptLockout, unMarkServedPenalty } = useLockout()
   const onBackPressed = () => setDevModalVisible(false)
   const onDevModeTriggered = () => {
