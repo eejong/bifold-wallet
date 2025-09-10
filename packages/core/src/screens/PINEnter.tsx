@@ -366,8 +366,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
   }
   const HelpText = useMemo(() => {
     const showHelpText = store.lockout.displayNotification || biometricsEnrollmentChange || biometricsErr
-    let header = t('PINEnter.Title')
-    let subheader = t('PINEnter.SubText')
+    let header = ''
+    let subheader = ''
     if (store.lockout.displayNotification) {
       header = t('PINEnter.LockedOut', { time: String(store.preferences.autoLockTime ?? defaultAutoLockTime) })
       subheader = t('PINEnter.ReEnterPIN')
