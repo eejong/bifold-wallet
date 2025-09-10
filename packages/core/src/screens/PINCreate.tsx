@@ -163,11 +163,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
             <AlertModal title={modalState.title} message={modalState.message} submit={modalState.onModalDismiss} />
           )}
         </View>
-        <CheckBoxRow
-                    title={t('Terms.Attestation')}
-                    accessibilityLabel={t('Terms.IAgree')}
-                    testID={testIdWithKey('IAgree')}
-                  />
+      
 
         <View style={style.controlsContainer}>
           <Button

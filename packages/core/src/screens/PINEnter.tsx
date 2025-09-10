@@ -397,12 +397,12 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
             testID={testIdWithKey('DeveloperCounter')}
           ></Pressable>
           <Assets.svg.sierra {...imageDisplayOptions}/>
-          <TextTheme>{t('PINEnter.SubText')}</TextTheme>
+          <ThemedText>{t('PINEnter.SubText')}</ThemedText>
         </View>
         <View>
-          <TextTheme style={style.biometricsErrorText}>
+          <ThemedText style={style.biometricsErrorText}>
             {t('PINEnter.EnterPIN')}
-          </TextTheme>
+          </ThemedText>
           <View style={style.pincodeContainer}>
           {[...Array(6).keys()].map((index) => (
             <View
