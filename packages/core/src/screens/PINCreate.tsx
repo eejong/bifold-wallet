@@ -32,6 +32,8 @@ import { BifoldError } from '../types/error'
 import { Screens } from '../types/navigators'
 import { testIdWithKey } from '../utils/testable'
 import CheckBoxRow from '../components/inputs/CheckBoxRow'
+import TermsModal from './Terms'
+
 
 interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
   setAuthenticated: (status: boolean) => void
@@ -45,6 +47,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
   const [isLoading, setIsLoading] = useState(false)
   const [, dispatch] = useStore()
   const { t } = useTranslation()
+  const [checked, setChecked] = useState(agreedToPreviousTerms)
 
   const { ColorPalette } = useTheme()
   const { ButtonLoading } = useAnimatedComponents()
@@ -76,6 +79,8 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
     controlsContainer: {},
   })
 
+  const [modalVisible, setModalVisible] = useState(false)
+  
   const passcodeCreate = useCallback(
     async (PIN: string) => {
       try {
@@ -117,6 +122,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
   const continueCreatePIN = useCallback(() => {
     setExplained(true)
   }, [])
+
 
   return explained ? (
     <KeyboardView keyboardAvoiding={false}>
@@ -162,6 +168,20 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
           {modalState.visible && (
             <AlertModal title={modalState.title} message={modalState.message} submit={modalState.onModalDismiss} />
           )}
+
+          <CheckBoxRow
+                    title={t('Terms.Attestation')}
+                    accessibilityLabel={t('Terms.IAgree')}
+                    testID={testIdWithKey('IAgree')}
+                    checked={!!checked}
+                    onPress={() => {
+                      setChecked(!checked);
+                      setModalVisible(true);
+                    }
+                  }
+                  />
+                  {modalVisible ? 
+                  <TermsModal/>: null}
         </View>
       
 

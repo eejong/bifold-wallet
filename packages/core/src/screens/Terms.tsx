@@ -83,20 +83,16 @@ const [modalVisible, setModalVisible] = useState(true);
             setModalVisible(!modalVisible);
             
       }}>
-        <View >
+        <View style={style.container}>
           <InfoTextBox>Please agree to the terms and conditions below before using this application.</InfoTextBox>
           <ScrollView style={style.container}>
             <ThemedText style={[style.bodyText, { marginTop: 20, marginBottom: 20 }]}>
-              <ThemedText style={[style.bodyText, { fontWeight: TextTheme.bold.fontWeight }]}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </ThemedText>{' '}
               Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
               exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
               in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
               proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </ThemedText>
-            <HighlightTextBox>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</HighlightTextBox>
-            <ThemedText style={[style.bodyText, { marginTop: 20 }]}>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
               Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
               exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
               in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Tempor incididunt ut labore et dolore magna
