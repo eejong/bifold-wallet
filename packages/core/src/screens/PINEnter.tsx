@@ -156,6 +156,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
             if (penalty !== undefined) {
               attemptLockout(penalty) // Only call attemptLockout if penalty is defined
             }
+            setAlertModalMessage(message)
             setContinueEnabled(true)
             return
           }
@@ -167,6 +168,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
             })
           } else {
             setAlertModalMessage(message)
+            setContinueEnabled(true)
           }
           setContinueEnabled(true)
           // log incorrect login attempts
@@ -417,7 +419,6 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
             ))}
           </View>
         </View>
-        {HelpText}
         {biometricsErr && (
           <ThemedText style={style.biometricsErrorText}>
             {t('PINEnter.BiometricsError')}
