@@ -68,9 +68,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   const styles = StyleSheet.create({
     container: {
       backgroundColor: ColorPalette.brand.modalPrimaryBackground,
-      borderColor: ColorPalette.notification.infoBorder,
-      borderRadius: 5,
-      borderWidth: 1,
+      borderRadius: 10,
       padding: 10,
       minWidth: width - 2 * 25,
     },
@@ -81,7 +79,6 @@ const InfoBox: React.FC<InfoBoxProps> = ({
     },
     bodyContainer: {
       flexDirection: 'column',
-      marginLeft: 10 + iconSize,
       paddingHorizontal: 5,
       paddingBottom: 5,
       flexGrow: 0,
@@ -115,8 +112,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       iconColor = ColorPalette.notification.infoIcon
       styles.container = {
         ...styles.container,
-        backgroundColor: ColorPalette.notification.info,
-        borderColor: ColorPalette.notification.infoBorder,
+        backgroundColor: ColorPalette.notification.info,       
       }
       styles.headerText = {
         ...styles.headerText,
@@ -133,8 +129,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       iconColor = '#97201E'
       styles.container = {
         ...styles.container,
-        backgroundColor: ColorPalette.notification.info,
-        borderColor: ColorPalette.notification.infoBorder,
+        backgroundColor: '#FFFFFF',
       }
       styles.headerText = {
         ...styles.headerText,
@@ -151,8 +146,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       iconColor = ColorPalette.notification.successIcon
       styles.container = {
         ...styles.container,
-        backgroundColor: ColorPalette.notification.success,
-        borderColor: ColorPalette.notification.successBorder,
+        backgroundColor: ColorPalette.notification.success,        
       }
       styles.headerText = {
         ...styles.headerText,
@@ -169,8 +163,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       iconColor = ColorPalette.notification.warnIcon
       styles.container = {
         ...styles.container,
-        backgroundColor: ColorPalette.notification.warn,
-        borderColor: ColorPalette.notification.warnBorder,
+        backgroundColor: ColorPalette.notification.warn,       
       }
       styles.headerText = {
         ...styles.headerText,
@@ -188,7 +181,6 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       styles.container = {
         ...styles.container,
         backgroundColor: ColorPalette.notification.error,
-        borderColor: ColorPalette.notification.errorBorder,
       }
       styles.headerText = {
         ...styles.headerText,

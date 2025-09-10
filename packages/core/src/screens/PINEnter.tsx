@@ -152,12 +152,16 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
             // skip displaying modals if we are going to lockout
             setAlertModalVisible(true)
           }
-          if (attemptsLeft > 1) {
-            message = t('PINEnter.IncorrectPINTries', { tries: attemptsLeft })
+          if (attemptsLeft >1) {
+            message = t('PINEnter.RepeatPIN', { tries: attemptsLeft })
             setPIN('')
+            setAlertModalMessage(message)
             setAlertModalVisible(true)
           } else if (attemptsLeft === 1) {
-            message = t('PINEnter.LastTryBeforeTimeout')
+            message = t('PINEnter.RepeatPIN')
+            setPIN('')
+            setAlertModalMessage(message)
+            setAlertModalVisible(true)
           } else {
             const penalty = getLockoutPenalty(newAttempt)
             if (penalty !== undefined) {
@@ -264,6 +268,10 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       justifyContent: 'center',
       backgroundColor: ColorPalette.brand.primaryBackground,
     },
+    upperContainer:{
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
     buttonContainer: {
       width: '100%',
       flexDirection: 'row',
@@ -298,13 +306,13 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       marginVertical: 5,
     },
     subTitle: {
-      marginBottom: 20,
       alignSelf: 'center',
       color: '#205295'
     },
     enterPIN: {
       color: '#000000',
       fontSize: 20,
+      fontWeight: 'bold'
     },
     buildNumberText: {
       fontSize: 14,
@@ -332,13 +340,13 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
     buttonText: {
       color: '#000000',
       fontSize: 28,
-      fontWeight: "500"
+      fontWeight: "800"
     },
     pincodeContainer: {
       flexDirection: "row",
       marginBottom: 20,
       textAlign: "center",
-      marginTop: 50,
+      marginTop: 20,
       justifyContent: "center",
     },
     pincodeDigitUnfilled: {
@@ -407,14 +415,15 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
             onPress={enableHiddenDevModeTrigger ? incrementDeveloperMenuCounter : () => {}}
             testID={testIdWithKey('DeveloperCounter')}
           ></Pressable>
-          <Assets.svg.sierra {...imageDisplayOptions}/>
+          
           <View>
+            <Assets.svg.sierra {...imageDisplayOptions}/>
             <ThemedText style={style.subTitle}>{t('PINEnter.SubText1')}</ThemedText>
             <ThemedText style={style.subTitle}>{t('PINEnter.SubText2')}</ThemedText>
           </View>
         </View>
         <View>
-          <ThemedText style={style.biometricsErrorText}>
+          <ThemedText style={style.enterPIN}>
             {t('PINEnter.EnterPIN')}
           </ThemedText>
           <View style={style.pincodeContainer}>
