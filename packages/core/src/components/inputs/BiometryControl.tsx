@@ -52,6 +52,9 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
       marginTop: 50,
       color: '#042645',
     },
+    toggleButtonContainer:{
+      justifyContent:'flex-end'
+    }
   })
 
   useEffect(() => {
@@ -178,10 +181,10 @@ const BiometryControl: React.FC<BiometryControlProps> = ({ biometryEnabled, onBi
           </View>
         )}
         <View style={{ flexDirection: 'row', marginVertical: 20 }}>
-          <View style={{ flexShrink: 1, marginRight: 150, justifyContent: 'center' }}>
+          <View style={{ flexShrink: 1, marginRight: 100, justifyContent: 'flex-start' }}>
             <ThemedText variant="bold">{t('Biometry.UseToUnlock')}</ThemedText>
           </View>
-          <View style={{ justifyContent: 'flex-end' }}>
+          <View style={styles.toggleButtonContainer}>
             <ToggleButton
               testID={testIdWithKey('ToggleBiometrics')}
               isEnabled={biometryEnabled}

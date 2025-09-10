@@ -31,6 +31,7 @@ import { usePINValidation } from '../hooks/usePINValidation'
 import { BifoldError } from '../types/error'
 import { Screens } from '../types/navigators'
 import { testIdWithKey } from '../utils/testable'
+import CheckBoxRow from '../components/inputs/CheckBoxRow'
 
 interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
   setAuthenticated: (status: boolean) => void
@@ -162,6 +163,14 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
             <AlertModal title={modalState.title} message={modalState.message} submit={modalState.onModalDismiss} />
           )}
         </View>
+        <CheckBoxRow
+                    title={t('Terms.Attestation')}
+                    accessibilityLabel={t('Terms.IAgree')}
+                    testID={testIdWithKey('IAgree')}
+                    checked={!!checked}
+                    onPress={() => setChecked(!checked)}
+                  />
+
         <View style={style.controlsContainer}>
           <Button
             title={t('PINCreate.CreatePIN')}

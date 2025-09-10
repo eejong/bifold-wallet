@@ -265,7 +265,7 @@
   },
   "PINEnter": {
     "Title": "Welcome back",
-    "SubText": "Sign-in to access your wallet.",
+    "SubText": "Self-sovereign Identity Empowerment: Reinventing Rights and Attributes",
     "EnterPIN": "Enter your PIN",
     "Unlock": "Unlock",
     "Or": "Or",
@@ -277,7 +277,7 @@
     "EnableBiometrics": "You have to enable biometrics to be able to load the wallet.",
     "BiometricsNotProvided": "Biometrics not provided, you may use PIN to load the wallet.",
     "BiometricsError": "Biometrics were not successful.",
-    "BiometricsErrorEnterPIN": "Please enter your wallet PIN.",
+    "BiometricsErrorEnterPIN": "Enter PIN instead.",
     "LockedOut": "You were locked out after {{ time }} minute(s) of inactivity.",
     "ReEnterPIN": "Re-enter your wallet PIN",
     "BiometricsChanged": "Biometrics unlock has been disabled because your device biometrics changed.",

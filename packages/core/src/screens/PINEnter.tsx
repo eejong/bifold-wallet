@@ -251,7 +251,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
   const style = StyleSheet.create({
     screenContainer: {
       height: '100%',
-      padding: 20,
+      padding: 10,
       justifyContent: 'space-between',
       backgroundColor: ColorPalette.brand.primaryBackground,
     },
@@ -319,8 +319,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
       marginLeft: 115,
     },
     buttonText: {
-      color: "black",
-      fontSize: 22,
+      color: '#000000',
+      fontSize: 24,
       fontWeight: "bold"
     },
     pincodeContainer: {
@@ -348,6 +348,11 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
     },
   })
 
+   const imageDisplayOptions = {
+    fill: ColorPalette.notification.infoText,
+    height: 150,
+    width: 250,
+  }
   const HelpText = useMemo(() => {
     const showHelpText = store.lockout.displayNotification || biometricsEnrollmentChange || biometricsErr
     let header = t('PINEnter.Title')
@@ -366,7 +371,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
     }
     return (
       <>
-        <ThemedText variant={showHelpText ? 'normal' : 'headingThree'} style={style.helpText}>
+        <ThemedText variant={showHelpText ? 'normal' : 'headingThree'}  style={style.helpText}>
           {header}
         </ThemedText>
         <ThemedText variant={showHelpText ? 'normal' : 'labelSubtitle'} style={style.helpText}>
@@ -390,10 +395,13 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
           <Pressable
             onPress={enableHiddenDevModeTrigger ? incrementDeveloperMenuCounter : () => {}}
             testID={testIdWithKey('DeveloperCounter')}
-          >
-          </Pressable>
+          ></Pressable>
+          <Assets.svg.sierra {...imageDisplayOptions}/>
+          <TextTheme>{t('PINEnter.SubText')}</TextTheme>
         </View>
-        <View style={style.pincodeContainer}>
+        <View>
+          <TextTheme>{t('PINEnter.EnterPIN')}</TextTheme>
+          <View style={style.pincodeContainer}>
           {[...Array(6).keys()].map((index) => (
             <View
               key={index}
@@ -404,8 +412,10 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
                   : style.pincodeDigitUnfilled,
               ]}
             ></View>
-          ))}
+            ))}
+          </View>
         </View>
+        {HelpText}
         {biometricsErr && (
           <ThemedText style={style.biometricsErrorText}>
             {t('PINEnter.BiometricsError')}
