@@ -47,7 +47,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
   const [isLoading, setIsLoading] = useState(false)
   const [, dispatch] = useStore()
   const { t } = useTranslation()
-  const [checked, setChecked] = useState(agreedToPreviousTerms)
+  const [checked, setChecked] = useState()
 
   const { ColorPalette } = useTheme()
   const { ButtonLoading } = useAnimatedComponents()
