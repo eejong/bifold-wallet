@@ -133,11 +133,11 @@ const InfoBox: React.FC<InfoBoxProps> = ({
       }
       styles.headerText = {
         ...styles.headerText,
-        color: ColorPalette.notification.infoText,
+        color: '#97201E',
       }
       styles.bodyText = {
         ...styles.bodyText,
-        color: ColorPalette.notification.infoText,
+        color:'#000000',
       }
       break
 

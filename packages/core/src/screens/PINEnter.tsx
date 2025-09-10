@@ -58,7 +58,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
   ] = useServices([TOKENS.UTIL_LOGGER, TOKENS.CONFIG])
   const [inlineMessageField, setInlineMessageField] = useState<InlineMessageProps>()
   const [inlineMessages] = useServices([TOKENS.INLINE_ERRORS])
-  const [alertModalMessage, setAlertModalMessage] = useState('')
+  const [alertModalMessage, setAlertModalMessage] = useState()
   const { getLockoutPenalty, attemptLockout, unMarkServedPenalty } = useLockout()
   const onBackPressed = () => setDevModalVisible(false)
   const onDevModeTriggered = () => {
@@ -72,12 +72,13 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
   // listen for biometrics error event
   useEffect(() => {
     const handle = DeviceEventEmitter.addListener(EventTypes.BIOMETRY_ERROR, (value?: boolean) => {
-      setBiometricsErr((prev) => value ?? !prev)
+      const newVal = value === undefined ? !biometricsErr : value
+      setBiometricsErr(newVal)
     })
     return () => {
       handle.remove()
     }
-  }, [])
+  }, [PIN])
 
   const loadWalletCredentials = useCallback(async () => {
     const walletSecret = await getWalletSecret()
@@ -270,7 +271,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
     },
     upperContainer:{
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      marginBottom: 30,
     },
     buttonContainer: {
       width: '100%',
@@ -324,7 +326,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       backgroundColor: 'transparent',
       alignItems: 'center',
       justifyContent: 'center',
-      width: 70,
+      width: 40,
       height: 70,
       margin: 15,
     },
@@ -332,7 +334,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       backgroundColor: "transparent",
       alignItems: "center",
       justifyContent: "center",
-      width: 70,
+      width: 40,
       height: 70,
       margin: 15,
       marginLeft: 115,
@@ -348,6 +350,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       textAlign: "center",
       marginTop: 20,
       justifyContent: "center",
+      bottom: 0,
     },
     pincodeDigitUnfilled: {
       backgroundColor: '#EBEBEB',
@@ -414,9 +417,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
           <Pressable
             onPress={enableHiddenDevModeTrigger ? incrementDeveloperMenuCounter : () => {}}
             testID={testIdWithKey('DeveloperCounter')}
-          ></Pressable>
-          
-          <View>
+          ></Pressable>         
+          <View style={style.upperContainer}>
             <Assets.svg.sierra {...imageDisplayOptions}/>
             <ThemedText style={style.subTitle}>{t('PINEnter.SubText1')}</ThemedText>
             <ThemedText style={style.subTitle}>{t('PINEnter.SubText2')}</ThemedText>
