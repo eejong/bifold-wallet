@@ -499,7 +499,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
           bodyContent={
             <>
               <ThemedText variant="popupModalText" style={style.modalText}>
-                {alertModalMessage}
+                {t('PINEnter.RepeatPIN')}
               </ThemedText>
               {displayLockoutWarning ? (
                 <ThemedText variant="popupModalText" style={style.modalText}>
