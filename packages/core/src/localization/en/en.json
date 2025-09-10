@@ -210,7 +210,7 @@
         "ParagraphList2": "Or use your biometrics to open your wallet, and if your biometrics change change on your device you will need to use the PIN to authenticate your wallet"
       },
       "CreateWallet":"Create a new wallet",
-      "ImportWallet":"I already have a wallet",
+      "ImportWallet":"I already have a wallet"
     },
     "Message": {
       "CrossPatternValidation": "A pattern of cross was detected in your PIN. Please try again.",
@@ -265,7 +265,8 @@
   },
   "PINEnter": {
     "Title": "Welcome back",
-    "SubText": "Self-sovereign Identity Empowerment: Reinventing Rights and Attributes",
+    "SubText1": "Self-sovereign Identity Empowerment:",
+    "SubText2":"Reinventing Rights and Attributes",
     "EnterPIN": "Enter your PIN",
     "Unlock": "Unlock",
     "Or": "Or",

@@ -26,9 +26,14 @@ import { getBuildNumber, getVersion } from 'react-native-device-info'
 import Terms from './Terms'
 interface PINEnterProps {
   setAuthenticated: (status: boolean) => void
+  usage?: PINEntryUsage
+}
+export enum PINEntryUsage {
+  PINCheck,
+  WalletUnlock
 }
 
-const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
+const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryUsage.WalletUnlock }) => {
   const { t } = useTranslation()
   const { checkWalletPIN, getWalletSecret, isBiometricsActive, disableBiometrics } = useAuth()
   const [store, dispatch] = useStore()
@@ -149,6 +154,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
           }
           if (attemptsLeft > 1) {
             message = t('PINEnter.IncorrectPINTries', { tries: attemptsLeft })
+            setPIN('')
+            setAlertModalVisible(true)
           } else if (attemptsLeft === 1) {
             message = t('PINEnter.LastTryBeforeTimeout')
           } else {
@@ -254,7 +261,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
     screenContainer: {
       height: '100%',
       padding: 10,
-      justifyContent: 'space-between',
+      justifyContent: 'center',
       backgroundColor: ColorPalette.brand.primaryBackground,
     },
     buttonContainer: {
@@ -292,9 +299,11 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
     },
     subTitle: {
       marginBottom: 20,
+      alignSelf: 'center',
+      color: '#205295'
     },
-    forgotPINText: {
-      color: ColorPalette.brand.link,
+    enterPIN: {
+      color: '#000000',
       fontSize: 20,
     },
     buildNumberText: {
@@ -322,8 +331,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
     },
     buttonText: {
       color: '#000000',
-      fontSize: 24,
-      fontWeight: "bold"
+      fontSize: 28,
+      fontWeight: "500"
     },
     pincodeContainer: {
       flexDirection: "row",
@@ -352,7 +361,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
 
    const imageDisplayOptions = {
     fill: ColorPalette.notification.infoText,
-    height: 150,
+    height: 90,
     width: 250,
   }
   const HelpText = useMemo(() => {
@@ -399,7 +408,10 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
             testID={testIdWithKey('DeveloperCounter')}
           ></Pressable>
           <Assets.svg.sierra {...imageDisplayOptions}/>
-          <ThemedText>{t('PINEnter.SubText')}</ThemedText>
+          <View>
+            <ThemedText style={style.subTitle}>{t('PINEnter.SubText1')}</ThemedText>
+            <ThemedText style={style.subTitle}>{t('PINEnter.SubText2')}</ThemedText>
+          </View>
         </View>
         <View>
           <ThemedText style={style.biometricsErrorText}>
@@ -419,12 +431,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
             ))}
           </View>
         </View>
-        {biometricsErr && (
-          <ThemedText style={style.biometricsErrorText}>
-            {t('PINEnter.BiometricsError')}
-            {t('PINEnter.BiometricsErrorEnterPIN')}
-          </ThemedText>
-        )}
+        
         <View>
           <View style={style.buttonContainer}>
            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (
@@ -466,7 +473,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
         </View>
         {alertModalVisible ? (
         <PopupModal
-          notificationType={InfoBoxType.Info}
+          notificationType={InfoBoxType.InfoRed}
           title={t('PINEnter.IncorrectPIN')}
           bodyContent={
             <>
@@ -480,7 +487,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated }) => {
               ) : null}
             </>
           }
-          onCallToActionLabel={t('Global.Okay')}
+          onCallToActionLabel={'Try Again'}
           onCallToActionPressed={clearAlertModal}
         />
       ) : null}

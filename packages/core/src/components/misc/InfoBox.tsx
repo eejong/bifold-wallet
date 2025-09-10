@@ -17,6 +17,7 @@ const iconSize = 30
 
 export enum InfoBoxType {
   Info,
+  InfoRed,
   Success,
   Warn,
   Error,
@@ -112,6 +113,24 @@ const InfoBox: React.FC<InfoBoxProps> = ({
     case InfoBoxType.Info:
       iconName = 'info'
       iconColor = ColorPalette.notification.infoIcon
+      styles.container = {
+        ...styles.container,
+        backgroundColor: ColorPalette.notification.info,
+        borderColor: ColorPalette.notification.infoBorder,
+      }
+      styles.headerText = {
+        ...styles.headerText,
+        color: ColorPalette.notification.infoText,
+      }
+      styles.bodyText = {
+        ...styles.bodyText,
+        color: ColorPalette.notification.infoText,
+      }
+      break
+
+      case InfoBoxType.InfoRed:
+      iconName = 'info'
+      iconColor = '#97201E'
       styles.container = {
         ...styles.container,
         backgroundColor: ColorPalette.notification.info,
