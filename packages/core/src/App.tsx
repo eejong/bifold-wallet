@@ -51,7 +51,7 @@ const createApp = (container: Container): React.FC => {
                     <StatusBar
                       hidden={false}
                       barStyle="light-content"
-                      backgroundColor={bifoldTheme.ColorPalette.brand.primary}
+                      backgroundColor={'white'}
                       translucent={false}
                     />
                     <ErrorModal />

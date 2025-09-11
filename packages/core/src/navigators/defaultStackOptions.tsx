@@ -94,6 +94,7 @@ export function useDefaultStackOptions({ ColorPalette }: ITheme): StackNavigatio
         shadowColor: ColorPalette.grayscale.black,
         shadowOpacity: 0.15,
         borderBottomWidth: 0,
+        backgroundColor: 'white',
       },
       headerTitleAlign: 'center' as 'center' | 'left',
       headerTitle: (props: { children: React.ReactNode }) => <HeaderTitle {...props} />,

@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
+import { Text, View } from 'react-native'
 import { useTranslation } from 'react-i18next'
-
 import SettingsMenu from '../components/buttons/SettingsMenu'
 import { useTheme } from '../contexts/theme'
 import ListCredentials from '../screens/ListCredentials'
@@ -27,9 +27,16 @@ const CredentialStack: React.FC = () => {
         name={Screens.Credentials}
         component={ListCredentials}
         options={() => ({
-          title: t('Screens.Credentials'),
+          title: '',
           headerRight: () => <CredentialListHeaderRight />,
-          headerLeft: () => <SettingsMenu />,
+          headerLeft: () => {
+            return (
+              <View style={{flexDirection: 'row', flex: 1, width: 180,}}>
+                <SettingsMenu />
+                <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 22, marginLeft: 10, color: 'black'}}>Credentials</Text>
+              </View>
+            )
+          },
           ...ScreenOptionsDictionary[Screens.Credentials],
         })}
       />

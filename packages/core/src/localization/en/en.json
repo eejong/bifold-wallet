@@ -491,7 +491,7 @@
   "Credentials": {
     "CredentialsNotFound": "Credentials not found",
     "CredentialDetails": "Credential Details",
-    "EmptyList": "Your wallet is empty. Your accepted credentials will be added here.",
+    "EmptyList": "Your wallet is empty.",
     "IssuedBy": "Issued by",
     "Issued": "Issued",
     "Credential": "credential"

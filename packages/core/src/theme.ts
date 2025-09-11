@@ -5,6 +5,7 @@ import Arrow from './assets/icons/large-arrow.svg'
 import IconDelete from './assets/icons/trash.svg'
 import IconEdit from './assets/icons/pencil.svg'
 import IconCode from './assets/icons/code.svg'
+import EmptyWalletIcon from './assets/icons/empty-wallet.svg'
 import ActivityIndicator from './assets/img/activity-indicator-circle.svg'
 import AppLockout from './assets/img/app-lockout.svg'
 import Biometrics from './assets/img/biometric.svg'
@@ -54,6 +55,11 @@ import IconError from './assets/img/error-filled.svg'
 import TabOneFocusedIcon from './assets/img/message-text-icon.svg'
 import TabOneIcon from './assets/img/message-text-icon-outline.svg'
 import TabTwoIcon from './assets/img/qrcode-scan-icon.svg'
+import CredentialIconFilled from './assets/img/credential-icon-filled.svg'
+import CredentialIconOutline from './assets/img/credential-icon-outline.svg'
+import NotificationBellFilled from './assets/img/notification-bell-filled.svg'
+import NotificationBellOutline from './assets/img/notification-bell-outline.svg'
+
 import TabThreeFocusedIcon from './assets/img/wallet-icon.svg'
 import TabThreeIcon from './assets/img/wallet-icon-outline.svg'
 import React from 'react'
@@ -133,6 +139,11 @@ export interface ISVGAssets {
   iconError: React.FC<SvgProps>
   iconCode: React.FC<SvgProps>
   tabOneIcon: React.FC<SvgProps>
+  notificationBellFilled: React.FC<SvgProps>
+  notificationBellOutline: React.FC<SvgProps>
+  emptyWalletIcon: React.FC<SvgProps>
+  credentialIconFilled: React.FC<SvgProps>
+  credentialIconOutline: React.FC<SvgProps>
   tabOneFocusedIcon: React.FC<SvgProps>
   tabTwoIcon: React.FC<SvgProps>
   tabThreeIcon: React.FC<SvgProps>
@@ -795,7 +806,7 @@ export function createTabTheme(theme: { ColorPalette: IColorPalette; TextTheme: 
       paddingBottom: 5,
     },
     tabBarButtonIconStyle: {
-      color: theme.ColorPalette.brand.headerIcon,
+      color: 'black',
     },
   })
 
@@ -818,7 +829,9 @@ export function createTabTheme(theme: { ColorPalette: IColorPalette; TextTheme: 
     focusTabIconStyle: {
       height: 60,
       width: 60,
-      backgroundColor: theme.ColorPalette.brand.primary,
+      backgroundColor: 'white',
+      borderColor: 'black',
+      borderWidth: 2,
       borderRadius: 60,
       justifyContent: 'center',
       alignItems: 'center',
@@ -831,7 +844,7 @@ export function createTabTheme(theme: { ColorPalette: IColorPalette; TextTheme: 
   return {
     ...textStyles,
     ...viewStyles,
-    tabBarActiveTintColor: theme.ColorPalette.brand.primary,
+    tabBarActiveTintColor: 'black',
     tabBarInactiveTintColor: theme.ColorPalette.brand.tabBarInactive,
     tabBarSecondaryBackgroundColor: theme.ColorPalette.brand.secondaryBackground,
   }
@@ -1242,9 +1255,14 @@ export const Assets = {
     iconDelete: IconDelete,
     iconEdit: IconEdit,
     iconCode: IconCode,
+    emptyWalletIcon: EmptyWalletIcon,
     iconError: IconError,
     iconWarning: IconWarning,
+    credentialIconFilled: CredentialIconFilled,
+    credentialIconOutline: CredentialIconOutline,
     tabOneIcon: TabOneIcon,
+    notificationBellOutline: NotificationBellOutline,
+    notificationBellFilled: NotificationBellFilled,
     tabOneFocusedIcon: TabOneFocusedIcon,
     tabTwoIcon: TabTwoIcon,
     tabThreeIcon: TabThreeIcon,
