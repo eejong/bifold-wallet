@@ -47,7 +47,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
   const [isLoading, setIsLoading] = useState(false)
   const [, dispatch] = useStore()
   const { t } = useTranslation()
-  const [checked, setChecked] = useState()
+  const [checked, setChecked] = useState(false)
 
   const { ColorPalette } = useTheme()
   const { ButtonLoading } = useAnimatedComponents()
@@ -173,7 +173,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
                     title={t('Terms.Attestation')}
                     accessibilityLabel={t('Terms.IAgree')}
                     testID={testIdWithKey('IAgree')}
-                    checked={!!checked}
+                    checked={checked}
                     onPress={() => {
                       setChecked(!checked);
                       setModalVisible(true);
@@ -191,7 +191,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
             testID={testIdWithKey('CreatePIN')}
             accessibilityLabel={t('PINCreate.CreatePIN')}
             buttonType={ButtonType.Primary}
-            disabled={isContinueDisabled}
+            disabled={checked}
             onPress={handleCreatePinTap}
             ref={createPINButtonRef}
           >
