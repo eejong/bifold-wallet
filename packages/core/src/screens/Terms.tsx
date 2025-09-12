@@ -103,19 +103,23 @@ const Terms: React.FC<TermsProps> = ({visible, onAgree, onClose}) => {
           </ScrollView>
 
           <View style={{ marginTop: 20 }}>
-            <Button
+            <View style={{ paddingTop: 10}}>
+              <Button
               title={t('Global.Accept')}
               onPress={onAgree}
               testID={testIdWithKey('Accept')}
               buttonType={ButtonType.Primary}
             />
-            <Button
-              title={t('Global.Back')}
-              onPress={onClose}
-              testID={testIdWithKey('Back')}
-              buttonType={ButtonType.Secondary}
-              style={{ marginTop: 10 }}
-            />
+            </View>
+            <View style={{ paddingTop: 10, marginBottom: 20 }}>
+              <Button
+                title={t('Global.Back')}
+                onPress={onClose}
+                testID={testIdWithKey('Back')}
+                buttonType={ButtonType.Secondary}
+                style={{ marginTop: 10 }}
+              />
+            </View>  
           </View>
         </View>
       </View>

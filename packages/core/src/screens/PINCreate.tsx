@@ -178,7 +178,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
                     title={t('Terms.IAgree')}
                     accessibilityLabel={t('Terms.IAgree')}
                     testID={testIdWithKey('IAgree')}
-                    checked={checked}
+                    checked={!!checked}
                     onPress={() => {
                       setModalVisible(true);
                     }

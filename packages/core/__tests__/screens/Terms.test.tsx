@@ -20,7 +20,9 @@ describe('Terms Screen', () => {
       >
         <BasicAppContext>
           <AuthContext.Provider value={authContext}>
-            <Terms />
+            <Terms visible={true}
+        onAgree={jest.fn()}
+        onClose={jest.fn()}/>
           </AuthContext.Provider>
         </BasicAppContext>
       </StoreProvider>
