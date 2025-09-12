@@ -69,7 +69,7 @@ const Terms: React.FC<Terms> = ({visible, onAgree, onClose}) => {
       },
       shadowOpacity: 0.25,
       shadowRadius: 20,
-    }
+    },
   })
 
   const onBackPressed = () => {
@@ -89,13 +89,13 @@ const Terms: React.FC<Terms> = ({visible, onAgree, onClose}) => {
       transparent
       animationType="slide"
       onRequestClose={onClose}
-      style={style.modalContainer}
+      style={style.modalWrapper}
     >
-      <View style={style.container}>
-        <InfoTextBox>
-                'Please agree to the terms and conditions below before using this application.'
-            </InfoTextBox>
+      <View style={style.modalContainer}>
         <View style={style.container}>
+          <InfoTextBox>
+            'Please agree to the terms and conditions below before using this application.'
+          </InfoTextBox>
           <ScrollView>
             <ThemedText style={{ marginTop: 20, marginBottom: 20 }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -113,7 +113,6 @@ const Terms: React.FC<Terms> = ({visible, onAgree, onClose}) => {
               est laborum.
             </ThemedText>
           </ScrollView>
-
           <View style={style.controlsContainer}>
             <View style={{ paddingTop: 10}}>
               <Button
@@ -121,7 +120,7 @@ const Terms: React.FC<Terms> = ({visible, onAgree, onClose}) => {
               onPress={onAgree}
               testID={testIdWithKey('Accept')}
               buttonType={ButtonType.Primary}
-            />
+              />
             </View>
             <View style={{ paddingTop: 10, marginBottom: 20 }}>
               <Button

@@ -174,7 +174,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
           {modalState.visible && (
             <AlertModal title={modalState.title} message={modalState.message} submit={modalState.onModalDismiss} />
           )}
-        <View>
+         <View syle={style.checkBox}>
           <CheckBoxRow
                     title={t('Terms.IAgree')}
                     accessibilityLabel={t('Terms.IAgree')}
@@ -195,7 +195,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
                     }}
                   />
           <TouchableOpacity onPress={() => setModalVisible(true)}>
-            <ThemedText style={{ color: 'blue', fontWeight:'bold' }}>
+            <ThemedText style={{ color: '#07489E', fontWeight:'bold' }}>
               {t('Terms.TermsOfService')}
             </ThemedText>
           </TouchableOpacity>

@@ -45,7 +45,7 @@ const InfoTextBox: React.FC<TextBoxProps> = ({
       alignSelf: 'center',
       flex: 1,
       flexWrap: 'wrap',
-      color: ColorPalette.notification.infoText,
+      color: '#000000',
       ...textStyle,
     },
     iconContainer: {
