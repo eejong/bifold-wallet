@@ -94,8 +94,7 @@ const Terms: React.FC<TermsProps> = ({visible, onAgree, onClose}) => {
         <View style={style.modalContainer}>
           <ScrollView>
             <InfoTextBox>
-              {t('Terms.Description') ||
-                'Please agree to the terms and conditions below before using this application.'}
+                'Please agree to the terms and conditions below before using this application.'
             </InfoTextBox>
             <ThemedText style={{ marginTop: 20, marginBottom: 20 }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
