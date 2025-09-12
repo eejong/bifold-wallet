@@ -32,7 +32,9 @@ import { BifoldError } from '../types/error'
 import { Screens } from '../types/navigators'
 import { testIdWithKey } from '../utils/testable'
 import CheckBoxRow from '../components/inputs/CheckBoxRow'
-import TermsModal from './Terms'
+import Terms from './Terms'
+import { TermsVersion} from './Terms'
+import { ThemedText } from 'components/texts/ThemedText'
 
 
 interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
@@ -41,18 +43,22 @@ interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreateP
 }
 
 const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus }) => {
+  
+  
   const { setPIN: setWalletPIN } = useAuth()
   const [PIN, setPIN] = useState('')
   const [PINTwo, setPINTwo] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [, dispatch] = useStore()
+  const [store, dispatch] = useStore()
   const { t } = useTranslation()
-  const [checked, setChecked] = useState(false)
-
+  const agreedToPreviousTerms = store.onboarding.didAgreeToTerms
+  const [checked, setChecked] = useState(agreedToPreviousTerms)
   const { ColorPalette } = useTheme()
   const { ButtonLoading } = useAnimatedComponents()
   const PINTwoInputRef = useRef<TextInput>(null)
   const createPINButtonRef = useRef<TouchableOpacity>(null)
+  const [modalVisible, setModalVisible] = useState(false)
+
   const [PINExplainer, PINHeader, { showPINExplainer, preventScreenCapture }, Button, inlineMessages] = useServices([
     TOKENS.SCREEN_PIN_EXPLAINER,
     TOKENS.COMPONENT_PIN_HEADER,
@@ -79,7 +85,6 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
     controlsContainer: {},
   })
 
-  const [modalVisible, setModalVisible] = useState(false)
   
   const passcodeCreate = useCallback(
     async (PIN: string) => {
@@ -170,18 +175,32 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
           )}
 
           <CheckBoxRow
-                    title={t('Terms.Attestation')}
+                    title={t('Terms.IAgree')}
                     accessibilityLabel={t('Terms.IAgree')}
                     testID={testIdWithKey('IAgree')}
                     checked={checked}
                     onPress={() => {
-                      setChecked(!checked);
                       setModalVisible(true);
                     }
                   }
                   />
-                  {modalVisible ? 
-                  <TermsModal/>: null}
+          <TouchableOpacity onPress={() => setModalVisible(true)}>
+            <ThemedText style={{ color: 'blue', textDecorationLine: 'underline' }}>
+              {t('Terms.TermsOfService')}
+            </ThemedText>
+          </TouchableOpacity>
+          <Terms
+            visible={modalVisible}
+            onClose={() => setModalVisible(false)}
+            onAgree={() => {
+              setChecked(true)
+              dispatch({
+                type: DispatchAction.DID_AGREE_TO_TERMS,
+                payload: [{ DidAgreeToTerms: TermsVersion }],
+              })
+              setModalVisible(false)
+            }}
+          />
         </View>
       
 
@@ -191,7 +210,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
             testID={testIdWithKey('CreatePIN')}
             accessibilityLabel={t('PINCreate.CreatePIN')}
             buttonType={ButtonType.Primary}
-            disabled={checked}
+            disabled={!checked}
             onPress={handleCreatePinTap}
             ref={createPINButtonRef}
           >
