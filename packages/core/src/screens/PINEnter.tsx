@@ -265,13 +265,18 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       justifyContent: 'center',
       backgroundColor: ColorPalette.brand.primaryBackground,
     },
-    upperContainer:{
+    imageContainer:{
       justifyContent: 'center',
       alignItems: 'center',
-      marginBottom: 30,
+      marginBottom: 20,
+    },
+    upperContainer:{
+      height: '50%',
+      marginBottom: 20,
     },
     buttonContainer: {
       width: '100%',
+      height: '50%',
       flexDirection: 'row',
       flexWrap: 'wrap',
       justifyContent:'center',
@@ -411,44 +416,45 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
   return (
 
       <View style={style.screenContainer}>
-        <View>
+        <View style={style.upperContainer}>
           <Pressable
             onPress={enableHiddenDevModeTrigger ? incrementDeveloperMenuCounter : () => {}}
             testID={testIdWithKey('DeveloperCounter')}
           ></Pressable>         
-          <View style={style.upperContainer}>
+          <View style={style.imageContainer}>
             <Assets.svg.sierra {...imageDisplayOptions}/>
             <ThemedText style={style.subTitle}>{t('PINEnter.SubText1')}</ThemedText>
             <ThemedText style={style.subTitle}>{t('PINEnter.SubText2')}</ThemedText>
           </View>
-        </View>
-        <View>
-          <ThemedText style={style.enterPIN}>
-            {t('PINEnter.EnterPIN')}
-          </ThemedText>
-          <View style={style.pincodeContainer}>
-          {[...Array(6).keys()].map((index) => (
-            <View
-              key={index}
-              style={[
-                style.pincodeDigit,
-                PIN.length > index
-                  ? style.pincodeDigitFilled
-                  : style.pincodeDigitUnfilled,
-              ]}
-            ></View>
-            ))}
+        
+          <View>
+            <ThemedText style={style.enterPIN}>
+              {t('PINEnter.EnterPIN')}
+            </ThemedText>
+            <View style={style.pincodeContainer}>
+              {[...Array(6).keys()].map((index) => (
+                <View
+                  key={index}
+                  style={[
+                    style.pincodeDigit,
+                    PIN.length > index
+                      ? style.pincodeDigitFilled
+                      : style.pincodeDigitUnfilled,
+                  ]}
+                ></View>
+                ))}
+            </View>
           </View>
+          {biometricsErr ? (
+              <>
+                <Text style={[TextTheme.normal, { alignSelf: 'center', color: "red" }]}>{t('PINEnter.BiometricsError')}</Text>
+                <Text style={[TextTheme.normal, { alignSelf: 'center', color: "red" }]}>{t('PINEnter.BiometricsErrorEnterPIN')}
+                </Text>
+              </>
+            ) : (
+              <Text style={[TextTheme.normal, { alignSelf: 'center', marginBottom: 20 }]}> </Text>
+            )}
         </View>
-    {biometricsErr ? (
-            <>
-              <Text style={[TextTheme.normal, { alignSelf: 'center', color: "red" }]}>{t('PINEnter.BiometricsError')}</Text>
-              <Text style={[TextTheme.normal, { alignSelf: 'center', color: "red" }]}>{t('PINEnter.BiometricsErrorEnterPIN')}
-              </Text>
-            </>
-          ) : (
-            <Text style={[TextTheme.normal, { alignSelf: 'center', marginBottom: 16 }]}> </Text>
-          )}
         <View>
           <View style={style.buttonContainer}>
            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (
@@ -486,7 +492,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
               >
               <Assets.svg.carbondelete />
             </TouchableOpacity>
-            </View>
+          </View>
         </View>
         {alertModalVisible ? (
         <PopupModal
