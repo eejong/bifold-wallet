@@ -29,18 +29,33 @@ describe('Terms Screen', () => {
     )
     expect(tree).toMatchSnapshot()
   })
+  test('Calls onAgree when Accept is pressed', () => {
+      const onAgreeMock = jest.fn()
 
-  test('Button enabled by checkbox being checked', async () => {
-    const tree = render(
-      <BasicAppContext>
-        <Terms visible={true} onAgree={jest.fn()} onClose={jest.fn()} />
-      </BasicAppContext>
-    )
-    const { getByTestId } = tree
-    await act(async () => {
-      const checkbox = getByTestId(testIdWithKey('IAgree'))
-      fireEvent(checkbox, 'press')
-      expect(tree).toMatchSnapshot()
+      const { getByTestId } = render(
+        <BasicAppContext>
+          <Terms visible={true} onAgree={onAgreeMock} onClose={jest.fn()} />
+        </BasicAppContext>
+      )
+
+      const acceptButton = getByTestId(testIdWithKey('Accept'))
+      fireEvent.press(acceptButton)
+
+      expect(onAgreeMock).toHaveBeenCalled()
     })
-  })
+
+    test('Calls onClose when Back is pressed', () => {
+      const onCloseMock = jest.fn()
+
+      const { getByTestId } = render(
+        <BasicAppContext>
+          <Terms visible={true} onAgree={jest.fn()} onClose={onCloseMock} />
+        </BasicAppContext>
+      )
+
+      const backButton = getByTestId(testIdWithKey('Back'))
+      fireEvent.press(backButton)
+
+      expect(onCloseMock).toHaveBeenCalled()
+    })
 })

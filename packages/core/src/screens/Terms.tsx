@@ -17,13 +17,13 @@ import { ThemedText } from '../components/texts/ThemedText'
 export const TermsVersion = '1'
 
 
-interface TermsProps {
+interface Terms {
   visible: boolean
   onAgree: () => void
   onClose: () => void
 }
 
-const Terms: React.FC<TermsProps> = ({visible, onAgree, onClose}) => {
+const Terms: React.FC<Terms> = ({visible, onAgree, onClose}) => {
   const [store, dispatch] = useStore()
   const agreedToPreviousTerms = store.onboarding.didAgreeToTerms
   const [checked, setChecked] = useState(agreedToPreviousTerms)

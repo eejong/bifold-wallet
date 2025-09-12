@@ -47,9 +47,3 @@ dependencyLocking {
     lockAllConfigurations()
 }
 
-externalNativeBuild {
-    cmake {
-        cppFlags "-std=c++17 -Wno-c++17-extensions"
-    }
-}
-
