@@ -78,7 +78,9 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
       padding: 20,
       justifyContent: 'space-between',
     },
-
+    checkBox:{
+      flexDirection: 'row',
+    },
     // below used as helpful labels for views, no properties needed atp
     contentContainer: {},
     controlsContainer: {},
@@ -172,22 +174,32 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
           {modalState.visible && (
             <AlertModal title={modalState.title} message={modalState.message} submit={modalState.onModalDismiss} />
           )}
-
+        <View>
           <CheckBoxRow
                     title={t('Terms.IAgree')}
                     accessibilityLabel={t('Terms.IAgree')}
                     testID={testIdWithKey('IAgree')}
                     checked={!!checked}
                     onPress={() => {
-                      setModalVisible(true);
-                    }
-                  }
+                      if (checked) {
+                        // Unchecking: remove agreement
+                        setChecked(false)
+                        dispatch({
+                          type: DispatchAction.DID_AGREE_TO_TERMS,
+                          payload: [],
+                        })
+                      } else {
+                        // Checking: show modal first before agreeing
+                        setModalVisible(true)
+                      }
+                    }}
                   />
           <TouchableOpacity onPress={() => setModalVisible(true)}>
-            <ThemedText style={{ color: 'blue', textDecorationLine: 'underline' }}>
+            <ThemedText style={{ color: 'blue', fontWeight:'bold' }}>
               {t('Terms.TermsOfService')}
             </ThemedText>
           </TouchableOpacity>
+        </View>
           <Terms
             visible={modalVisible}
             onClose={() => setModalVisible(false)}
@@ -209,7 +221,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
             testID={testIdWithKey('CreatePIN')}
             accessibilityLabel={t('PINCreate.CreatePIN')}
             buttonType={ButtonType.Primary}
-            disabled={!checked}
+            disabled={!checked || isContinueDisabled}
             onPress={handleCreatePinTap}
             ref={createPINButtonRef}
           >
