@@ -60,11 +60,25 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
       return walletSecret
     }
 
-    const secret = await loadWalletSecret(t('Biometry.UnlockPromptTitle'), t('Biometry.UnlockPromptDescription'))
+    try {
+    const secret = await loadWalletSecret(
+      t('Biometry.UnlockPromptTitle'),
+      t('Biometry.UnlockPromptDescription')
+    )
+
+    if (!secret) {
+      //Emit error if biometrics failed
+      DeviceEventEmitter.emit(EventTypes.BIOMETRY_ERROR, true)
+      return undefined
+    }
 
     setWalletSecret(secret)
-
     return secret
+  } catch (e) {
+    //Catch unexpected biometric errors too
+    DeviceEventEmitter.emit(EventTypes.BIOMETRY_ERROR, true)
+    return undefined
+  }
   }, [t, walletSecret])
 
   const commitWalletToKeychain = useCallback(

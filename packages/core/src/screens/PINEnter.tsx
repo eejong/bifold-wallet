@@ -23,7 +23,6 @@ import usePreventScreenCapture from '../hooks/screen-capture'
 import { BifoldError } from '../types/error'
 import { testIdWithKey } from '../utils/testable'
 import { getBuildNumber, getVersion } from 'react-native-device-info'
-import Terms from './Terms'
 interface PINEnterProps {
   setAuthenticated: (status: boolean) => void
   usage?: PINEntryUsage
@@ -72,7 +71,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
   // listen for biometrics error event
   useEffect(() => {
     const handle = DeviceEventEmitter.addListener(EventTypes.BIOMETRY_ERROR, (value?: boolean) => {
-      const newVal = value === undefined ? true : value
+      const newVal = value === undefined ? !biometricsErr : value
       setBiometricsErr(newVal)
     })
     return () => {
@@ -444,8 +443,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
     {biometricsErr ? (
             <>
               <Text style={[TextTheme.normal, { alignSelf: 'center', color: "red" }]}>{t('PINEnter.BiometricsError')}</Text>
-              <Text style={[TextTheme.normal, { alignSelf: 'center', color: "red" }]}>
-                {t('PINEnter.BiometricsErrorEnterPIN')}
+              <Text style={[TextTheme.normal, { alignSelf: 'center', color: "red" }]}>{t('PINEnter.BiometricsErrorEnterPIN')}
               </Text>
             </>
           ) : (
