@@ -33,7 +33,7 @@ describe('Terms Screen', () => {
   test('Button enabled by checkbox being checked', async () => {
     const tree = render(
       <BasicAppContext>
-        <Terms />
+        <Terms visible={true} onAgree={jest.fn()} onClose={jest.fn()} />
       </BasicAppContext>
     )
     const { getByTestId } = tree
