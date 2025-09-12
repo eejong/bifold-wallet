@@ -66,16 +66,19 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
       t('Biometry.UnlockPromptDescription')
     )
 
-    // If user cancels, secret will be undefined, but it's not an error
     if (!secret) {
       return undefined
     }
 
     setWalletSecret(secret)
     return secret
-  } catch (err) {
-    // Only emit BIOMETRY_ERROR if it's actually a biometric failure
-    // You can add more robust checks here if your keychain API returns specific error codes
+  } catch (err: any) {
+    // ✅ Ignore biometric cancelation error
+    if (err?.name === 'UserCancel') {
+      return undefined
+    }
+
+    // ✅ Otherwise, it's a real biometric failure
     DeviceEventEmitter.emit(EventTypes.BIOMETRY_ERROR, true)
     return undefined
   }
