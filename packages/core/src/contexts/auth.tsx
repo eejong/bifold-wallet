@@ -60,7 +60,6 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
       return walletSecret
     }
 
-    try {
     const secret = await loadWalletSecret(
       t('Biometry.UnlockPromptTitle'),
       t('Biometry.UnlockPromptDescription')
@@ -74,11 +73,7 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
 
     setWalletSecret(secret)
     return secret
-  } catch (e) {
-    //Catch unexpected biometric errors too
-    DeviceEventEmitter.emit(EventTypes.BIOMETRY_ERROR, true)
-    return undefined
-  }
+  
   }, [t, walletSecret])
 
   const commitWalletToKeychain = useCallback(

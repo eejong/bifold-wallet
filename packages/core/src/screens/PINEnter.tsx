@@ -269,14 +269,18 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       justifyContent: 'center',
       alignItems: 'center',
       marginBottom: 20,
+      marginTop: 50,
     },
     upperContainer:{
-      height: '50%',
+      height: '60%',
       marginBottom: 20,
+      marginTop: 50,
+      justifyContent:'center',
+      alignItems:'center'
     },
     buttonContainer: {
       width: '100%',
-      height: '50%',
+      height: '40%',
       flexDirection: 'row',
       flexWrap: 'wrap',
       justifyContent:'center',
