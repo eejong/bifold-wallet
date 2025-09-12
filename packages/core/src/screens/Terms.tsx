@@ -55,13 +55,13 @@ const Terms: React.FC<Terms> = ({visible, onAgree, onClose}) => {
     modalWrapper: {
       flex: 1,
       justifyContent: 'center',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      backgroundColor: '#000000',
     },
     modalContainer:{
       backgroundColor: '#FFFFFF',
       borderRadius: 20,
-      alignItems: 'center',
       maxHeight: '90%',
+      alignItems: 'center',
       shadowColor: '#00000',
       shadowOffset: {
         width: 0,
@@ -89,20 +89,32 @@ const Terms: React.FC<Terms> = ({visible, onAgree, onClose}) => {
       transparent
       animationType="slide"
       onRequestClose={onClose}
+      style={style.modalContainer}
     >
-      <View style={style.modalWrapper}>
-        <View style={style.modalContainer}>
-          <ScrollView>
-            <InfoTextBox>
+      <View style={style.container}>
+        <InfoTextBox>
                 'Please agree to the terms and conditions below before using this application.'
             </InfoTextBox>
+        <View style={style.container}>
+          <ScrollView>
             <ThemedText style={{ marginTop: 20, marginBottom: 20 }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. {/* Add more terms if needed */}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+              in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
+              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+              in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+              est laborum.
             </ThemedText>
           </ScrollView>
 
-          <View style={{ marginTop: 20 }}>
+          <View style={style.controlsContainer}>
             <View style={{ paddingTop: 10}}>
               <Button
               title={t('Global.Accept')}
