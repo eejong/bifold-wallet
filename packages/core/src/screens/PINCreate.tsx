@@ -33,7 +33,6 @@ import { Screens } from '../types/navigators'
 import { testIdWithKey } from '../utils/testable'
 import CheckBoxRow from '../components/inputs/CheckBoxRow'
 import Terms from './Terms'
-import { TermsVersion} from './Terms'
 import { ThemedText } from 'components/texts/ThemedText'
 
 
@@ -196,7 +195,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
               setChecked(true)
               dispatch({
                 type: DispatchAction.DID_AGREE_TO_TERMS,
-                payload: [{ DidAgreeToTerms: TermsVersion }],
+                payload: [{ DidAgreeToTerms: '1' }],
               })
               setModalVisible(false)
             }}
