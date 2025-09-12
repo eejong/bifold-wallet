@@ -117,7 +117,6 @@ const Terms: React.FC<TermsProps> = ({visible, onAgree, onClose}) => {
                 onPress={onClose}
                 testID={testIdWithKey('Back')}
                 buttonType={ButtonType.Secondary}
-                style={{ marginTop: 10 }}
               />
             </View>  
           </View>
