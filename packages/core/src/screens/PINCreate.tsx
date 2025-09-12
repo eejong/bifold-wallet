@@ -33,7 +33,7 @@ import { Screens } from '../types/navigators'
 import { testIdWithKey } from '../utils/testable'
 import CheckBoxRow from '../components/inputs/CheckBoxRow'
 import Terms from './Terms'
-import { ThemedText } from 'components/texts/ThemedText'
+import { ThemedText } from '../components/texts/ThemedText'
 
 
 interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
