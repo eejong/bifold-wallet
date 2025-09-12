@@ -72,13 +72,13 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
   // listen for biometrics error event
   useEffect(() => {
     const handle = DeviceEventEmitter.addListener(EventTypes.BIOMETRY_ERROR, (value?: boolean) => {
-      const newVal = value === undefined ? !biometricsErr : value
+      const newVal = value === undefined ? true : value
       setBiometricsErr(newVal)
     })
     return () => {
       handle.remove()
     }
-  }, [PIN])
+  }, [])
 
   const loadWalletCredentials = useCallback(async () => {
     const walletSecret = await getWalletSecret()
