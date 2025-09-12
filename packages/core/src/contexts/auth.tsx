@@ -56,25 +56,30 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
   }, [])
 
   const getWalletSecret = useCallback(async (): Promise<WalletSecret | undefined> => {
-    if (walletSecret) {
-      return walletSecret
-    }
+  if (walletSecret) {
+    return walletSecret
+  }
 
+  try {
     const secret = await loadWalletSecret(
       t('Biometry.UnlockPromptTitle'),
       t('Biometry.UnlockPromptDescription')
     )
 
+    // If user cancels, secret will be undefined, but it's not an error
     if (!secret) {
-      //Emit error if biometrics failed
-      DeviceEventEmitter.emit(EventTypes.BIOMETRY_ERROR, true)
       return undefined
     }
 
     setWalletSecret(secret)
     return secret
-  
-  }, [t, walletSecret])
+  } catch (err) {
+    // Only emit BIOMETRY_ERROR if it's actually a biometric failure
+    // You can add more robust checks here if your keychain API returns specific error codes
+    DeviceEventEmitter.emit(EventTypes.BIOMETRY_ERROR, true)
+    return undefined
+  }
+}, [t, walletSecret])
 
   const commitWalletToKeychain = useCallback(
     async (useBiometry: boolean): Promise<boolean> => {

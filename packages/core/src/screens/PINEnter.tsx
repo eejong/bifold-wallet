@@ -71,8 +71,10 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
   // listen for biometrics error event
   useEffect(() => {
     const handle = DeviceEventEmitter.addListener(EventTypes.BIOMETRY_ERROR, (value?: boolean) => {
-      const newVal = value === undefined ? !biometricsErr : value
-      setBiometricsErr(newVal)
+      // Only update state if it's explicitly a biometric error
+      if (value === true) {
+        setBiometricsErr(true)
+      }
     })
     return () => {
       handle.remove()
@@ -268,8 +270,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
     imageContainer:{
       justifyContent: 'center',
       alignItems: 'center',
-      marginBottom: 20,
-      marginTop: 50,
+      marginBottom: 50,
+      marginTop: 40,
     },
     upperContainer:{
       height: '60%',
@@ -285,8 +287,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       flexWrap: 'wrap',
       justifyContent:'center',
       padding: 15,
-      paddingTop: 20,
-      bottom: 0
+      paddingBottom: 20,
+      bottom: 20
     },
     biometricsButtonContainer: {
       width: '100%',
