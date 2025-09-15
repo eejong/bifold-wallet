@@ -80,8 +80,6 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
     },
     checkBox:{
       flexDirection: 'row',
-      alignItems: 'flex-start',
-      height: 30
     },
     // below used as helpful labels for views, no properties needed atp
     contentContainer: {},
@@ -197,7 +195,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
                     }}
                   />
           <TouchableOpacity onPress={() => setModalVisible(true)}>
-            <ThemedText style={{ color: '#07489E', fontWeight:'bold' }}>
+            <ThemedText style={{ color: '#07489E', marginVertical: 20 }}>
               {t('Terms.TermsOfService')}
             </ThemedText>
           </TouchableOpacity>
