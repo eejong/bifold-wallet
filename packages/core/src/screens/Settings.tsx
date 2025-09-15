@@ -400,7 +400,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
                 <ThemedText testID={testIdWithKey('Version')}>
                   {`${t('Settings.Version')} ${getVersion()} ${t('Settings.Build')} (${getBuildNumber()})`}
                 </ThemedText>
-                <Assets.svg.logo style={{ alignSelf: 'center' }} width={150} height={75} />
+                <Assets.svg.sierra style={{ alignSelf: 'center' }} width={150} height={75} />
               </View>
             </TouchableWithoutFeedback>
           </View>
