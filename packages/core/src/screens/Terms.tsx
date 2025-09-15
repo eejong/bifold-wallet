@@ -56,11 +56,12 @@ const Terms: React.FC<Terms> = ({visible, onAgree, onClose}) => {
       flex: 1,
       justifyContent: 'center',
       backgroundColor: '#000000',
-      opacity: 0.5,
+      opacity: 0.25,
       borderRadius:20,
     },
     modalContainer:{
       backgroundColor: '#FFFFFF',
+      opacity:1,
       borderRadius: 20,
       maxHeight: '90%',
       alignItems: 'center',

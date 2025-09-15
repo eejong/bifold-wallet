@@ -78,9 +78,6 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
       padding: 20,
       justifyContent: 'space-between',
     },
-    checkBox:{
-      flexDirection: 'row',
-    },
     // below used as helpful labels for views, no properties needed atp
     contentContainer: {},
     controlsContainer: {},

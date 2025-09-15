@@ -134,8 +134,6 @@ const CustomPages = ({ onTutorialCompleted, OnboardingTheme }: {onTutorialComple
             DOST-ASTI wallet is new. The available digital credentials are currently limited. Are you sure you want to proceed?
           </ThemedText>
         </View>
-      </ScrollView>
-      <View style={{ padding: 20 }}>
         <CheckBoxRow
         title={t('Onboarding.Attestation')}
         accessibilityLabel={t('Onboarding.IAgree')}
@@ -143,8 +141,8 @@ const CustomPages = ({ onTutorialCompleted, OnboardingTheme }: {onTutorialComple
         checked={checked}
         onPress={() => setChecked(!checked)}
         />
-      </View>
-      
+      </ScrollView>
+              
       <View style={{ marginTop: 'auto', margin: 20 }}>
         <Button
           title={t('Global.GetStarted')}
