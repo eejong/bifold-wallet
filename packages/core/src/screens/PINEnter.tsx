@@ -377,6 +377,12 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
     pincodeDigitFilled: {
       backgroundColor:'#042645',
     },
+    lineSperator:{
+      height: 1,
+      width: '100%',
+      backgroundColor: '#E6E6E6',
+      marginVertical: 10,
+    }
   })
 
    const imageDisplayOptions = {
@@ -461,6 +467,7 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
               <Text style={[TextTheme.normal, { alignSelf: 'center', marginBottom: 20 }]}> </Text>
             )}
         </View>
+        <View style={style.lineSperator}/>
         <View>
           <View style={style.buttonContainer}>
            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (
