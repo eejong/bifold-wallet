@@ -173,7 +173,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
           )}
          <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', marginVertical: 10 }}>
           <CheckBoxRow
-                    title={''}
+                    title={t('Terms.IAgree')}
                     accessibilityLabel={t('Terms.IAgree')}
                     testID={testIdWithKey('IAgree')}
                     checked={!!checked}
@@ -192,7 +192,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
                     }}
                   />
           <ThemedText style={{ color: '##4A4A4A' }}>
-            {t('Terms.IAgree')}{" "}
+            {" "}
           </ThemedText>
           <TouchableOpacity onPress={() => setModalVisible(true)}>
             <ThemedText style={{ color: '#07489E' }}>
