@@ -55,23 +55,20 @@ const Terms: React.FC<Terms> = ({visible, onAgree, onClose}) => {
     modalWrapper: {
       flex: 1,
       justifyContent: 'center',
-      backgroundColor: '#000000',
-      opacity: 0.25,
-      borderRadius:20,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalContainer:{
       backgroundColor: '#FFFFFF',
       opacity:1,
       borderRadius: 20,
       maxHeight: '90%',
+      overflow: 'hidden', 
       alignItems: 'center',
       shadowColor: '#00000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
+      shadowOffset: {width: 0, height: 2,},
       shadowOpacity: 0.25,
       shadowRadius: 20,
+      elevation: 5, 
     },
   })
 
