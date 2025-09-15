@@ -80,6 +80,8 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
     },
     checkBox:{
       flexDirection: 'row',
+      alignItems: 'flex-start',
+      height: 30
     },
     // below used as helpful labels for views, no properties needed atp
     contentContainer: {},
@@ -217,7 +219,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
 
         <View style={style.controlsContainer}>
           <Button
-            title={t('PINCreate.CreatePIN')}
+            title={('Continue')}
             testID={testIdWithKey('CreatePIN')}
             accessibilityLabel={t('PINCreate.CreatePIN')}
             buttonType={ButtonType.Primary}
