@@ -78,9 +78,6 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
       padding: 20,
       justifyContent: 'space-between',
     },
-    checkBox:{
-      flexDirection: 'row',
-    },
     // below used as helpful labels for views, no properties needed atp
     contentContainer: {},
     controlsContainer: {},
@@ -174,7 +171,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
           {modalState.visible && (
             <AlertModal title={modalState.title} message={modalState.message} submit={modalState.onModalDismiss} />
           )}
-         <View style={style.checkBox}>
+        
           <CheckBoxRow
                     title={t('Terms.IAgree')}
                     accessibilityLabel={t('Terms.IAgree')}
@@ -199,7 +196,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
               {t('Terms.TermsOfService')}
             </ThemedText>
           </TouchableOpacity>
-        </View>
+
           <Terms
             visible={modalVisible}
             onClose={() => setModalVisible(false)}
