@@ -12,7 +12,7 @@ import { InlineErrorPosition } from '../../types/error'
 import { ThemedText } from '../texts/ThemedText'
 
 // adjusting for the spaces between numbers
-const cellCount = minPINLength
+const cellCount = minPINLength * 2 - 1
 
 interface PINInputProps {
   label?: string
@@ -46,20 +46,16 @@ const PINInputComponent = (
   }, [PIN, showPIN])
 
   const onChangeText = (value: string) => {
-    let cleanValue = value.replaceAll(' ', '').replace(/[^\d]/g, '')
-
-    if (cleanValue.length > minPINLength) {
-      cleanValue = cleanValue.slice(0, minPINLength)
-    }
+    const cleanValue = value.replaceAll(' ', '')
     // typed new characters
     if (cleanValue.length > PIN.length) {
       // add new characters to the actual PIN
       const newChars = cleanValue.slice(PIN.length)
-      const newPIN = PIN + newChars.replace(/●/g, '')
+      const newPIN = PIN + newChars.replace(/●/g, '').replace(/[^\d]/g, '');
       setPIN(newPIN)
       onPINChanged && onPINChanged(newPIN)
       // characters were removed
-    } else if (cleanValue.length < PIN.length) {
+    } else if (cleanValue.length < displayValue.replaceAll(' ', '').length) {
       // remove same number of characters from actual PIN
       const newPIN = PIN.slice(0, cleanValue.length)
       setPIN(newPIN)
@@ -87,10 +83,6 @@ const PINInputComponent = (
     cell: {
       height: cellHeight,
       paddingHorizontal: 2,
-      width: 40, // optional, to make boxes more visible
-      marginHorizontal: 4, // Add spacing between cells
-      justifyContent: 'center',
-      alignItems: 'center',
       backgroundColor: PINInputTheme.cell.backgroundColor,
     },
     cellText: {
