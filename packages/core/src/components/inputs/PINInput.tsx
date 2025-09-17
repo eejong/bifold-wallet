@@ -12,7 +12,7 @@ import { InlineErrorPosition } from '../../types/error'
 import { ThemedText } from '../texts/ThemedText'
 
 // adjusting for the spaces between numbers
-const cellCount = minPINLength * 2 - 1
+const cellCount = minPINLength
 
 interface PINInputProps {
   label?: string
@@ -87,6 +87,10 @@ const PINInputComponent = (
     cell: {
       height: cellHeight,
       paddingHorizontal: 2,
+      width: 40, // optional, to make boxes more visible
+      marginHorizontal: 4, // Add spacing between cells
+      justifyContent: 'center',
+      alignItems: 'center',
       backgroundColor: PINInputTheme.cell.backgroundColor,
     },
     cellText: {
