@@ -46,7 +46,11 @@ const PINInputComponent = (
   }, [PIN, showPIN])
 
   const onChangeText = (value: string) => {
-    const cleanValue = value.replaceAll(' ', '').replace(/[^\d]/g, '')
+    let cleanValue = value.replaceAll(' ', '').replace(/[^\d]/g, '')
+
+    if (cleanValue.length > minPINLength) {
+      cleanValue = cleanValue.slice(0, minPINLength)
+    }
     // typed new characters
     if (cleanValue.length > PIN.length) {
       // add new characters to the actual PIN
@@ -55,7 +59,7 @@ const PINInputComponent = (
       setPIN(newPIN)
       onPINChanged && onPINChanged(newPIN)
       // characters were removed
-    } else if (cleanValue.length < displayValue.replaceAll(' ', '').length) {
+    } else if (cleanValue.length < PIN.length) {
       // remove same number of characters from actual PIN
       const newPIN = PIN.slice(0, cleanValue.length)
       setPIN(newPIN)
