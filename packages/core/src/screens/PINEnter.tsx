@@ -287,8 +287,8 @@ const PINEnter: React.FC<PINEnterProps> = ({ setAuthenticated, usage = PINEntryU
       flexWrap: 'wrap',
       justifyContent:'center',
       padding: 15,
-      paddingBottom: 20,
-      bottom: 20
+      paddingBottom: 30,
+      bottom: 30
     },
     biometricsButtonContainer: {
       width: '100%',
