@@ -242,7 +242,7 @@
     },
     "PINTooShort": "PIN is too short",
     "InvalidPIN": "Invalid PIN",
-    "PINsDoNotMatch": "PIN do not match",
+    "PINsDoNotMatch": "PIN does not match",
     "EnterPINTitle": "Enter a 6 digit PIN",
     "EnterPIN": "Enter PIN",
     "ReenterPIN": "Re-enter your PIN",
