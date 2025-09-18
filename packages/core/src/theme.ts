@@ -2,6 +2,7 @@ import { StyleSheet, ViewStyle } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 
 import Arrow from './assets/icons/large-arrow.svg'
+import BackArrow from './assets/icons/arrow.svg'
 import IconDelete from './assets/icons/trash.svg'
 import IconEdit from './assets/icons/pencil.svg'
 import IconCode from './assets/icons/code.svg'
@@ -91,6 +92,7 @@ export interface ISVGAssets {
   emptyWallet: React.FC<SvgProps>
   logo: React.FC<SvgProps>
   proofRequestDeclined: React.FC<SvgProps>
+  arrowBack: React.FC<SvgProps>
   arrow: React.FC<SvgProps>
   iconCredentialOfferDark: React.FC<SvgProps>
   iconCredentialOfferLight: React.FC<SvgProps>
@@ -1210,6 +1212,7 @@ export const Assets = {
     contactBook: ContactBook,
     logo: Logo,
     proofRequestDeclined: ProofRequestDeclined,
+    arrowBack: BackArrow,
     arrow: Arrow,
     iconCredentialOfferDark: IconCredentialOfferDark,
     iconCredentialOfferLight: IconCredentialOfferLight,

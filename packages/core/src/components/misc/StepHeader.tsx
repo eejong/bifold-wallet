@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native'
 import { Ionicons } from '@expo/vector-icons' // or use any other icon lib
+import { useTheme } from 'contexts/theme'
 
 interface HeaderProps {
   step?: number // from 1 to 4
@@ -8,10 +9,11 @@ interface HeaderProps {
 }
 
 const StepHeader: React.FC<HeaderProps> = ({ step = 1, onBackPress }) => {
+  const {  Assets } = useTheme()
   return (
     <View style={styles.headerContainer}>
       <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
-        <Ionicons name="arrow-back" size={24} color="black" />
+      <Assets.svg.arrow/>
       </TouchableOpacity>
       <View style={styles.dotsContainer}>
         {[1, 2, 3, 4].map((i) => (
