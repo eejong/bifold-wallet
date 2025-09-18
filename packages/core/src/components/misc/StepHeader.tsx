@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native'
-import { Ionicons } from '@expo/vector-icons' // or use any other icon lib
 import { useTheme } from 'contexts/theme'
 
 interface HeaderProps {
