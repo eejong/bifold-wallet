@@ -30,7 +30,7 @@ const PINHeader = ({ updatePin }: PINHeaderProps) => {
   return (
     <View>
       <View>
-        {updatePin ? (<StepHeader/>) :(<View style={[styles.headerText,{ marginTop: 50}]}/>) }
+        {!updatePin ? (<StepHeader/>) :(<View style={[styles.headerText,{ marginTop: 50}]}/>) }
         <ThemedText style={styles.headerText}>
             {updatePin ? t('PINChange.ChangePIN') : t('PINCreate.CreatePIN')}
         </ThemedText>
