@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native'
-import { useTheme } from 'contexts/theme'
+import { useTheme } from '../../contexts/theme'
 
 interface HeaderProps {
   step?: number // from 1 to 4
