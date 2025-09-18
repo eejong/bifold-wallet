@@ -34,7 +34,7 @@ import { testIdWithKey } from '../utils/testable'
 import CheckBoxRow from '../components/inputs/CheckBoxRow'
 import Terms from './Terms'
 import { ThemedText } from '../components/texts/ThemedText'
-import StepHeader from 'components/misc/StepHeader'
+import StepHeader from '../components/misc/StepHeader'
 
 
 interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
