@@ -2,7 +2,7 @@ import { StyleSheet, ViewStyle } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 
 import Arrow from './assets/icons/large-arrow.svg'
-import BackArrow from './assets/icons/arrow.svg'
+import BackArrow from './assets/img/arrow.svg'
 import IconDelete from './assets/icons/trash.svg'
 import IconEdit from './assets/icons/pencil.svg'
 import IconCode from './assets/icons/code.svg'
