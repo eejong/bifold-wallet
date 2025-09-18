@@ -34,6 +34,7 @@ import { testIdWithKey } from '../utils/testable'
 import CheckBoxRow from '../components/inputs/CheckBoxRow'
 import Terms from './Terms'
 import { ThemedText } from '../components/texts/ThemedText'
+import StepHeader from 'components/misc/StepHeader'
 
 
 interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
@@ -131,6 +132,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
     <KeyboardView keyboardAvoiding={false}>
       <View style={style.screenContainer}>
         <View style={style.contentContainer}>
+          <StepHeader/>
           <PINHeader />
           <PINInput
             label={t('PINCreate.EnterPINTitle')}

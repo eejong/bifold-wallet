@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { useTheme } from '../../contexts/theme'
 import { View, StyleSheet } from 'react-native'
 import { ThemedText } from '../texts/ThemedText'
+import StepHeader from './StepHeader'
 
 export interface PINHeaderProps {
   updatePin?: boolean
@@ -11,7 +12,6 @@ const styles = StyleSheet.create({
       fontSize: 32,
       textAlign: 'center',
       fontWeight: 'bold',
-      marginTop: 50,
       marginBottom: 30,
       color: '#042645',
     },
@@ -30,6 +30,7 @@ const PINHeader = ({ updatePin }: PINHeaderProps) => {
   return (
     <View>
       <View>
+        {updatePin ? (<StepHeader/>) :(<View style={[styles.headerText,{ marginTop: 50}]}/>) }
         <ThemedText style={styles.headerText}>
             {updatePin ? t('PINChange.ChangePIN') : t('PINCreate.CreatePIN')}
         </ThemedText>
