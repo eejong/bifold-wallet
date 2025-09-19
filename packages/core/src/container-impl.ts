@@ -63,7 +63,7 @@ export const defaultConfig: Config = {
   },
   settings: [],
   enableChat: true,
-  enableTours: false,
+  enableTours: true,
   preventScreenCapture: false,
   supportedLanguages: [Locales.en, Locales.fr, Locales.ptBr],
   showPreface: false,
