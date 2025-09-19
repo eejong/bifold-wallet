@@ -174,8 +174,8 @@
   "Tour": {
     "GuideTitle": "Welcome to ASTI Wallet",
     "WouldYouLike": "Would you like to take a tour on how to use ASTI Wallet?",
-    "UseAppGuides": "Use app guides",
-    "DoNotUseAppGuides": "Don't use app guides",
+    "UseAppGuides": "Yes, please!",
+    "DoNotUseAppGuides": "No, I'm good!",
     "AddAndShare": "Add and share credentials",
     "AddAndShareDescription": "To add and use credentials, you scan a QR code displayed by the service provider. \n\nYou can also use it to register and log into some service providers.",
     "AddCredentials": "Add credentials",
