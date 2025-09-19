@@ -127,7 +127,7 @@ const AppGuideModal: React.FC<AppGuideModalProps> = ({
                 title={onSecondCallToActionLabel || t('Global.Dismiss')}
                 accessibilityLabel={onSecondCallToActionLabel || t('Global.Dismiss')}
                 testID={testIdWithKey('Secondary')}
-                buttonType={ButtonType.Secondary}
+                buttonType={ButtonType.Tertiary}
                 onPress={onSecondCallToActionPressed}
                 maxfontSizeMultiplier={1.5}
               />

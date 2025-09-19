@@ -30,7 +30,7 @@ export const homeTourSteps: TourStep[] = [
           stepOn={1}
           stepsOutOf={3}
         >
-          <ScanImg style={{ alignSelf: 'center', padding: 10, marginVertical: 10}} />
+          <ScanImg style={{ alignSelf: 'center', padding: 10, marginVertical: 20}} />
           <Text
             style={{
               ...TextTheme.normal,
@@ -64,7 +64,7 @@ export const homeTourSteps: TourStep[] = [
           stepOn={2}
           stepsOutOf={3}
         >
-          <NotifImg style={{ alignSelf: 'center', padding: 10, marginVertical: 10}} />
+          <NotifImg style={{ alignSelf: 'center', padding: 10, marginVertical: 20}} />
           <Text
             style={{
               ...TextTheme.normal,
@@ -98,7 +98,7 @@ export const homeTourSteps: TourStep[] = [
           stepOn={3}
           stepsOutOf={3}
         >
-          <CredentialImg style={{ alignSelf: 'center', padding: 10, marginVertical: 10}} />
+          <CredentialImg style={{ alignSelf: 'center', padding: 10, marginVertical: 20}} />
           <Text
             style={{
               ...TextTheme.normal,

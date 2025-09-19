@@ -541,7 +541,7 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
     },
     tertiaryText: {
       ...theme.TextTheme.bold,
-      color: theme.ColorPalette.brand.primary,
+      color: '#292929',
       textAlign: 'center',
     },
     tertiaryTextDisabled: {
@@ -626,9 +626,15 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
     },
     tertiary: {
       padding: 20,
+      borderRadius: 15,
+      borderWidth: 2,
+      borderColor:'#292929'
     },
     tertiaryDisabled: {
       padding: 20,
+      borderRadius: 15,
+      borderWidth: 2,
+      borderColor: theme.ColorPalette.brand.tertiaryDisabled,
     },
     modalCritical: {
       padding: 20,

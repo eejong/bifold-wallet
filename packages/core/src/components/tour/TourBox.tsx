@@ -122,11 +122,11 @@ export function TourBox(props: TourBoxProps): ReactElement {
       alignSelf: 'center',
     },
     pagerDot: {
-      ...OnboardingTheme.pagerDot,
-      borderWidth: 1,
+      borderColor:'#07489E',
+      borderWidth: 2,
       borderStyle: 'solid',
-      width: 10,
-      height: 10,
+      width: 13,
+      height: 13,
       borderRadius: 5,
       marginHorizontal: 5,
     
