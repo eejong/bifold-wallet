@@ -62,7 +62,7 @@ const TourProviderComponent = (props: TourProviderProps, ref: Ref<Tour>) => {
     children,
     onBackdropPress,
     overlayColor = 'black',
-    overlayOpacity = 0.45,
+    overlayOpacity = 0.45,x``
     tours,
     nativeDriver = false,
   } = props

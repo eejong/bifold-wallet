@@ -44,10 +44,12 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
   [Screens.Biometry]: {
     headerTintColor: OnboardingTheme.headerTintColor,
     headerBackTestID: testIdWithKey('Back'),
+    headerShown: false,
   },
   [Screens.ToggleBiometry]: {
     headerTintColor: OnboardingTheme.headerTintColor,
     headerBackTestID: testIdWithKey('Back'),
+    headerShown: false,
   },
   [Screens.Developer]: {
     headerTintColor: OnboardingTheme.headerTintColor,
