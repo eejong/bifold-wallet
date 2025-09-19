@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   backButton: {
-    marginRight: 20,
+    marginRight: 20, color: 'red',
   },
   dotsContainer: {
     flexDirection: 'row',
