@@ -135,7 +135,7 @@ export function TourBox(props: TourBoxProps): ReactElement {
       backgroundColor: '#07489E',
     },
     pagerDotInactive: {
-      backgroundColor: '#028239',
+      backgroundColor: 'transparent',
     },
   })
 

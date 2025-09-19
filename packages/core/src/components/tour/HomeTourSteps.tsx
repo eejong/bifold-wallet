@@ -27,6 +27,8 @@ export const homeTourSteps: TourStep[] = [
           previous={previous}
           stop={stop}
           next={next}
+          stepOn={1}
+          stepsOutOf={3}
         >
           <ScanImg style={{ alignSelf: 'center', padding: 10, marginVertical: 10}} />
           <Text
@@ -59,6 +61,8 @@ export const homeTourSteps: TourStep[] = [
           next={next}
           stop={stop}
           previous={previous}
+          stepOn={2}
+          stepsOutOf={3}
         >
           <NotifImg style={{ alignSelf: 'center', padding: 10, marginVertical: 10}} />
           <Text
@@ -91,6 +95,8 @@ export const homeTourSteps: TourStep[] = [
           next={next}
           stop={stop}
           previous={previous}
+          stepOn={3}
+          stepsOutOf={3}
         >
           <CredentialImg style={{ alignSelf: 'center', padding: 10, marginVertical: 10}} />
           <Text
