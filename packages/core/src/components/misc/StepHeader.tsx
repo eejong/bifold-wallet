@@ -8,35 +8,6 @@ interface HeaderProps {
 }
 
 
-  
-const StepHeader: React.FC<HeaderProps> = ({ step = 1, onBackPress }) => {
-  const {  ColorPalette, Assets } = useTheme()
-
-   const imageDisplayOptions = {
-    fill: ColorPalette.notification.infoText,
-    height: 30,
-    width: 40,
-  }
-  return (
-    <View style={styles.headerContainer}>
-      <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
-      <Assets.svg.arrow {...imageDisplayOptions}/>
-      </TouchableOpacity>
-      <View style={styles.dotsContainer}>
-        {[1, 2, 3, 4].map((i) => (
-          <View
-            key={i}
-            style={[
-              styles.dot,
-              step === i ? styles.activeDot : styles.inactiveDot,
-            ]}
-          />
-        ))}
-      </View>
-    </View>
-  )
-}
-
 const styles = StyleSheet.create({
   headerContainer: {
     flex: 1,
@@ -69,5 +40,34 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 })
+
+  
+const StepHeader: React.FC<HeaderProps> = ({ step = 1, onBackPress }) => {
+  const {  ColorPalette, Assets } = useTheme()
+
+   const imageDisplayOptions = {
+    fill: ColorPalette.notification.infoText,
+    height: 30,
+    width: 40,
+  }
+  return (
+    <View style={styles.headerContainer}>
+      <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
+      <Assets.svg.arrowBack {...imageDisplayOptions}/>
+      </TouchableOpacity>
+      <View style={styles.dotsContainer}>
+        {[1, 2, 3, 4].map((i) => (
+          <View
+            key={i}
+            style={[
+              styles.dot,
+              step === i ? styles.activeDot : styles.inactiveDot,
+            ]}
+          />
+        ))}
+      </View>
+    </View>
+  )
+}
 
 export default StepHeader
