@@ -55,7 +55,7 @@ const createApp = (container: Container): React.FC => {
                       translucent={false}
                     />
                     <ErrorModal />
-                    <TourProvider tours={tours} overlayColor={'gray'} overlayOpacity={0.7}>
+                    <TourProvider tours={tours} overlayColor={'black'} overlayOpacity={0.5}>
                       <RootStack />
                     </TourProvider>
                     <Toast topOffset={15} config={toastConfig} />
