@@ -100,7 +100,7 @@ export function TourBox(props: TourBoxProps): ReactElement {
     headerText: {
       ...TextTheme.headingThree,
       alignSelf: 'flex-start',
-      color: ColorPalette.notification.infoText,
+      color: '#042645',
     },
     dismissIcon: {
       alignSelf: 'flex-end',
@@ -108,6 +108,7 @@ export function TourBox(props: TourBoxProps): ReactElement {
     body: {
       flex: 1,
       marginVertical: 16,
+      color: '#292929'
     },
     footerContainer: {
       flexDirection: 'row',
@@ -204,8 +205,9 @@ export function TourBox(props: TourBoxProps): ReactElement {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.body}>{children}</View>
-
+      <View style={styles.body}>
+        {children}
+      </View>
       {(!hideLeft || !hideRight) && (
         <View style={styles.footerContainer}>
           <View>
