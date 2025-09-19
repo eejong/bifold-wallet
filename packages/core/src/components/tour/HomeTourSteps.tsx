@@ -4,7 +4,9 @@ import { Text } from 'react-native'
 
 import { useTheme } from '../../contexts/theme'
 import { RenderProps, TourStep } from '../../contexts/tour/tour-context'
-
+import ScanImg from '../../assets/img/tour-scan.svg'
+import NotifImg from '../../assets/img/tour-notification.svg'
+import CredentialImg from '../../assets/img/tour-credential.svg'
 import { TourBox } from './TourBox'
 
 export const homeTourSteps: TourStep[] = [
@@ -26,6 +28,7 @@ export const homeTourSteps: TourStep[] = [
           stop={stop}
           next={next}
         >
+          <ScanImg style={{ alignSelf: 'center', padding: 10, marginVertical: 10}} />
           <Text
             style={{
               ...TextTheme.normal,
@@ -57,6 +60,7 @@ export const homeTourSteps: TourStep[] = [
           stop={stop}
           previous={previous}
         >
+          <NotifImg style={{ alignSelf: 'center', padding: 10, marginVertical: 10}} />
           <Text
             style={{
               ...TextTheme.normal,
@@ -88,6 +92,7 @@ export const homeTourSteps: TourStep[] = [
           stop={stop}
           previous={previous}
         >
+          <CredentialImg style={{ alignSelf: 'center', padding: 10, marginVertical: 10}} />
           <Text
             style={{
               ...TextTheme.normal,

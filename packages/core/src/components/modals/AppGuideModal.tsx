@@ -48,8 +48,8 @@ const AppGuideModal: React.FC<AppGuideModalProps> = ({
       minWidth: width,
     },
     container: {
-      backgroundColor: ColorPalette.notification.info,
-      borderColor: ColorPalette.notification.infoBorder,
+      backgroundColor: '#FFFFFF',
+      borderColor: '#FFFFFF',
       borderRadius: 5,
       borderWidth: 1,
       padding: 20,
@@ -66,12 +66,12 @@ const AppGuideModal: React.FC<AppGuideModalProps> = ({
     headerText: {
       alignSelf: 'flex-start',
       flexWrap: 'wrap',
-      color: ColorPalette.notification.infoText,
+      color: '#042645',
     },
     bodyText: {
       flexShrink: 1,
       marginVertical: 16,
-      color: ColorPalette.notification.infoText,
+      color: '#292929',
     },
     dismissIcon: {
       alignSelf: 'center',
