@@ -84,7 +84,7 @@ export function TourBox(props: TourBoxProps): ReactElement {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: '#FFFFFF',
-      borderRadius: 10,
+      borderColor:'#FFFFFF',
       borderWidth: 1,
       padding: 20,
       flex: 1,
@@ -135,8 +135,7 @@ export function TourBox(props: TourBoxProps): ReactElement {
       backgroundColor: '#07489E',
     },
     pagerDotInactive: {
-      backgroundColor: 'transparent',
-      borderColor:'#07489E',
+      backgroundColor: '#028239',
     },
   })
 

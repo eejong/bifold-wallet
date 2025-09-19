@@ -50,7 +50,7 @@ const AppGuideModal: React.FC<AppGuideModalProps> = ({
     container: {
       backgroundColor: '#FFFFFF',
       borderColor: '#FFFFFF',
-      borderRadius: 5,
+      borderRadius: 15,
       borderWidth: 1,
       padding: 20,
       width: width - 50,
