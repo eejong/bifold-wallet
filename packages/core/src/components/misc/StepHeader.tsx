@@ -31,29 +31,32 @@ const StepHeader: React.FC<HeaderProps> = ({ step = 1, onBackPress }) => {
 
 const styles = StyleSheet.create({
   headerContainer: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
     backgroundColor: '#FFFFFF',
+    height: 50,
   },
   backButton: {
     marginRight: 20,
   },
   dotsContainer: {
     flexDirection: 'row',
+    alignContent: 'center'
   },
   dot: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
+    width: 15,
+    height: 15,
+    borderRadius: 15,
     marginHorizontal: 6,
   },
   activeDot: {
-    backgroundColor: '#0047AB', // dark blue
+    backgroundColor: '#042645', // dark blue
   },
   inactiveDot: {
-    borderWidth: 1,
-    borderColor: '#0047AB',
+    borderWidth: 2,
+    borderColor: '#042645',
     backgroundColor: 'transparent',
   },
 })
