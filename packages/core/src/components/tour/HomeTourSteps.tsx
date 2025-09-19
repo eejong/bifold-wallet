@@ -32,7 +32,7 @@ export const homeTourSteps: TourStep[] = [
           <Text
             style={{
               ...TextTheme.normal,
-              color: ColorPalette.notification.infoText,
+              color: '#292929',
             }}
             allowFontScaling={false}
           >
@@ -64,7 +64,7 @@ export const homeTourSteps: TourStep[] = [
           <Text
             style={{
               ...TextTheme.normal,
-              color: ColorPalette.notification.infoText,
+              color: '#292929',
             }}
             allowFontScaling={false}
           >
@@ -96,7 +96,7 @@ export const homeTourSteps: TourStep[] = [
           <Text
             style={{
               ...TextTheme.normal,
-              color: ColorPalette.notification.infoText,
+              color: '#292929',
             }}
             allowFontScaling={false}
           >

@@ -84,7 +84,7 @@ export function TourBox(props: TourBoxProps): ReactElement {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: '#FFFFFF',
-      borderRadius: 5,
+      borderRadius: 10,
       borderWidth: 1,
       padding: 20,
       flex: 1,
@@ -108,7 +108,6 @@ export function TourBox(props: TourBoxProps): ReactElement {
     body: {
       flex: 1,
       marginVertical: 16,
-      color: '#292929'
     },
     footerContainer: {
       flexDirection: 'row',
@@ -124,18 +123,20 @@ export function TourBox(props: TourBoxProps): ReactElement {
     },
     pagerDot: {
       ...OnboardingTheme.pagerDot,
-      borderWidth: 2,
+      borderWidth: 1,
       borderStyle: 'solid',
-      width: 15,
-      height: 15,
-      borderRadius: 15,
+      width: 10,
+      height: 10,
+      borderRadius: 5,
       marginHorizontal: 5,
+    
     },
     pagerDotActive: {
       backgroundColor: '#07489E',
     },
     pagerDotInactive: {
       backgroundColor: 'transparent',
+      borderColor:'#07489E',
     },
   })
 
