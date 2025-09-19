@@ -140,13 +140,6 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
           testID: testIdWithKey('Change Pin'),
           onPress: () => navigation.navigate(Screens.ChangePIN),
         },
-        {
-          title: t('Settings.AppGuides'),
-          value: store.tours.enableTours ? t('Global.On') : t('Global.Off'),
-          accessibilityLabel: t('Settings.AppGuides'),
-          testID: testIdWithKey('AppGuides'),
-          onPress: () => navigation.navigate(Screens.Tours),
-        },
         /*{
           title: t('Settings.Language'),
           value: currentLanguage,

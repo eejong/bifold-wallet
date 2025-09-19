@@ -1,18 +1,26 @@
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native'
-import { useTheme } from '../../contexts/theme'
+import { useTheme, } from '../../contexts/theme'
 
 interface HeaderProps {
   step?: number // from 1 to 4
   onBackPress?: () => void
 }
 
+
+  
 const StepHeader: React.FC<HeaderProps> = ({ step = 1, onBackPress }) => {
-  const {  Assets } = useTheme()
+  const {  ColorPalette, Assets } = useTheme()
+
+   const imageDisplayOptions = {
+    fill: ColorPalette.notification.infoText,
+    height: 30,
+    width: 40,
+  }
   return (
     <View style={styles.headerContainer}>
       <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
-      <Assets.svg.arrow/>
+      <Assets.svg.arrow {...imageDisplayOptions}/>
       </TouchableOpacity>
       <View style={styles.dotsContainer}>
         {[1, 2, 3, 4].map((i) => (
@@ -40,10 +48,11 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginRight: 20, color: 'red',
+    left: 20
   },
   dotsContainer: {
     flexDirection: 'row',
-    alignContent: 'center'
+    alignSelf: 'center'
   },
   dot: {
     width: 15,

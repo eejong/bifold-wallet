@@ -98,9 +98,8 @@ export function TourBox(props: TourBoxProps): ReactElement {
       flexGrow: 1,
     },
     headerText: {
-      ...TextTheme.headingThree,
+      ...TextTheme.headingFour,
       alignSelf: 'flex-start',
-      color: '#042645',
     },
     dismissIcon: {
       alignSelf: 'flex-end',
@@ -127,7 +126,7 @@ export function TourBox(props: TourBoxProps): ReactElement {
       borderStyle: 'solid',
       width: 13,
       height: 13,
-      borderRadius: 5,
+      borderRadius: 13,
       marginHorizontal: 5,
     
     },
