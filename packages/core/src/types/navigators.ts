@@ -13,7 +13,7 @@ export enum Screens {
   CreatePIN = 'Create a PIN',
   ChangePIN = 'Change PIN',
   EnterPIN = 'Enter PIN',
-  PINExlainer = 'Explain PIN',
+  PINExplainer = 'Explain PIN',
   Home = 'Home',
   Scan = 'Scan',
   PasteUrl = 'Paste URL',
