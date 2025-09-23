@@ -4,20 +4,26 @@ import { ScrollView, StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 import Button, { ButtonType } from '../components/buttons/Button'
-import BulletPoint from '../components/inputs/BulletPoint'
+//import BulletPoint from '../components/inputs/BulletPoint'
 import { useTheme } from '../contexts/theme'
 import { testIdWithKey } from '../utils/testable'
-import { ThemedText } from '../components/texts/ThemedText'
+import { Screens } from '../types/navigators'
+import { useNavigation } from '../../__mocks__/@react-navigation/core'
+//import { ThemedText } from '../components/texts/ThemedText'
 
 
 export interface PINExplainerProps {
   continueCreatePIN: () => void
+  onCreateWallet: () => void
 }
 
-const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
+const PINExplainer: React.FC<PINExplainerProps> = () => {
+  const navigation = useNavigation()
   const { t } = useTranslation()
-  const { ColorPalette, TextTheme, Assets } = useTheme()
-
+  const { ColorPalette, Assets } = useTheme()
+  const onCreateWallet = () => {
+    navigation.navigate(Screens.CreatePIN,{flow: 'create'})
+  }
   const style = StyleSheet.create({
     safeAreaView: {
       flex: 1,
@@ -62,7 +68,7 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
               title={t('PINCreate.Explainer.CreateWallet')}
               accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
               testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={continueCreatePIN}
+              onPress={onCreateWallet}
               buttonType={ButtonType.Primary}
             />  
           </View>

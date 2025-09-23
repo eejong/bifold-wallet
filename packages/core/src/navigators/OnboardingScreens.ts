@@ -25,6 +25,7 @@ interface ScreenComponents {
   OnboardingScreen: React.FC
   CreatePINScreen: React.FC
   EnterPINScreen: React.FC
+  PINExplainerScreen: React.FC
 }
 
 export const getOnboardingScreens = (
@@ -69,6 +70,17 @@ export const getOnboardingScreens = (
       headerLeft: () => false,
       ...ScreenOptionsDictionary[Screens.Onboarding],
     }),
+  },
+  {
+    name: Screens.PINExlainer,
+  component: components.PINExplainerScreen,
+  option: () => ({
+    hheaderShown: false,
+    ...TransitionPresets.SlideFromRightIOS,
+    title: '',
+    headerLeft: () => false,
+    ...ScreenOptionsDictionary[Screens.PINExlainer],
+  })
   },
   {
     name: Screens.CreatePIN,

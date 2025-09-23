@@ -40,9 +40,10 @@ import StepHeader from '../components/misc/StepHeader'
 interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
   setAuthenticated: (status: boolean) => void
   explainedStatus: boolean
+  navigation: () => void
 }
 
-const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus }) => {
+const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, explainedStatus }) => {
   
   
   const { setPIN: setWalletPIN } = useAuth()
@@ -91,9 +92,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
         await setWalletPIN(PIN)
         setAuthenticated(true)
         // this dispatch finishes this step of onboarding and will cause a navigation
-        dispatch({
-          type: DispatchAction.DID_CREATE_PIN,
-        })
+       navigation.navigate(Screens.Biometry)
       } catch (err: unknown) {
         const error = new BifoldError(
           t('Error.Title1040'),
@@ -122,10 +121,6 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus
     }
     return isLoading || PIN.length < minPINLength || PINTwo.length < minPINLength
   }, [isLoading, PIN, PINTwo, inlineMessages])
-
-  const continueCreatePIN = useCallback(() => {
-    setExplained(true)
-  }, [])
 
 
   return explained ? (

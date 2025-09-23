@@ -23,6 +23,10 @@ const Biometry: React.FC = () => {
 
     await commitWalletToKeychain(biometryEnabled)
 
+    
+    dispatch({
+      type: DispatchAction.DID_CREATE_PIN,
+    })
     dispatch({
       type: DispatchAction.USE_BIOMETRY,
       payload: [biometryEnabled],

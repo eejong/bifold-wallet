@@ -17,14 +17,16 @@ import NameWallet from '../screens/NameWallet'
 import { createCarouselStyle } from '../screens/OnboardingPages'
 import PINCreate from '../screens/PINCreate'
 import PINEnter from '../screens/PINEnter'
+import PINExplainer from '../screens/PINExplainer'
 import PushNotifications from '../screens/PushNotifications'
 import { Config } from '../types/config'
-import { OnboardingStackParams } from '../types/navigators'
+import { OnboardingStackParams, Screens } from '../types/navigators'
 import { WalletSecret } from '../types/security'
 import { State } from '../types/state'
 
 import { useDefaultStackOptions } from './defaultStackOptions'
 import { getOnboardingScreens } from './OnboardingScreens'
+import StepHeader from 'components/misc/StepHeader'
 
 export type OnboardingStackProps = {
   initializeAgent: (walletSecret: WalletSecret) => Promise<void>
@@ -125,6 +127,11 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     )
   }, [Onboarding, OnboardingTheme, carousel, disableOnboardingSkip, onTutorialCompleted, pages, t])
 
+  const PINExplainerScreen = useCallback ( ()=> {
+    const navigation = useNavigation<StackNavigationProp<OnboardingStackParams>>()
+    const onCreateWallet = () => navigation.naviate(ScreenOptionsDictionary.CreatePIN) //will navigate to PINCreate upon selecting create a new wallet
+
+  })
   // These need to be in the children of the stack screen otherwise they
   // will unmount/remount which resets the component state in memory and causes
   // issues
@@ -174,6 +181,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
         OnboardingScreen,
         CreatePINScreen,
         EnterPINScreen,
+        PINExplainerScreen,
       }),
     [
       SplashScreen,
@@ -186,6 +194,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
       t,
       ScreenOptionsDictionary,
       UpdateAvailableScreen,
+      PINExplainerScreen
     ]
   )
   return (
@@ -196,6 +205,28 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
       }}
     >
       {screens.map((item) => {
+
+        if(item.name === Screen.CreatePIN || item.name === Screens.Biometry){
+          return (
+          <Stack.Screen
+            key={item.name}
+            name={item.name}
+            options={({route})=>{
+            const flow = route.params? flow;
+            let currentStep = 0;
+            let totalSteps = 2;
+          if ( flow === 'create' ){
+            totalSteps = 2;
+            currentStep = item.name === Screens.CreatePIN ? 0 : 1
+          }
+          return{
+            headerShown: true,
+            header:() => <StepHeader currentStep={ totalSteps}/>,
+          }}}
+          component: {item.component}/>
+           
+          )
+        }
         return <Stack.Screen key={item.name} {...item} />
       })}
     </Stack.Navigator>
