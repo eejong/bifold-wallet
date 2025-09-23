@@ -39,11 +39,11 @@ import StepHeader from '../components/misc/StepHeader'
 
 interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
   setAuthenticated: (status: boolean) => void
-  explainedStatus: boolean
+  
   navigation: () => void
 }
 
-const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, explainedStatus }) => {
+const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, route  }) => {
   
   
   const { setPIN: setWalletPIN } = useAuth()
@@ -92,7 +92,7 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, expl
         await setWalletPIN(PIN)
         setAuthenticated(true)
         // this dispatch finishes this step of onboarding and will cause a navigation
-       navigation.navigate(Screens.Biometry)
+       navigation.navigate(Screens.Biometry, {flow : route.params?.flow})
       } catch (err: unknown) {
         const error = new BifoldError(
           t('Error.Title1040'),
@@ -104,7 +104,7 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, expl
         DeviceEventEmitter.emit(EventTypes.ERROR_ADDED, error)
       }
     },
-    [setWalletPIN, setAuthenticated, dispatch, t]
+    [setWalletPIN, setAuthenticated, dispatch, t, navigation, route]
   )
 
   const handleCreatePinTap = useCallback(async () => {
@@ -123,7 +123,7 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, expl
   }, [isLoading, PIN, PINTwo, inlineMessages])
 
 
-  return explained ? (
+  return (
     <KeyboardView keyboardAvoiding={false}>
       <View style={style.screenContainer}>
         <View style={style.contentContainer}>
@@ -187,7 +187,7 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, expl
                       }
                     }}
                   />
-          <ThemedText style={{ color: '##4A4A4A' }}>
+          <ThemedText style={{ color: '#4A4A4A' }}>
             {" "}
           </ThemedText>
           <TouchableOpacity onPress={() => setModalVisible(true)}>
@@ -226,8 +226,7 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, expl
         </View>
       </View>
     </KeyboardView>
-  ) : (
-    <PINExplainer continueCreatePIN={continueCreatePIN} />
+
   )
 }
 

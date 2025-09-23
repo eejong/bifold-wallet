@@ -129,7 +129,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
 
   const PINExplainerScreen = useCallback ( ()=> {
     const navigation = useNavigation<StackNavigationProp<OnboardingStackParams>>()
-    const onCreateWallet = () => navigation.naviate(ScreenOptionsDictionary.CreatePIN) //will navigate to PINCreate upon selecting create a new wallet
+    const onCreateWallet = () => navigation.navigate(Screens.CreatePIN) //will navigate to PINCreate upon selecting create a new wallet
 
   })
   // These need to be in the children of the stack screen otherwise they
@@ -206,13 +206,13 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     >
       {screens.map((item) => {
 
-        if(item.name === Screen.CreatePIN || item.name === Screens.Biometry){
+        if(item.name === Screens.CreatePIN || item.name === Screens.Biometry){
           return (
           <Stack.Screen
             key={item.name}
             name={item.name}
             options={({route})=>{
-            const flow = route.params? flow;
+            const flow = route.params?.flow;
             let currentStep = 0;
             let totalSteps = 2;
           if ( flow === 'create' ){
@@ -223,7 +223,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
             headerShown: true,
             header:() => <StepHeader currentStep={ totalSteps}/>,
           }}}
-          component: {item.component}/>
+          component= {item.component}/>
            
           )
         }
