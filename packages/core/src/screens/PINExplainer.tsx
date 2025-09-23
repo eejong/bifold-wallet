@@ -14,7 +14,6 @@ import { useNavigation } from '../../__mocks__/@react-navigation/core'
 
 export interface PINExplainerProps {
   continueCreatePIN: () => void
-  onCreateWallet: () => void
 }
 
 const PINExplainer: React.FC<PINExplainerProps> = () => {
@@ -77,7 +76,7 @@ const PINExplainer: React.FC<PINExplainerProps> = () => {
               title={t('PINCreate.Explainer.ImportWallet')}
               accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
               testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={''}
+              onPress={onCreateWallet}
               buttonType={ButtonType.Secondary}
             />  
           </View>
