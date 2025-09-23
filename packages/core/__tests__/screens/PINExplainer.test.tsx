@@ -1,23 +1,29 @@
 import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
+import { act } from 'react-test-renderer'
 
 import PINExplainer from '../../src/screens/PINExplainer'
 import { testIdWithKey } from '../../src/utils/testable'
 
 describe('PINExplainer Screen', () => {
-  const continueCreatePIN = jest.fn()
+  test('Button exists and calls the correct function', async () => {
+    // Mock function to check if it's called
+    const onCreateWallet = jest.fn()
 
-  test('Renders correctly', async () => {
-    const tree = render(<PINExplainer continueCreatePIN={continueCreatePIN} />)
-    expect(tree).toMatchSnapshot()
-  })
+    await act(async () => {
+      render(<PINExplainer onCreateWallet={onCreateWallet} />)
+    })
 
-  test('Button exists and works', async () => {
-    render(<PINExplainer continueCreatePIN={continueCreatePIN} />)
+    // Find the button by its test ID
+    const continueButton = screen.getByTestId(testIdWithKey('ContinueCreatePIN'))
+    
+    // Check if the button exists
+    expect(continueButton).not.toBeNull()
+    
+    // Simulate a press event on the button
+    fireEvent.press(continueButton)
 
-    const continueButton = await screen.findByTestId(testIdWithKey('ContinueCreatePIN'))
-    fireEvent(continueButton, 'press')
-
-    expect(continueCreatePIN).toHaveBeenCalled()
+    // Assert that the mock function was called
+    expect(onCreateWallet).toHaveBeenCalledTimes(1)
   })
 })

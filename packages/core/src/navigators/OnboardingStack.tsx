@@ -68,12 +68,12 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     TOKENS.ONBOARDING,
   ])
   const defaultStackOptions = useDefaultStackOptions(theme)
-  const navigation = useNavigation<StackNavigationProp<OnboardingStackParams>>()
+  const navigation = useNavigation<StackNavigationProp<OnboardingStackParams, Screens.Splash>>()
   const onTutorialCompleted = onTutorialCompletedCurried(dispatch, navigation)
   const currentRoute = useNavigationState((state) => state?.routes[state?.index])
   const { disableOnboardingSkip } = config as Config
-  const { onboardingState, activeScreen } = useOnboardingState(
-    store,
+  const { onboardingState, activeScreen, setAuthenticated } = useOnboardingState(
+    store.preferences,
     config,
     Number(termsVersion),
     agent,
@@ -127,21 +127,26 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     )
   }, [Onboarding, OnboardingTheme, carousel, disableOnboardingSkip, onTutorialCompleted, pages, t])
 
-  const PINExplainerScreen = useCallback ( ()=> {
-    const navigation = useNavigation<StackNavigationProp<OnboardingStackParams>>()
-    const onCreateWallet = () => navigation.navigate(Screens.CreatePIN) //will navigate to PINCreate upon selecting create a new wallet
-
-  })
+  const PINExplainerScreen = useCallback(
+    ({ route, navigation }) => (
+      <PINExplainer onCreateWallet={() => navigation.navigate(Screens.CreatePIN, { flow: route.params?.flow })} />
+    ),
+    []
+  );
   // These need to be in the children of the stack screen otherwise they
   // will unmount/remount which resets the component state in memory and causes
   // issues
   const CreatePINScreen = useCallback(
-    (props: any) => {
-      return <PINCreate setAuthenticated={onAuthenticated} {...props} />
-    },
-    [onAuthenticated]
-  )
-
+    ({ route, navigation }) => (
+      <PINCreate
+        navigation={navigation}
+        route={route}
+        setAuthenticated={setAuthenticated}
+        explainedStatus={route.params?.flow === 'onboarding'}
+      />
+    ),
+    [setAuthenticated]
+  );
   const EnterPINScreen = useCallback(
     (props: any) => {
       return <PINEnter setAuthenticated={onAuthenticated} {...props} />
@@ -209,9 +214,9 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
         if(item.name === Screens.CreatePIN || item.name === Screens.Biometry){
           return (
           <Stack.Screen
-            key={item.name}
-            name={item.name}
-            options={({route})=>{
+            key={Screens.PINExplainer}
+            name={Screens.PINExplainer}
+            options={({route, navigation})=>{
             const flow = route.params?.flow;
             let currentStep = 0;
             let totalSteps = 2;
@@ -223,7 +228,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
             headerShown: true,
             header:() => <StepHeader currentStep={ totalSteps}/>,
           }}}
-          component= {item.component}/>
+          children= {CreatePINScreen}/>
            
           )
         }

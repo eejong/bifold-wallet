@@ -39,11 +39,11 @@ import StepHeader from '../components/misc/StepHeader'
 
 interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
   setAuthenticated: (status: boolean) => void
-  
+  explainedStatus?: boolean
   navigation: () => void
 }
 
-const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, route  }) => {
+const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, route, explainedStatus  }) => {
   
   
   const { setPIN: setWalletPIN } = useAuth()
@@ -60,13 +60,16 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, rout
   const createPINButtonRef = useRef<TouchableOpacity>(null)
   const [modalVisible, setModalVisible] = useState(false)
 
-  const [PINExplainer, PINHeader, { showPINExplainer, preventScreenCapture }, Button, inlineMessages] = useServices([
+  const [PINExplainer, PINHeader, {  preventScreenCapture }, Button, inlineMessages] = useServices([
     TOKENS.SCREEN_PIN_EXPLAINER,
     TOKENS.COMPONENT_PIN_HEADER,
     TOKENS.CONFIG,
     TOKENS.COMP_BUTTON,
     TOKENS.INLINE_ERRORS,
   ])
+  const showPINExplainer = useMemo(() => {
+    return route.params?.flow === 'onboarding';
+  }, [route.params?.flow]);
 
   const [explained, setExplained] = useState(explainedStatus || showPINExplainer === false)
   const { PINValidations, validatePINEntry, inlineMessageField1, inlineMessageField2, modalState, PINSecurity } =
@@ -123,7 +126,12 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, rout
   }, [isLoading, PIN, PINTwo, inlineMessages])
 
 
-  return (
+
+  const continueCreatePIN = useCallback(() => {
+    setExplained(true);
+  }, []);
+
+  return explained? (
     <KeyboardView keyboardAvoiding={false}>
       <View style={style.screenContainer}>
         <View style={style.contentContainer}>
@@ -226,7 +234,8 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, rout
         </View>
       </View>
     </KeyboardView>
-
+  ) : (
+    <PINExplainer continueCreatePIN={continueCreatePIN} />
   )
 }
 

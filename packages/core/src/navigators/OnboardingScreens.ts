@@ -72,9 +72,9 @@ export const getOnboardingScreens = (
     }),
   },
   {
-    name: Screens.PINExlainer,
+    name: Screens.PINExplainer,
   component: components.PINExplainerScreen,
-  option: () => ({
+  options: () => ({
     hheaderShown: false,
     ...TransitionPresets.SlideFromRightIOS,
     title: '',

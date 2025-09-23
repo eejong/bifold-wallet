@@ -77,7 +77,7 @@ const PINExplainer: React.FC<PINExplainerProps> = () => {
               title={t('PINCreate.Explainer.ImportWallet')}
               accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
               testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={continueCreatePIN}
+              onPress={''}
               buttonType={ButtonType.Secondary}
             />  
           </View>
