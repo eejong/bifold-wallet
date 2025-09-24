@@ -16,8 +16,11 @@ export interface PINExplainerProps {
   onAlreadyHaveWallet?: () => void
   continueCreatePIN?: () => void
 }
+
+type PINExplainerNav = StackNavigationProp<OnboardingStackParams, Screens.PINExplainer>
+
 const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHaveWallet, continueCreatePIN }) => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<PINExplainerNav>()
   const { t } = useTranslation()
   const { ColorPalette, Assets } = useTheme()
 

@@ -150,13 +150,7 @@ const PINExplainerScreen: React.FC<{
   // will unmount/remount which resets the component state in memory and causes
   // issues
 const CreatePINScreen = useCallback(
-  ({
-    route,
-    navigation,
-  }: {
-    route: RouteProp<OnboardingStackParams, Screens.CreatePIN>
-    navigation: StackNavigationProp<OnboardingStackParams, Screens.CreatePIN>
-  }) => (
+  ({ route, navigation }) => (
     <PINCreate
       navigation={navigation}
       route={route}
@@ -166,6 +160,7 @@ const CreatePINScreen = useCallback(
   ),
   [onAuthenticated]
 )
+
   const EnterPINScreen = useCallback(
     (props: any) => {
       return <PINEnter setAuthenticated={onAuthenticated} {...props} />
