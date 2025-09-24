@@ -132,14 +132,17 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
   }, [Onboarding, OnboardingTheme, carousel, disableOnboardingSkip, onTutorialCompleted, pages, t])
 
   const PINExplainer = useCallback(
-  ({
+   ({
+    route,
     navigation,
   }: {
-    navigation: StackNavigationProp<OnboardingStackParams,Screens.PINExplainer>
+    route: RouteProp<OnboardingStackParams, Screens.PINExplainer>
+    navigation: StackNavigationProp<OnboardingStackParams, Screens.PINExplainer>
   }) => (
     <PINExplainer
       onCreateWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'create' })}
       onAlreadyHaveWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'import' })}
+      continueCreatePIN={() => navigation.navigate(Screens.CreatePIN, { flow: 'onboarding' })}
     />
   ),
   []
