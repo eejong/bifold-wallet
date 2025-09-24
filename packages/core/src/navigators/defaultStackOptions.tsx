@@ -21,6 +21,10 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
     headerTintColor: 'white',
     gestureEnabled: true,
   },
+  [Screens.PINExplainer]: {
+    headerBackTestID: testIdWithKey('Back'),
+    headerShown: false,
+  },
   [Screens.CreatePIN]: {
     headerBackTestID: testIdWithKey('Back'),
     headerShown: false,
