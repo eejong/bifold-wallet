@@ -21,11 +21,9 @@ const mockRoute = {
   key: 'CreatePIN-mock',
   name: Screens.CreatePIN,
   params: {
-    flow: 'onboarding',
-    setAuthenticated: jest.fn(),
+    flow: 'onboarding'
   },
 }
-
 render(<PINCreate route={mockRoute as any} navigation={mockNavigation as any} setAuthenticated={jest.fn()} explainedStatus={false} />)
 
 

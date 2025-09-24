@@ -148,7 +148,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
         explainedStatus={route.params?.flow === 'onboarding'}
       />
     ),
-    [setAuthenticated]
+    [onAuthenticated]
   );
   const EnterPINScreen = useCallback(
     (props: any) => {
@@ -210,34 +210,34 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
   return (
     <Stack.Navigator initialRouteName={activeScreen} screenOptions={{ ...defaultStackOptions }}>
       {screens.map((item) => {
-  if (item.name === Screens.CreatePIN || item.name === Screens.Biometry) {
-    return (
-      <Stack.Screen
-        key={item.name}
-        name={item.name}
-        component={item.component}
-        options={({ route, navigation }) => {
-          const flow = route.params?.flow
-          if (flow === 'create' || flow === 'import') {
-            const currentStep = item.name === Screens.CreatePIN ? 1 : 2
-            return {
-              headerShown: true,
-              header: () => (
-                <StepHeader
-                  step={currentStep}
-                  totalSteps={2}
-                  onBackPress={() => navigation.goBack()}
-                />
-              ),
-            }
-          }
-          return {
-            headerShown: false,
-          }
-        }}
-      />
-    )
-  }
+        if (item.name === Screens.CreatePIN || item.name === Screens.Biometry) {
+          return (
+            <Stack.Screen
+              key={item.name}
+              name={item.name}
+              component={item.component}
+              options={({ route, navigation }:{route:any ; navigation:any}) => {
+                const flow = route.params?.flow
+                if (flow === 'create' || flow === 'import') {
+                  const currentStep = item.name === Screens.CreatePIN ? 1 : 2
+                  return {
+                    headerShown: true,
+                    header: () => (
+                      <StepHeader
+                        step={currentStep}
+                        totalSteps={2}
+                        onBackPress={() => navigation.goBack()}
+                      />
+                    ),
+                  }
+                }
+                return {
+                  headerShown: false,
+                }
+              }}
+            />
+          )
+        }
 
   // fallback for all other screens
   return <Stack.Screen key={item.name} {...item} />

@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { Screens } from '../types/navigators'
+import type { StackNavigationProp } from '@react-navigation/stack'
+import { OnboardingStackParams, Screens } from '../types/navigators'
 
-const navigation = useNavigation<StackNavigationProp<OnboardingStackParams>>()
 const ImportWallet: React.FC = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<StackNavigationProp<OnboardingStackParams, Screens.ImportWallet>>()
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
