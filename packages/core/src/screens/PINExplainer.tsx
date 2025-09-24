@@ -2,7 +2,7 @@ import React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import {StackNavigationProp } from 'react-navigation/stack'
+import {StackNavigationProp } from '@react-navigation/stack'
 
 import Button, { ButtonType } from '../components/buttons/Button'
 //import BulletPoint from '../components/inputs/BulletPoint'
