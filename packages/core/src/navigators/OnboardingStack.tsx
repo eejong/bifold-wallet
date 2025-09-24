@@ -94,7 +94,11 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
   }, [versionMonitor, dispatch])
   
 
-  const onAuthenticated = useCallback(() => {
+  const onAuthenticated = useCallback(
+    (status: boolean): void => {
+      if (!status) {
+        return
+      }
       dispatch({
         type: DispatchAction.DID_AUTHENTICATE,
       })

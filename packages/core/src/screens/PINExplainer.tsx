@@ -27,7 +27,7 @@ const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHav
       continueCreatePIN?.()
     })
 
-    const handleImport = onCreateWallet ?? 
+    const handleImport = onAlreadyHaveWallet ?? 
     (() => {
       navigation.navigate(Screens.CreatePIN, { flow: 'import' }) 
       continueCreatePIN?.()

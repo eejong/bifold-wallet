@@ -98,7 +98,10 @@ const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, rou
         await setWalletPIN(PIN)
         setAuthenticated(true)
         // this dispatch finishes this step of onboarding and will cause a navigation
-       navigation.navigate(Screens.Biometry, {flow : route.params?.flow})
+        dispatch({
+          type: DispatchAction.DID_CREATE_PIN,
+        })
+      
       } catch (err: unknown) {
         const error = new BifoldError(
           t('Error.Title1040'),
@@ -110,16 +113,17 @@ const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, rou
         DeviceEventEmitter.emit(EventTypes.ERROR_ADDED, error)
       }
     },
-    [setWalletPIN, setAuthenticated, t, navigation, route]
+    [setWalletPIN, setAuthenticated, t, dispatch]
   )
 
   const handleCreatePinTap = useCallback(async () => {
     setIsLoading(true)
     if (validatePINEntry(PIN, PINTwo)) {
       await passcodeCreate(PIN)
+       navigation.navigate(Screens.Biometry, {flow : route.params?.flow})
     }
     setIsLoading(false)
-  }, [PIN, PINTwo, passcodeCreate, validatePINEntry])
+  }, [PIN, PINTwo, passcodeCreate, validatePINEntry, navigation, route])
 
   const isContinueDisabled = useMemo((): boolean => {
     if (inlineMessages.enabled) {
