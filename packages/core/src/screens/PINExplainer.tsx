@@ -8,7 +8,7 @@ import Button, { ButtonType } from '../components/buttons/Button'
 import { useTheme } from '../contexts/theme'
 import { testIdWithKey } from '../utils/testable'
 import { Screens } from '../types/navigators'
-import { useNavigation } from '@react-navigation'
+import { useNavigation } from '@react-navigation/native'
 //import { ThemedText } from '../components/texts/ThemedText'
 
 export interface PINExplainerProps {
