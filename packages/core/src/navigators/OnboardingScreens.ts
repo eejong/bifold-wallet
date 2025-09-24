@@ -25,7 +25,7 @@ interface ScreenComponents {
   OnboardingScreen: React.FC
   CreatePINScreen: React.FC<any>
   EnterPINScreen: React.FC
-  PINExplainer: React.FC<any>
+  PINExplainerScreen: React.FC<any>
   ImportWallet: React.FC
 }
 
@@ -74,7 +74,7 @@ export const getOnboardingScreens = (
   },
   {
     name: Screens.PINExplainer,
-  component: components.PINExplainer,
+  component: components.PINExplainerScreen,
   options: () => ({
     hheaderShown: false,
     ...TransitionPresets.SlideFromRightIOS,

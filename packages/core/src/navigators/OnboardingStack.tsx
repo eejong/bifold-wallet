@@ -131,7 +131,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     )
   }, [Onboarding, OnboardingTheme, carousel, disableOnboardingSkip, onTutorialCompleted, pages, t])
 
-  const PINExplainer = useCallback(
+  const PINExplainerScreen = useCallback(
    ({
     route,
     navigation,
@@ -206,7 +206,7 @@ const CreatePINScreen = useCallback(
         OnboardingScreen,
         CreatePINScreen,
         EnterPINScreen,
-        PINExplainer,
+        PINExplainerScreen,
         ImportWallet,
       }),
     [
@@ -220,7 +220,7 @@ const CreatePINScreen = useCallback(
       t,
       ScreenOptionsDictionary,
       UpdateAvailableScreen,
-      PINExplainer,
+      PINExplainerScreen,
       ImportWallet,
     ]
   )
