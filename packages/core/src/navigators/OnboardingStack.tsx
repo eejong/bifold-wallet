@@ -92,7 +92,8 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
       })
     })
   }, [versionMonitor, dispatch])
-
+  
+  const { setAuthenticated } = useAuth()
   const onAuthenticated = useCallback(
     (status: boolean): void => {
       if (!status) {
@@ -132,11 +133,14 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
   }, [Onboarding, OnboardingTheme, carousel, disableOnboardingSkip, onTutorialCompleted, pages, t])
 
   const PINExplainerScreen = useCallback(
-    ({ route, navigation }) => (
-      <PINExplainer onCreateWallet={() => navigation.navigate(Screens.CreatePIN, { flow: route.params?.flow })} />
+    ({ navigation }) => (
+      <PINExplainer
+        onCreateWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'create' })}
+        onAlreadyHaveWallet={() => navigation.navigate(Screens.ImportWallet, { flow: 'import' })}
+      />
     ),
     []
-  );
+  )
   // These need to be in the children of the stack screen otherwise they
   // will unmount/remount which resets the component state in memory and causes
   // issues
@@ -204,38 +208,36 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
       t,
       ScreenOptionsDictionary,
       UpdateAvailableScreen,
-      PINExplainerScreen,
+      PINExplainer,
       ImportWallet,
     ]
   )
   return (
-    <Stack.Navigator
-      initialRouteName={activeScreen}
-      screenOptions={{
-        ...defaultStackOptions,
-      }}
-    >
+    <Stack.Navigator initialRouteName={activeScreen} screenOptions={{ ...defaultStackOptions }}>
       {screens.map((item) => {
-
-        if(item.name === Screens.CreatePIN || item.name === Screens.Biometry){
+        if (item.name === Screens.CreatePIN || item.name === Screens.Biometry) {
           return (
-          <Stack.Screen
-            key={item.name}             // ✅ use correct name
-            name={item.name}            // ✅ use correct name
-            options={({ route }) => {
-            const flow = route.params?.flow
-          if (flow === 'create' || flow === 'import') {
-            const currentStep = item.name === Screens.CreatePIN ? 1 : 2
-            return {
-              headerShown: true,
-              header: () => (
-                <StepHeader currentStep={currentStep} totalSteps={2} />
+            <Stack.Screen
+              key={item.name}
+              name={item.name}
+              options={({ route }) => {
+                const flow = route.params?.flow
+                if (flow === 'create' || flow === 'import' || flow === 'onboarding') {
+                  const currentStep = item.name === Screens.CreatePIN ? 1 : 2
+                  return {
+                    headerShown: true,
+                    header: () => <StepHeader currentStep={currentStep} totalSteps={2} />,
+                  }
+                }
+                return {}
+              }}
+              component={item.component}
+            />
           )
-        }}
+        }
+
         return <Stack.Screen key={item.name} {...item} />
-      
-    )
-  }
+      })}
     </Stack.Navigator>
   )
 }
