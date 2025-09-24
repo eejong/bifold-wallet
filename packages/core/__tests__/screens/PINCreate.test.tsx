@@ -9,12 +9,25 @@ import authContext from '../contexts/auth'
 import { ContainerProvider } from '../../src/container-api'
 import { MainContainer } from '../../src/container-impl'
 import { container } from 'tsyringe'
-
+import { Screens } from '../../src/types/navigators'
 describe('PINCreate Screen', () => {
   // A mock navigation object is needed for the component
   const mockNavigation = {
     navigate: jest.fn(),
   };
+
+
+const mockRoute = {
+  key: 'CreatePIN-mock',
+  name: Screens.CreatePIN,
+  params: {
+    flow: 'onboarding',
+    setAuthenticated: jest.fn(),
+  },
+}
+
+render(<PINCreate route={mockRoute as any} navigation={mockNavigation as any} setAuthenticated={jest.fn()} explainedStatus={false} />)
+
 
   test('PIN create renders correctly when explainedStatus is true', async () => {
     const main = new MainContainer(container.createChildContainer()).init()

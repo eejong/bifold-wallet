@@ -11,15 +11,15 @@ import { Screens } from '../types/navigators'
 import { useNavigation } from '../../__mocks__/@react-navigation/core'
 //import { ThemedText } from '../components/texts/ThemedText'
 
-type PINExplainerNav = StackNavigationProp<OnboardingStackParams, Screens.PINExplainer>
-
-const PINExplainer: React.FC = () => {
+interface PINExplainerProps {
+  onCreateWallet: () => void
+  onAlreadyHaveWallet: () => void
+}
+const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHaveWallet }) => {
   const navigation = useNavigation<PINExplainerNav>()
   const { t } = useTranslation()
   const { ColorPalette, Assets } = useTheme()
-  const onCreateWallet = () => {
-    navigation.navigate(Screens.CreatePIN,{flow: 'create'})
-  }
+
   const style = StyleSheet.create({
     safeAreaView: {
       flex: 1,
@@ -64,7 +64,7 @@ const PINExplainer: React.FC = () => {
               title={t('PINCreate.Explainer.CreateWallet')}
               accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
               testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={onCreateWallet}
+              onPress={onCreateWallet ?? (() => navigation.navigate(Screens.CreatePIN, { flow: 'create' }))}
               buttonType={ButtonType.Primary}
             />  
           </View>
@@ -73,7 +73,7 @@ const PINExplainer: React.FC = () => {
               title={t('PINCreate.Explainer.ImportWallet')}
               accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
               testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={onCreateWallet}
+              onPress={onAlreadyHaveWallet ?? (() => navigation.navigate(Screens.CreatePIN, { flow: 'import' }))}
               buttonType={ButtonType.Secondary}
             />  
           </View>

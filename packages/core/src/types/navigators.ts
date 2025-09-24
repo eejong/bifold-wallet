@@ -110,7 +110,7 @@ export type OnboardingStackParams = {
   [Screens.Onboarding]: undefined
   [Screens.CreatePIN]: { setAuthenticated?: (status: boolean) => void; flow?: 'create' | 'import' | 'onboarding' } | undefined
   [Screens.PINExplainer]:  { flow?: 'create' | 'import' | 'onboarding' } | undefined
-  [Screens.ImportWallet]: undefined
+  [Screens.ImportWallet]: { setAuthenticated?: (status: boolean) => void; flow?: 'create' | 'import' | 'onboarding' } | undefined
   [Screens.Terms]: undefined
   [Screens.AttemptLockout]: undefined
   [Screens.EnterPIN]: {  setAuthenticated?: (status: boolean) => void; flow?: 'create' | 'import' | 'onboarding' } | undefined
