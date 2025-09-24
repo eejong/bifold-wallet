@@ -11,10 +11,10 @@ import { Screens } from '../types/navigators'
 import { useNavigation } from '../../__mocks__/@react-navigation/core'
 //import { ThemedText } from '../components/texts/ThemedText'
 
+type PINExplainerNav = StackNavigationProp<OnboardingStackParams, Screens.PINExplainer>
 
-
-const PINExplainer: React.FC<PINExplainerProps> = () => {
-  const navigation = useNavigation()
+const PINExplainer: React.FC = () => {
+  const navigation = useNavigation<PINExplainerNav>()
   const { t } = useTranslation()
   const { ColorPalette, Assets } = useTheme()
   const onCreateWallet = () => {

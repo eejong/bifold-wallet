@@ -1,38 +1,39 @@
 import React from 'react'
-import { View, TouchableOpacity, StyleSheet, Text } from 'react-native'
-import { useTheme, } from '../../contexts/theme'
+import { View, TouchableOpacity, StyleSheet } from 'react-native'
+import { useTheme } from '../../contexts/theme'
 
 interface HeaderProps {
-  step?: number // from 1 to 4
+  step?: number       // current step (1-based)
+  totalSteps?: number // total dots
   onBackPress?: () => void
 }
 
-
 const styles = StyleSheet.create({
   headerContainer: {
-    flex: 1,
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     backgroundColor: '#FFFFFF',
     height: 50,
   },
   backButton: {
-    marginRight: 20, color: 'red',
-    left: 20
+    marginRight: 20,
   },
   dotsContainer: {
+    flex: 1,
     flexDirection: 'row',
-    alignSelf: 'center'
+    justifyContent: 'center',
   },
   dot: {
-    width: 15,
-    height: 15,
-    borderRadius: 15,
-    marginHorizontal: 6,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    marginHorizontal: 4,
   },
   activeDot: {
-    backgroundColor: '#042645', // dark blue
+    backgroundColor: '#042645',
   },
   inactiveDot: {
     borderWidth: 2,
@@ -41,22 +42,23 @@ const styles = StyleSheet.create({
   },
 })
 
-  
-const StepHeader: React.FC<HeaderProps> = ({ step = 1, onBackPress }) => {
-  const {  ColorPalette, Assets } = useTheme()
+const StepHeader: React.FC<HeaderProps> = ({ step = 1, totalSteps = 4, onBackPress }) => {
+  const { ColorPalette, Assets } = useTheme()
 
-   const imageDisplayOptions = {
+  const imageDisplayOptions = {
     fill: ColorPalette.notification.infoText,
     height: 30,
     width: 40,
   }
+
   return (
     <View style={styles.headerContainer}>
       <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
-      <Assets.svg.arrowBack {...imageDisplayOptions}/>
+        <Assets.svg.arrowBack {...imageDisplayOptions} />
       </TouchableOpacity>
+
       <View style={styles.dotsContainer}>
-        {[1, 2, 3, 4].map((i) => (
+        {Array.from({ length: totalSteps }, (_, i) => i + 1).map((i) => (
           <View
             key={i}
             style={[

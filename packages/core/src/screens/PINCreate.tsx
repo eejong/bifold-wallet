@@ -90,13 +90,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, rou
     controlsContainer: {},
   })
 
-  useEffect(() => {
-  const unsubscribe = navigation.addListener('beforeRemove', (e) => {
-    e.preventDefault()
-    navigation.navigate(Screens.PINExplainer, { flow: route.params?.flow })
-  })
-  return unsubscribe
-}, [navigation, route.params?.flow])
+
 
   const passcodeCreate = useCallback(
     async (PIN: string) => {

@@ -215,29 +215,38 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
   return (
     <Stack.Navigator initialRouteName={activeScreen} screenOptions={{ ...defaultStackOptions }}>
       {screens.map((item) => {
-        if (item.name === Screens.CreatePIN || item.name === Screens.Biometry) {
-          return (
-            <Stack.Screen
-              key={item.name}
-              name={item.name}
-              options={({ route }) => {
-                const flow = route.params?.flow
-                if (flow === 'create' || flow === 'import' || flow === 'onboarding') {
-                  const currentStep = item.name === Screens.CreatePIN ? 1 : 2
-                  return {
-                    headerShown: true,
-                    header: () => <StepHeader currentStep={currentStep} totalSteps={2} />,
-                  }
-                }
-                return {}
-              }}
-              component={item.component}
-            />
-          )
-        }
+  if (item.name === Screens.CreatePIN || item.name === Screens.Biometry) {
+    return (
+      <Stack.Screen
+        key={item.name}
+        name={item.name}
+        component={item.component}
+        options={({ route, navigation }) => {
+          const flow = route.params?.flow
+          if (flow === 'create' || flow === 'import') {
+            const currentStep = item.name === Screens.CreatePIN ? 1 : 2
+            return {
+              headerShown: true,
+              header: () => (
+                <StepHeader
+                  step={currentStep}
+                  totalSteps={2}
+                  onBackPress={() => navigation.goBack()}
+                />
+              ),
+            }
+          }
+          return {
+            headerShown: false,
+          }
+        }}
+      />
+    )
+  }
 
-        return <Stack.Screen key={item.name} {...item} />
-      })}
+  // fallback for all other screens
+  return <Stack.Screen key={item.name} {...item} />
+})}
     </Stack.Navigator>
   )
 }
