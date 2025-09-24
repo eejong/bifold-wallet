@@ -131,22 +131,21 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     )
   }, [Onboarding, OnboardingTheme, carousel, disableOnboardingSkip, onTutorialCompleted, pages, t])
 
-  const PINExplainerScreen = useCallback(
-   ({
-    route,
-    navigation,
-  }: {
-    route: RouteProp<OnboardingStackParams, Screens.PINExplainer>
-    navigation: StackNavigationProp<OnboardingStackParams, Screens.PINExplainer>
-  }) => (
+  // inside OnboardingStack.tsx
+
+const PINExplainerScreen: React.FC<{
+  route: RouteProp<OnboardingStackParams, Screens.PINExplainer>
+  navigation: StackNavigationProp<OnboardingStackParams, Screens.PINExplainer>
+}> = ({ navigation }) => {
+  return (
     <PINExplainer
       onCreateWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'create' })}
       onAlreadyHaveWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'import' })}
       continueCreatePIN={() => navigation.navigate(Screens.CreatePIN, { flow: 'onboarding' })}
     />
-  ),
-  []
-)
+  )
+}
+
   // These need to be in the children of the stack screen otherwise they
   // will unmount/remount which resets the component state in memory and causes
   // issues
