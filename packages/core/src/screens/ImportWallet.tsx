@@ -3,6 +3,7 @@ import { View, Text, Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Screens } from '../types/navigators'
 
+const navigation = useNavigation<StackNavigationProp<OnboardingStackParams>>()
 const ImportWallet: React.FC = () => {
   const navigation = useNavigation()
 

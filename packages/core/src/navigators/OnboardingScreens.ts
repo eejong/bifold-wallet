@@ -23,9 +23,9 @@ interface ScreenComponents {
   PushNotifications: React.FC
   AttemptLockout: React.FC
   OnboardingScreen: React.FC
-  CreatePINScreen: React.FC
+  CreatePINScreen: React.FC<any>
   EnterPINScreen: React.FC
-  PINExplainer: React.FC
+  PINExplainer: React.FC<any>
   ImportWallet: React.FC
 }
 

@@ -39,7 +39,10 @@ render(<PINCreate route={mockRoute as any} navigation={mockNavigation as any} se
           <StoreProvider initialState={{ ...defaultState }}>
             <AuthContext.Provider value={authContext}>
               <PINCreate
-                route={{ params: { flow: 'onboarding' } }}
+                route={{ key: 'CreatePIN-key',
+                name: Screens.CreatePIN,
+                params: { flow: 'onboarding' },
+                }}
                 navigation={mockNavigation as any}
                 setAuthenticated={setAuthenticated}
                 explainedStatus={true}
@@ -69,7 +72,10 @@ render(<PINCreate route={mockRoute as any} navigation={mockNavigation as any} se
           <StoreProvider initialState={{ ...defaultState }}>
             <AuthContext.Provider value={authContext}>
               <PINCreate
-                route={{ params: { flow: 'onboarding' } }}
+                route={{ key: 'CreatePIN-key',
+                name: Screens.CreatePIN,
+                params: { flow: 'onboarding' }, 
+                }}
                 navigation={mockNavigation as any}
                 setAuthenticated={setAuthenticated}
                 explainedStatus={false}
@@ -99,7 +105,10 @@ render(<PINCreate route={mockRoute as any} navigation={mockNavigation as any} se
           <StoreProvider initialState={{ ...defaultState }}>
             <AuthContext.Provider value={authContext}>
               <PINCreate
-                route={{ params: { flow: 'onboarding' } }}
+                route={{ key: 'CreatePIN-key',
+                name: Screens.CreatePIN,
+                params: { flow: 'onboarding' }, 
+                }}
                 navigation={mockNavigation as any}
                 setAuthenticated={setAuthenticated}
                 explainedStatus={false}

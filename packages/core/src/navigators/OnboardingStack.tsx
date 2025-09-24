@@ -28,7 +28,7 @@ import { State } from '../types/state'
 import { useDefaultStackOptions } from './defaultStackOptions'
 import { getOnboardingScreens } from './OnboardingScreens'
 import StepHeader from 'components/misc/StepHeader'
-import { useAuth } from './contexts/auth'
+
 
 export type OnboardingStackProps = {
   initializeAgent: (walletSecret: WalletSecret) => Promise<void>
@@ -94,12 +94,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
   }, [versionMonitor, dispatch])
   
 
-  const onAuthenticated = useCallback(
-    (status: boolean): void => {
-      if (!status) {
-        return
-      }
-
+  const onAuthenticated = useCallback(() => {
       dispatch({
         type: DispatchAction.DID_AUTHENTICATE,
       })

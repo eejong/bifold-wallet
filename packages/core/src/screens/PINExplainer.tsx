@@ -12,11 +12,11 @@ import { useNavigation } from '../../__mocks__/@react-navigation/core'
 //import { ThemedText } from '../components/texts/ThemedText'
 
 interface PINExplainerProps {
-  onCreateWallet: () => void
-  onAlreadyHaveWallet: () => void
+  onCreateWallet?: () => void
+  onAlreadyHaveWallet?: () => void
 }
 const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHaveWallet }) => {
-  const navigation = useNavigation<PINExplainerNav>()
+  const navigation = useNavigation()
   const { t } = useTranslation()
   const { ColorPalette, Assets } = useTheme()
 
