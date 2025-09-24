@@ -200,6 +200,17 @@
     "ToContinueUsing": "To continue using the Aries Bifold scan feature, please allow camera permissions.",
     "OpenSettings": "Open settings"
   },
+  "ImportWallet":{
+    "ImportWallet": "Import a wallet",
+    "ImportExisting": "Import anexistingwallet with your backup file",
+    "UploadRecoverFile": "Upload a Recovery File",
+    "BackUpRecoverFile": "Use your Backup Recovery File",
+    "Recovery":{
+      "RecoveryFile": "Recovery File",
+      "ImportRecoverFile": "Import an existing wallet using a recovery file.",
+      "ImportSuccess": "Wallet successfully imported from recovery file"
+    }
+  },
   "PINCreate": {
     "Explainer": {
       "PrimaryHeading": "Secure your Wallet",
@@ -803,6 +814,7 @@
     "Preface": "ASTI Wallet",
     "Terms": "Terms & Conditions",
     "CreatePIN": "Create a PIN",
+    "ImportWallet": "Import a Wallet",
     "EnterPIN": "Enter PIN",
     "Home": "Notifications",
     "Scan": "Scan",

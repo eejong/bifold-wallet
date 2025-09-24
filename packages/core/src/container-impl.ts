@@ -55,6 +55,7 @@ import {
   Onboarding as StoreOnboardingState,
   Tours as ToursState,
 } from './types/state'
+import ImportWallet from 'screens/ImportWallet'
 
 export const defaultConfig: Config = {
   PINSecurity: {
@@ -130,6 +131,7 @@ export class MainContainer implements Container {
     this._container.registerInstance(TOKENS.SCREEN_ONBOARDING_ITEM, Onboarding)
     this._container.registerInstance(TOKENS.SCREEN_ONBOARDING, Onboarding)
     this._container.registerInstance(TOKENS.SCREEN_PIN_EXPLAINER, PINExplainer)
+    this._container.registerInstance(TOKENS.SCREEN_IMPORT_WALLET, ImportWallet)
     this._container.registerInstance(TOKENS.HOOK_USE_AGENT_SETUP, useBifoldAgentSetup)
     this._container.registerInstance(TOKENS.STACK_ONBOARDING, OnboardingStack)
     this._container.registerInstance(TOKENS.COMP_BUTTON, Button)

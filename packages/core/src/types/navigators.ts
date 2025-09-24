@@ -14,6 +14,7 @@ export enum Screens {
   ChangePIN = 'Change PIN',
   EnterPIN = 'Enter PIN',
   PINExplainer = 'Explain PIN',
+  ImportWallet = 'Import a Wallet',
   Home = 'Home',
   Scan = 'Scan',
   PasteUrl = 'Paste URL',
@@ -108,6 +109,8 @@ export type OnboardingStackParams = {
   [Screens.Preface]: undefined
   [Screens.Onboarding]: undefined
   [Screens.CreatePIN]: { setAuthenticated: (status: boolean) => void } | undefined
+  [Screens.PINExplainer]: undefined
+  [Screens.ImportWallet]: undefined
   [Screens.Terms]: undefined
   [Screens.AttemptLockout]: undefined
   [Screens.EnterPIN]: { setAuthenticated: (status: boolean) => void } | undefined

@@ -25,7 +25,8 @@ interface ScreenComponents {
   OnboardingScreen: React.FC
   CreatePINScreen: React.FC
   EnterPINScreen: React.FC
-  PINExplainerScreen: React.FC
+  PINExplainer: React.FC
+  ImportWallet: React.FC
 }
 
 export const getOnboardingScreens = (
@@ -79,7 +80,7 @@ export const getOnboardingScreens = (
     ...TransitionPresets.SlideFromRightIOS,
     title: '',
     headerLeft: () => false,
-    ...ScreenOptionsDictionary[Screens.PINExlainer],
+    ...ScreenOptionsDictionary[Screens.PINExplainer],
   })
   },
   {
@@ -92,6 +93,16 @@ export const getOnboardingScreens = (
       headerLeft: () => false,
       ...ScreenOptionsDictionary[Screens.CreatePIN],
     }),
+  },
+  {
+    name: Screens.ImportWallet,
+    options: () => ({
+      ...TransitionPresets.SlideFromRightIOS,
+      title: t('Screens.ImportWallet'),
+      headerLeft: () => false,
+      ...ScreenOptionsDictionary[Screens.ImportWallet],
+    }),
+    component: components.Terms,
   },
   {
     name: Screens.Terms,

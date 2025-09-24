@@ -12,9 +12,6 @@ import { useNavigation } from '../../__mocks__/@react-navigation/core'
 //import { ThemedText } from '../components/texts/ThemedText'
 
 
-export interface PINExplainerProps {
-  continueCreatePIN: () => void
-}
 
 const PINExplainer: React.FC<PINExplainerProps> = () => {
   const navigation = useNavigation()

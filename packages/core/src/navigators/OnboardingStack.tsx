@@ -18,6 +18,7 @@ import { createCarouselStyle } from '../screens/OnboardingPages'
 import PINCreate from '../screens/PINCreate'
 import PINEnter from '../screens/PINEnter'
 import PINExplainer from '../screens/PINExplainer'
+import ImportWallet from '../screens/ImportWallet'
 import PushNotifications from '../screens/PushNotifications'
 import { Config } from '../types/config'
 import { OnboardingStackParams, Screens } from '../types/navigators'
@@ -27,6 +28,7 @@ import { State } from '../types/state'
 import { useDefaultStackOptions } from './defaultStackOptions'
 import { getOnboardingScreens } from './OnboardingScreens'
 import StepHeader from 'components/misc/StepHeader'
+import { useAuth } from 'contexts/auth'
 
 export type OnboardingStackProps = {
   initializeAgent: (walletSecret: WalletSecret) => Promise<void>
@@ -66,19 +68,21 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     TOKENS.SCREEN_UPDATE_AVAILABLE,
     TOKENS.UTIL_APP_VERSION_MONITOR,
     TOKENS.ONBOARDING,
+    TOKENS.SCREEN_PIN_EXPLAINER,
   ])
   const defaultStackOptions = useDefaultStackOptions(theme)
-  const navigation = useNavigation<StackNavigationProp<OnboardingStackParams, Screens.Splash>>()
-  const onTutorialCompleted = onTutorialCompletedCurried(dispatch, navigation)
+  const navigation = useNavigation<StackNavigationProp<OnboardingStackParams>>()
+  const onTutorialCompleted = onTutorialCompletedCurried(dispatch, navigation as any)
   const currentRoute = useNavigationState((state) => state?.routes[state?.index])
   const { disableOnboardingSkip } = config as Config
-  const { onboardingState, activeScreen, setAuthenticated } = useOnboardingState(
-    store.preferences,
+  const { onboardingState, activeScreen,  } = useOnboardingState(
+    store,
     config,
     Number(termsVersion),
     agent,
     generateOnboardingWorkflowSteps
   )
+  const { setAuthenticated} = useAuth()
 
   useEffect(() => {
     versionMonitor?.checkForUpdate?.().then((versionInfo) => {
@@ -186,7 +190,8 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
         OnboardingScreen,
         CreatePINScreen,
         EnterPINScreen,
-        PINExplainerScreen,
+        PINExplainer,
+        ImportWallet,
       }),
     [
       SplashScreen,
@@ -199,7 +204,8 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
       t,
       ScreenOptionsDictionary,
       UpdateAvailableScreen,
-      PINExplainerScreen
+      PINExplainerScreen,
+      ImportWallet,
     ]
   )
   return (

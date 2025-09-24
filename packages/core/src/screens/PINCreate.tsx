@@ -1,6 +1,6 @@
 import { ParamListBase } from '@react-navigation/native'
 import { StackScreenProps } from '@react-navigation/stack'
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   AccessibilityInfo,
@@ -29,21 +29,23 @@ import { useTheme } from '../contexts/theme'
 import usePreventScreenCapture from '../hooks/screen-capture'
 import { usePINValidation } from '../hooks/usePINValidation'
 import { BifoldError } from '../types/error'
-import { Screens } from '../types/navigators'
+import { OnboardingStackParams, Screens } from '../types/navigators'
 import { testIdWithKey } from '../utils/testable'
 import CheckBoxRow from '../components/inputs/CheckBoxRow'
-import Terms from './Terms'
+
 import { ThemedText } from '../components/texts/ThemedText'
+
+import Terms from './Terms'
 import StepHeader from '../components/misc/StepHeader'
+import PINExplainer from './PINExplainer'
 
 
-interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
+interface PINCreateProps extends StackScreenProps<OnboardingStackParams, Screens.CreatePIN> {
   setAuthenticated: (status: boolean) => void
-  explainedStatus?: boolean
-  navigation: () => void
+  explainedStatus: boolean
 }
 
-const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, route, explainedStatus  }) => {
+const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, route, explainedStatus  }) => {
   
   
   const { setPIN: setWalletPIN } = useAuth()
@@ -88,7 +90,14 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, rout
     controlsContainer: {},
   })
 
-  
+  useEffect(() => {
+  const unsubscribe = navigation.addListener('beforeRemove', (e) => {
+    e.preventDefault()
+    navigation.navigate(Screens.PINExplainer, { flow: route.params?.flow })
+  })
+  return unsubscribe
+}, [navigation, route.params?.flow])
+
   const passcodeCreate = useCallback(
     async (PIN: string) => {
       try {
@@ -107,7 +116,7 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, rout
         DeviceEventEmitter.emit(EventTypes.ERROR_ADDED, error)
       }
     },
-    [setWalletPIN, setAuthenticated, dispatch, t, navigation, route]
+    [setWalletPIN, setAuthenticated, t, navigation, route]
   )
 
   const handleCreatePinTap = useCallback(async () => {
@@ -125,11 +134,9 @@ const PINCreate: React.FC<PINCreateProps> = ({navigation, setAuthenticated, rout
     return isLoading || PIN.length < minPINLength || PINTwo.length < minPINLength
   }, [isLoading, PIN, PINTwo, inlineMessages])
 
-
-
   const continueCreatePIN = useCallback(() => {
-    setExplained(true);
-  }, []);
+    setExplained(true)
+  }, [])
 
   return explained? (
     <KeyboardView keyboardAvoiding={false}>
