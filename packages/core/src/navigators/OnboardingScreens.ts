@@ -74,7 +74,7 @@ export const getOnboardingScreens = (
   },
   {
     name: Screens.PINExplainer,
-  component: components.PINExplainerScreen,
+  children: components.PINExplainerScreen,
   options: () => ({
     headerShown: false,
     ...TransitionPresets.SlideFromRightIOS,
