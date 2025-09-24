@@ -42,6 +42,8 @@ import Splash from './screens/Splash'
 import ScreenTerms, { TermsVersion } from './screens/Terms'
 import ToggleBiometry from './screens/ToggleBiometry'
 import UpdateAvailable from './screens/UpdateAvailable'
+import ImportWallet from './screens/ImportWallet'
+
 import { loadLoginAttempt } from './services/keychain'
 import { BifoldLogger } from './services/logger'
 import { PersistentStorage } from './services/storage'
@@ -55,7 +57,6 @@ import {
   Onboarding as StoreOnboardingState,
   Tours as ToursState,
 } from './types/state'
-import ImportWallet from 'screens/ImportWallet'
 
 export const defaultConfig: Config = {
   PINSecurity: {
