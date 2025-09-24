@@ -14,8 +14,9 @@ import { useNavigation } from '../../__mocks__/@react-navigation/core'
 export interface PINExplainerProps {
   onCreateWallet?: () => void
   onAlreadyHaveWallet?: () => void
+  continueCreatePIN: () => void
 }
-const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHaveWallet }) => {
+const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHaveWallet, continueCreatePIN }) => {
   const navigation = useNavigation()
   const { t } = useTranslation()
   const { ColorPalette, Assets } = useTheme()
@@ -67,7 +68,7 @@ const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHav
               title={t('PINCreate.Explainer.CreateWallet')}
               accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
               testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={handleCreate}
+              onPress={{handleCreate, continueCreatePIN}}
               buttonType={ButtonType.Primary}
             />  
           </View>

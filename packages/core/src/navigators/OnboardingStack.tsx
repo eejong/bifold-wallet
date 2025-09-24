@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Agent } from '@credo-ts/core'
-import { StackActions, useNavigation, useNavigationState } from '@react-navigation/native'
+import { StackActions, useNavigation, useNavigationState, RouteProp } from '@react-navigation/native'
 import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack'
 import React, { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -128,28 +128,38 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
   }, [Onboarding, OnboardingTheme, carousel, disableOnboardingSkip, onTutorialCompleted, pages, t])
 
   const PINExplainerScreen = useCallback(
-    ({ navigation }) => (
-      <PINExplainer
-        onCreateWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'create' })}
-        onAlreadyHaveWallet={() => navigation.navigate(Screens.ImportWallet, { flow: 'import' })}
-      />
-    ),
-    []
-  )
+  ({
+    navigation,
+  }: {
+    navigation: StackNavigationProp<OnboardingStackParams,Screens.PINExplainer>
+  }) => (
+    <PINExplainer
+      onCreateWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'create' })}
+      onAlreadyHaveWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'import' })}
+    />
+  ),
+  []
+)
   // These need to be in the children of the stack screen otherwise they
   // will unmount/remount which resets the component state in memory and causes
   // issues
-  const CreatePINScreen = useCallback(
-    ({ route, navigation }) => (
-      <PINCreate
-        navigation={navigation}
-        route={route}
-        setAuthenticated={onAuthenticated}
-        explainedStatus={route.params?.flow === 'onboarding'}
-      />
-    ),
-    [onAuthenticated]
-  );
+const CreatePINScreen = useCallback(
+  ({
+    route,
+    navigation,
+  }: {
+    route: RouteProp<OnboardingStackParams, Screens.CreatePIN>
+    navigation: StackNavigationProp<OnboardingStackParams, Screens.CreatePIN>
+  }) => (
+    <PINCreate
+      navigation={navigation}
+      route={route}
+      setAuthenticated={onAuthenticated}
+      explainedStatus={route.params?.flow === 'onboarding'}
+    />
+  ),
+  [onAuthenticated]
+)
   const EnterPINScreen = useCallback(
     (props: any) => {
       return <PINEnter setAuthenticated={onAuthenticated} {...props} />
@@ -215,7 +225,6 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
             <Stack.Screen
               key={item.name}
               name={item.name}
-              component={item.component}
               options={({ route, navigation }:{route:any ; navigation:any}) => {
                 const flow = route.params?.flow
                 if (flow === 'create' || flow === 'import') {
