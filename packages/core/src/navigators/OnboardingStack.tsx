@@ -131,7 +131,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     )
   }, [Onboarding, OnboardingTheme, carousel, disableOnboardingSkip, onTutorialCompleted, pages, t])
 
-  const PINExplainerScreen = useCallback(
+  const PINExplainer = useCallback(
   ({
     navigation,
   }: {
