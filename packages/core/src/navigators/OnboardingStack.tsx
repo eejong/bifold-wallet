@@ -82,7 +82,7 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     agent,
     generateOnboardingWorkflowSteps
   )
-  const { setAuthenticated} = useAuth()
+
 
   useEffect(() => {
     versionMonitor?.checkForUpdate?.().then((versionInfo) => {
@@ -220,26 +220,22 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
         if(item.name === Screens.CreatePIN || item.name === Screens.Biometry){
           return (
           <Stack.Screen
-            key={Screens.PINExplainer}
-            name={Screens.PINExplainer}
-            options={({route, navigation})=>{
-            const flow = route.params?.flow;
-            let currentStep = 0;
-            let totalSteps = 2;
-          if ( flow === 'create' ){
-            totalSteps = 2;
-            currentStep = item.name === Screens.CreatePIN ? 0 : 1
-          }
-          return{
-            headerShown: true,
-            header:() => <StepHeader currentStep={ totalSteps}/>,
-          }}}
-          children= {CreatePINScreen}/>
-           
+            key={item.name}             // ✅ use correct name
+            name={item.name}            // ✅ use correct name
+            options={({ route }) => {
+            const flow = route.params?.flow
+          if (flow === 'create' || flow === 'import') {
+            const currentStep = item.name === Screens.CreatePIN ? 1 : 2
+            return {
+              headerShown: true,
+              header: () => (
+                <StepHeader currentStep={currentStep} totalSteps={2} />
           )
-        }
+        }}
         return <Stack.Screen key={item.name} {...item} />
-      })}
+      
+    )
+  }
     </Stack.Navigator>
   )
 }

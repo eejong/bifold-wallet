@@ -108,13 +108,13 @@ export type TabStackParams = {
 export type OnboardingStackParams = {
   [Screens.Preface]: undefined
   [Screens.Onboarding]: undefined
-  [Screens.CreatePIN]: { setAuthenticated: (status: boolean) => void } | undefined
-  [Screens.PINExplainer]: undefined
-  [Screens.ImportWallet]: undefined
+  [Screens.CreatePIN]: { setAuthenticated: (status: boolean) => void; flow?: 'create' | 'import' | 'onboarding' } | undefined
+  [Screens.PINExplainer]:  { flow?: 'create' | 'import' | 'onboarding' } | undefined
+  [Screens.ImportWallet]:  { flow?: 'import' | 'onboarding' } | undefined
   [Screens.Terms]: undefined
   [Screens.AttemptLockout]: undefined
-  [Screens.EnterPIN]: { setAuthenticated: (status: boolean) => void } | undefined
-  [Screens.Biometry]: undefined
+  [Screens.EnterPIN]: {  setAuthenticated: (status: boolean) => void; flow?: 'create' | 'import' | 'onboarding' } | undefined
+  [Screens.Biometry]: { flow?: 'create' | 'import' | 'onboarding' } | undefined
   [Screens.NameWallet]: undefined
   [Screens.PushNotifications]: undefined
 }
