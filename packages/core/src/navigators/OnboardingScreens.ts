@@ -23,7 +23,7 @@ interface ScreenComponents {
   PushNotifications: React.FC
   AttemptLockout: React.FC
   OnboardingScreen: React.FC
-  PINExplainerScreen: React.FC<any>
+  PINExplainerWrapper: React.FC<any>
   CreatePINScreen: React.FC<any>
   EnterPINScreen: React.FC
   ImportWallet: React.FC
@@ -78,7 +78,6 @@ export const getOnboardingScreens = (
   options: () => ({
     hheaderShown: false,
     ...TransitionPresets.SlideFromRightIOS,
-    title: '',
     headerLeft: () => false,
     ...ScreenOptionsDictionary[Screens.PINExplainer],
   })
