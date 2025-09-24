@@ -78,7 +78,7 @@ const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHav
               title={t('PINCreate.Explainer.CreateWallet')}
               accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
               testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={{handleCreate, continueCreatePIN}}
+              onPress={handleCreate}
               buttonType={ButtonType.Primary}
             />  
           </View>

@@ -220,34 +220,6 @@ const CreatePINScreen = useCallback(
   return (
     <Stack.Navigator initialRouteName={activeScreen} screenOptions={{ ...defaultStackOptions }}>
       {screens.map((item) => {
-        if (item.name === Screens.CreatePIN || item.name === Screens.Biometry) {
-          return (
-            <Stack.Screen
-              key={item.name}
-              name={item.name}
-              options={({ route, navigation }:{route:any ; navigation:any}) => {
-                const flow = route.params?.flow
-                if (flow) {
-                  const currentStep = Screens.CreatePIN ? 1 : 2
-                  return {
-                    headerShown: true,
-                    header: () => (
-                      <StepHeader
-                        step={currentStep}
-                        onBackPress={() => navigation.goBack()}
-                      />
-                    ),
-                  }
-                }
-                return {
-                  headerShown: false,
-                }
-              }}
-            />
-          )
-        }
-
-  // fallback for all other screens
   return <Stack.Screen key={item.name} {...item} />
 })}
     </Stack.Navigator>
