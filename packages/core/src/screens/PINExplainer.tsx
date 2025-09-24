@@ -14,15 +14,25 @@ import { useNavigation } from '../../__mocks__/@react-navigation/core'
 export interface PINExplainerProps {
   onCreateWallet?: () => void
   onAlreadyHaveWallet?: () => void
-  continueCreatePIN: () => void
+  continueCreatePIN?: () => void
 }
 const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHaveWallet, continueCreatePIN }) => {
   const navigation = useNavigation()
   const { t } = useTranslation()
   const { ColorPalette, Assets } = useTheme()
 
-  const handleCreate = onCreateWallet ?? (() => navigation.navigate(Screens.CreatePIN, { flow: 'create' }))
-  const handleImport = onAlreadyHaveWallet ?? (() => navigation.navigate(Screens.CreatePIN, { flow: 'import' }))
+  const handleCreate = onCreateWallet ?? 
+    (() => {
+      navigation.navigate(Screens.CreatePIN, { flow: 'create' }) 
+      continueCreatePIN?.()
+    })
+
+    const handleImport = onCreateWallet ?? 
+    (() => {
+      navigation.navigate(Screens.CreatePIN, { flow: 'import' }) 
+      continueCreatePIN?.()
+    })
+
 
   const style = StyleSheet.create({
     safeAreaView: {

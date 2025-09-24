@@ -227,14 +227,13 @@ const CreatePINScreen = useCallback(
               name={item.name}
               options={({ route, navigation }:{route:any ; navigation:any}) => {
                 const flow = route.params?.flow
-                if (flow === 'create' || flow === 'import') {
-                  const currentStep = item.name === Screens.CreatePIN ? 1 : 2
+                if (flow) {
+                  const currentStep = Screens.CreatePIN ? 1 : 2
                   return {
                     headerShown: true,
                     header: () => (
                       <StepHeader
                         step={currentStep}
-                        totalSteps={2}
                         onBackPress={() => navigation.goBack()}
                       />
                     ),
