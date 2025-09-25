@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Agent } from '@credo-ts/core'
-import { StackActions, useNavigation, useNavigationState, RouteProp } from '@react-navigation/native'
+import { StackActions, useNavigation, useNavigationState } from '@react-navigation/native'
 import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack'
 import React, { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -17,18 +17,14 @@ import NameWallet from '../screens/NameWallet'
 import { createCarouselStyle } from '../screens/OnboardingPages'
 import PINCreate from '../screens/PINCreate'
 import PINEnter from '../screens/PINEnter'
-import PINExplainer from '../screens/PINExplainer'
-import ImportWallet from '../screens/ImportWallet'
 import PushNotifications from '../screens/PushNotifications'
 import { Config } from '../types/config'
-import { OnboardingStackParams, Screens } from '../types/navigators'
+import { OnboardingStackParams } from '../types/navigators'
 import { WalletSecret } from '../types/security'
 import { State } from '../types/state'
 
 import { useDefaultStackOptions } from './defaultStackOptions'
 import { getOnboardingScreens } from './OnboardingScreens'
-import StepHeader from 'components/misc/StepHeader'
-
 
 export type OnboardingStackProps = {
   initializeAgent: (walletSecret: WalletSecret) => Promise<void>
@@ -68,21 +64,19 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     TOKENS.SCREEN_UPDATE_AVAILABLE,
     TOKENS.UTIL_APP_VERSION_MONITOR,
     TOKENS.ONBOARDING,
-    TOKENS.SCREEN_PIN_EXPLAINER,
   ])
   const defaultStackOptions = useDefaultStackOptions(theme)
   const navigation = useNavigation<StackNavigationProp<OnboardingStackParams>>()
-  const onTutorialCompleted = onTutorialCompletedCurried(dispatch, navigation as any)
+  const onTutorialCompleted = onTutorialCompletedCurried(dispatch, navigation)
   const currentRoute = useNavigationState((state) => state?.routes[state?.index])
   const { disableOnboardingSkip } = config as Config
-  const { onboardingState, activeScreen,  } = useOnboardingState(
+  const { onboardingState, activeScreen } = useOnboardingState(
     store,
     config,
     Number(termsVersion),
     agent,
     generateOnboardingWorkflowSteps
   )
-
 
   useEffect(() => {
     versionMonitor?.checkForUpdate?.().then((versionInfo) => {
@@ -92,13 +86,13 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
       })
     })
   }, [versionMonitor, dispatch])
-  
 
   const onAuthenticated = useCallback(
     (status: boolean): void => {
       if (!status) {
         return
       }
+
       dispatch({
         type: DispatchAction.DID_AUTHENTICATE,
       })
@@ -131,41 +125,16 @@ const OnboardingStack: React.FC<OnboardingStackProps> = ({ initializeAgent, agen
     )
   }, [Onboarding, OnboardingTheme, carousel, disableOnboardingSkip, onTutorialCompleted, pages, t])
 
-  // inside OnboardingStack.tsx
-
-const PINExplainerScreen: React.FC<{
-  route: RouteProp<OnboardingStackParams, Screens.PINExplainer>
-  navigation: StackNavigationProp<OnboardingStackParams, Screens.PINExplainer>
-}> = ({ navigation }) => {
-  return (
-    <PINExplainer
-      onCreateWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'create' })}
-      onAlreadyHaveWallet={() => navigation.navigate(Screens.CreatePIN, { flow: 'import' })}
-      continueCreatePIN={() => navigation.navigate(Screens.CreatePIN, { flow: 'onboarding' })}
-    />
-  )
-}
-
   // These need to be in the children of the stack screen otherwise they
   // will unmount/remount which resets the component state in memory and causes
   // issues
-const CreatePINScreen = useCallback(
-  ({
-    route,
-    navigation,
-  }: {
-    route: RouteProp<OnboardingStackParams, Screens.CreatePIN>
-    navigation: StackNavigationProp<OnboardingStackParams, Screens.CreatePIN>
-  }) => (
-    <PINCreate
-      navigation={navigation}
-      route={route}
-      setAuthenticated={onAuthenticated}
-      explainedStatus={route.params?.flow === 'onboarding'}
-    />
-  ),
-  [onAuthenticated]
-)
+  const CreatePINScreen = useCallback(
+    (props: any) => {
+      return <PINCreate setAuthenticated={onAuthenticated} {...props} />
+    },
+    [onAuthenticated]
+  )
+
   const EnterPINScreen = useCallback(
     (props: any) => {
       return <PINEnter setAuthenticated={onAuthenticated} {...props} />
@@ -205,8 +174,6 @@ const CreatePINScreen = useCallback(
         OnboardingScreen,
         CreatePINScreen,
         EnterPINScreen,
-        PINExplainerScreen,
-        ImportWallet,
       }),
     [
       SplashScreen,
@@ -219,15 +186,18 @@ const CreatePINScreen = useCallback(
       t,
       ScreenOptionsDictionary,
       UpdateAvailableScreen,
-      PINExplainerScreen,
-      ImportWallet,
     ]
   )
   return (
-    <Stack.Navigator initialRouteName={activeScreen} screenOptions={{ ...defaultStackOptions }}>
+    <Stack.Navigator
+      initialRouteName={activeScreen}
+      screenOptions={{
+        ...defaultStackOptions,
+      }}
+    >
       {screens.map((item) => {
-  return <Stack.Screen key={item.name} {...item} />
-})}
+        return <Stack.Screen key={item.name} {...item} />
+      })}
     </Stack.Navigator>
   )
 }

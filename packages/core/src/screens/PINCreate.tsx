@@ -1,6 +1,6 @@
 import { ParamListBase } from '@react-navigation/native'
 import { StackScreenProps } from '@react-navigation/stack'
-import React, { useCallback, useMemo, useRef, useState, useEffect } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   AccessibilityInfo,
@@ -29,23 +29,20 @@ import { useTheme } from '../contexts/theme'
 import usePreventScreenCapture from '../hooks/screen-capture'
 import { usePINValidation } from '../hooks/usePINValidation'
 import { BifoldError } from '../types/error'
-import { OnboardingStackParams, Screens } from '../types/navigators'
+import { Screens } from '../types/navigators'
 import { testIdWithKey } from '../utils/testable'
 import CheckBoxRow from '../components/inputs/CheckBoxRow'
-
-import { ThemedText } from '../components/texts/ThemedText'
-
 import Terms from './Terms'
+import { ThemedText } from '../components/texts/ThemedText'
 import StepHeader from '../components/misc/StepHeader'
-import PINExplainer from './PINExplainer'
 
 
-interface PINCreateProps extends StackScreenProps<OnboardingStackParams, Screens.CreatePIN> {
+interface PINCreateProps extends StackScreenProps<ParamListBase, Screens.CreatePIN> {
   setAuthenticated: (status: boolean) => void
   explainedStatus: boolean
 }
 
-const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, route, explainedStatus  }) => {
+const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated, explainedStatus }) => {
   
   
   const { setPIN: setWalletPIN } = useAuth()
@@ -62,16 +59,13 @@ const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, rou
   const createPINButtonRef = useRef<TouchableOpacity>(null)
   const [modalVisible, setModalVisible] = useState(false)
 
-  const [PINExplainer, PINHeader, {  preventScreenCapture }, Button, inlineMessages] = useServices([
+  const [PINExplainer, PINHeader, { showPINExplainer, preventScreenCapture }, Button, inlineMessages] = useServices([
     TOKENS.SCREEN_PIN_EXPLAINER,
     TOKENS.COMPONENT_PIN_HEADER,
     TOKENS.CONFIG,
     TOKENS.COMP_BUTTON,
     TOKENS.INLINE_ERRORS,
   ])
-  const showPINExplainer = useMemo(() => {
-    return route.params?.flow === 'onboarding';
-  }, [route.params?.flow]);
 
   const [explained, setExplained] = useState(explainedStatus || showPINExplainer === false)
   const { PINValidations, validatePINEntry, inlineMessageField1, inlineMessageField2, modalState, PINSecurity } =
@@ -90,8 +84,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, rou
     controlsContainer: {},
   })
 
-
-
+  
   const passcodeCreate = useCallback(
     async (PIN: string) => {
       try {
@@ -101,7 +94,6 @@ const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, rou
         dispatch({
           type: DispatchAction.DID_CREATE_PIN,
         })
-      
       } catch (err: unknown) {
         const error = new BifoldError(
           t('Error.Title1040'),
@@ -113,17 +105,16 @@ const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, rou
         DeviceEventEmitter.emit(EventTypes.ERROR_ADDED, error)
       }
     },
-    [setWalletPIN, setAuthenticated, t, dispatch]
+    [setWalletPIN, setAuthenticated, dispatch, t]
   )
 
   const handleCreatePinTap = useCallback(async () => {
     setIsLoading(true)
     if (validatePINEntry(PIN, PINTwo)) {
       await passcodeCreate(PIN)
-       navigation.navigate(Screens.Biometry, {flow : route.params?.flow})
     }
     setIsLoading(false)
-  }, [PIN, PINTwo, passcodeCreate, validatePINEntry, navigation, route])
+  }, [PIN, PINTwo, passcodeCreate, validatePINEntry])
 
   const isContinueDisabled = useMemo((): boolean => {
     if (inlineMessages.enabled) {
@@ -136,7 +127,8 @@ const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, rou
     setExplained(true)
   }, [])
 
-  return explained? (
+
+  return explained ? (
     <KeyboardView keyboardAvoiding={false}>
       <View style={style.screenContainer}>
         <View style={style.contentContainer}>
@@ -200,7 +192,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ navigation, setAuthenticated, rou
                       }
                     }}
                   />
-          <ThemedText style={{ color: '#4A4A4A' }}>
+          <ThemedText style={{ color: '##4A4A4A' }}>
             {" "}
           </ThemedText>
           <TouchableOpacity onPress={() => setModalVisible(true)}>

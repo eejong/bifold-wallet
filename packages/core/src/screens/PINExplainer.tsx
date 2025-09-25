@@ -2,41 +2,21 @@ import React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import {StackNavigationProp } from '@react-navigation/stack'
 
 import Button, { ButtonType } from '../components/buttons/Button'
-//import BulletPoint from '../components/inputs/BulletPoint'
+import BulletPoint from '../components/inputs/BulletPoint'
 import { useTheme } from '../contexts/theme'
 import { testIdWithKey } from '../utils/testable'
-import { OnboardingStackParams, Screens } from '../types/navigators'
-import { useNavigation } from '@react-navigation/native'
-//import { ThemedText } from '../components/texts/ThemedText'
+import { ThemedText } from '../components/texts/ThemedText'
+
 
 export interface PINExplainerProps {
-  onCreateWallet?: () => void
-  onAlreadyHaveWallet?: () => void
-  continueCreatePIN?: () => void
+  continueCreatePIN: () => void
 }
 
-
-
-const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHaveWallet, continueCreatePIN }) => {
-  const navigation = useNavigation<StackNavigationProp<OnboardingStackParams, Screens.PINExplainer>>()
+const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
   const { t } = useTranslation()
-  const { ColorPalette, Assets } = useTheme()
-
-  const handleCreate = onCreateWallet ?? 
-    (() => {
-      navigation.navigate(Screens.CreatePIN, { flow: 'create' }) 
-      continueCreatePIN?.()
-    })
-
-    const handleImport = onAlreadyHaveWallet ?? 
-    (() => {
-      navigation.navigate(Screens.CreatePIN, { flow: 'import' }) 
-      continueCreatePIN?.()
-    })
-
+  const { ColorPalette, TextTheme, Assets } = useTheme()
 
   const style = StyleSheet.create({
     safeAreaView: {
@@ -82,7 +62,7 @@ const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHav
               title={t('PINCreate.Explainer.CreateWallet')}
               accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
               testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={handleCreate}
+              onPress={continueCreatePIN}
               buttonType={ButtonType.Primary}
             />  
           </View>
@@ -91,7 +71,7 @@ const PINExplainer: React.FC<PINExplainerProps>= ({ onCreateWallet, onAlreadyHav
               title={t('PINCreate.Explainer.ImportWallet')}
               accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
               testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={handleImport}
+              onPress={continueCreatePIN}
               buttonType={ButtonType.Secondary}
             />  
           </View>

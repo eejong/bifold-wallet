@@ -13,8 +13,6 @@ export enum Screens {
   CreatePIN = 'Create a PIN',
   ChangePIN = 'Change PIN',
   EnterPIN = 'Enter PIN',
-  PINExplainer = 'Explain PIN',
-  ImportWallet = 'Import a Wallet',
   Home = 'Home',
   Scan = 'Scan',
   PasteUrl = 'Paste URL',
@@ -108,13 +106,11 @@ export type TabStackParams = {
 export type OnboardingStackParams = {
   [Screens.Preface]: undefined
   [Screens.Onboarding]: undefined
-  [Screens.CreatePIN]: { setAuthenticated?: (status: boolean) => void; flow?: 'create' | 'import' | 'onboarding' } | undefined
-  [Screens.PINExplainer]:  { flow?: 'create' | 'import' | 'onboarding' } | undefined
-  [Screens.ImportWallet]: { setAuthenticated?: (status: boolean) => void; flow?: 'create' | 'import' | 'onboarding' } | undefined
+  [Screens.CreatePIN]: { setAuthenticated: (status: boolean) => void } | undefined
   [Screens.Terms]: undefined
   [Screens.AttemptLockout]: undefined
-  [Screens.EnterPIN]: {  setAuthenticated?: (status: boolean) => void; flow?: 'create' | 'import' | 'onboarding' } | undefined
-  [Screens.Biometry]: { flow?: 'create' | 'import' | 'onboarding' } | undefined
+  [Screens.EnterPIN]: { setAuthenticated: (status: boolean) => void } | undefined
+  [Screens.Biometry]: undefined
   [Screens.NameWallet]: undefined
   [Screens.PushNotifications]: undefined
 }
