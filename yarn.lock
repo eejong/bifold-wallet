@@ -55,6 +55,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@animo-id/mdoc@npm:0.2.38":
+  version: 0.2.38
+  resolution: "@animo-id/mdoc@npm:0.2.38"
+  dependencies:
+    compare-versions: "npm:^6.1.1"
+  checksum: 10c0/9f816a6b63da497e42531308d88bb854fa549d82d88603274f89150288d88122a1718d0d90262bc7d60715431f17e0f606b886b7c8351def1741199dd0d8a3d6
+  languageName: node
+  linkType: hard
+
+"@animo-id/pex@npm:4.1.1-alpha.0":
+  version: 4.1.1-alpha.0
+  resolution: "@animo-id/pex@npm:4.1.1-alpha.0"
+  dependencies:
+    "@astronautlabs/jsonpath": "npm:^1.1.2"
+    "@sd-jwt/decode": "npm:^0.7.2"
+    "@sd-jwt/present": "npm:^0.7.2"
+    "@sd-jwt/types": "npm:^0.7.2"
+    "@sphereon/pex-models": "npm:^2.3.1"
+    "@sphereon/ssi-types": "npm:0.30.2-next.135"
+    ajv: "npm:^8.12.0"
+    ajv-formats: "npm:^2.1.1"
+    jwt-decode: "npm:^3.1.2"
+    nanoid: "npm:^3.3.7"
+    uint8arrays: "npm:^3.1.1"
+  checksum: 10c0/d80ecb86bb219bdd4e10c2d5e4a987d1e9000661b48699d2268faa37fd56c6f195ef79299635f012ea89f9d9be2958822b8d9fe9db6be8669a9dd29f9ab19592
+  languageName: node
+  linkType: hard
+
 "@astronautlabs/jsonpath@npm:^1.1.2":
   version: 1.1.2
   resolution: "@astronautlabs/jsonpath@npm:1.1.2"
@@ -2051,7 +2079,7 @@ __metadata:
     "@credo-ts/anoncreds": "npm:0.5.13"
     "@credo-ts/askar": "npm:0.5.13"
     "@credo-ts/core": "npm:0.5.13"
-    "@credo-ts/indy-sdk-to-askar-migration": "npm:0.5.13"
+    "@credo-ts/indy-sdk-to-askar-migration": "npm:0.5.17"
     "@credo-ts/indy-vdr": "npm:0.5.13"
     "@credo-ts/openid4vc": "npm:0.5.13"
     "@credo-ts/push-notifications": "npm:0.7.0"
@@ -2157,7 +2185,7 @@ __metadata:
     "@credo-ts/anoncreds": 0.5.13
     "@credo-ts/askar": 0.5.13
     "@credo-ts/core": 0.5.13
-    "@credo-ts/indy-sdk-to-askar-migration": 0.5.13
+    "@credo-ts/indy-sdk-to-askar-migration": 0.5.17
     "@credo-ts/indy-vdr": 0.5.13
     "@credo-ts/openid4vc": 0.5.13
     "@credo-ts/push-notifications": 0.7.0
@@ -2950,6 +2978,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@credo-ts/anoncreds@npm:0.5.17":
+  version: 0.5.17
+  resolution: "@credo-ts/anoncreds@npm:0.5.17"
+  dependencies:
+    "@astronautlabs/jsonpath": "npm:^1.1.2"
+    "@credo-ts/core": "npm:0.5.17"
+    "@sphereon/pex-models": "npm:^2.3.1"
+    big-integer: "npm:^1.6.51"
+    bn.js: "npm:^5.2.1"
+    class-transformer: "npm:0.5.1"
+    class-validator: "npm:0.14.1"
+    reflect-metadata: "npm:^0.1.13"
+  peerDependencies:
+    "@hyperledger/anoncreds-shared": ^0.2.2
+  checksum: 10c0/1e935fca3af64aa11bf0612f1b1da265278f175b5886c6c3461297be05d43435546be883cc8fa74f1794d469c465b5c5c24027e911bc87a88e40d902f447ef5f
+  languageName: node
+  linkType: hard
+
 "@credo-ts/anoncreds@patch:@credo-ts/anoncreds@npm%3A0.5.13#./.yarn/patches/@credo-ts-anoncreds-npm-0.5.13-446ac3168e.patch::locator=bifold-wallet-root%40workspace%3A.":
   version: 0.5.13
   resolution: "@credo-ts/anoncreds@patch:@credo-ts/anoncreds@npm%3A0.5.13#./.yarn/patches/@credo-ts-anoncreds-npm-0.5.13-446ac3168e.patch::version=0.5.13&hash=4f5cb7&locator=bifold-wallet-root%40workspace%3A."
@@ -2985,6 +3031,26 @@ __metadata:
     "@animo-id/expo-secure-environment":
       optional: true
   checksum: 10c0/7a73851398655550e593348bbbf773a809094377310295e76eacff1b559bbb910c5bc059a5e0d03487900d9273b6a59ab09286df843f8e859798595c544f540c
+  languageName: node
+  linkType: hard
+
+"@credo-ts/askar@npm:0.5.17":
+  version: 0.5.17
+  resolution: "@credo-ts/askar@npm:0.5.17"
+  dependencies:
+    "@credo-ts/core": "npm:0.5.17"
+    bn.js: "npm:^5.2.1"
+    class-transformer: "npm:0.5.1"
+    class-validator: "npm:0.14.1"
+    rxjs: "npm:^7.8.0"
+    tsyringe: "npm:^4.8.0"
+  peerDependencies:
+    "@animo-id/expo-secure-environment": ^0.0.1-alpha.0
+    "@hyperledger/aries-askar-shared": ^0.2.3
+  peerDependenciesMeta:
+    "@animo-id/expo-secure-environment":
+      optional: true
+  checksum: 10c0/836d75291d41dd5e8e61bd12cc0a13e04c531937cc1babae004b39fb75dab76f0d8dd6cddda14c0499c84ed22f3e5a5c04ce9aa3a76b1009fe0387c6f3abff7e
   languageName: node
   linkType: hard
 
@@ -3038,6 +3104,56 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@credo-ts/core@npm:0.5.17":
+  version: 0.5.17
+  resolution: "@credo-ts/core@npm:0.5.17"
+  dependencies:
+    "@animo-id/mdoc": "npm:0.2.38"
+    "@animo-id/pex": "npm:4.1.1-alpha.0"
+    "@astronautlabs/jsonpath": "npm:^1.1.2"
+    "@digitalcredentials/jsonld": "npm:^6.0.0"
+    "@digitalcredentials/jsonld-signatures": "npm:^9.4.0"
+    "@digitalcredentials/vc": "npm:^6.0.1"
+    "@multiformats/base-x": "npm:^4.0.1"
+    "@noble/curves": "npm:^1.6.0"
+    "@noble/hashes": "npm:^1.5.0"
+    "@peculiar/asn1-ecc": "npm:^2.3.8"
+    "@peculiar/asn1-schema": "npm:^2.3.8"
+    "@peculiar/asn1-x509": "npm:^2.3.8"
+    "@peculiar/x509": "npm:^1.11.0"
+    "@sd-jwt/core": "npm:^0.7.0"
+    "@sd-jwt/decode": "npm:^0.7.0"
+    "@sd-jwt/jwt-status-list": "npm:^0.7.0"
+    "@sd-jwt/sd-jwt-vc": "npm:^0.7.0"
+    "@sd-jwt/types": "npm:^0.7.0"
+    "@sd-jwt/utils": "npm:^0.7.0"
+    "@sphereon/pex-models": "npm:^2.3.1"
+    "@sphereon/ssi-types": "npm:0.30.2-next.135"
+    "@stablelib/ed25519": "npm:^1.0.2"
+    "@types/ws": "npm:^8.5.4"
+    abort-controller: "npm:^3.0.0"
+    big-integer: "npm:^1.6.51"
+    borc: "npm:^3.0.0"
+    buffer: "npm:^6.0.3"
+    class-transformer: "npm:0.5.1"
+    class-validator: "npm:0.14.1"
+    did-resolver: "npm:^4.1.0"
+    lru_map: "npm:^0.4.1"
+    luxon: "npm:^3.5.0"
+    make-error: "npm:^1.3.6"
+    object-inspect: "npm:^1.10.3"
+    query-string: "npm:^7.0.1"
+    reflect-metadata: "npm:^0.1.13"
+    rxjs: "npm:^7.8.0"
+    tsyringe: "npm:^4.8.0"
+    uuid: "npm:^9.0.0"
+    varint: "npm:^6.0.0"
+    web-did-resolver: "npm:^2.0.21"
+    webcrypto-core: "npm:^1.8.0"
+  checksum: 10c0/0c832eab6ec84db306a94d79a1d604c7fcd2e74f7e4764b2f5d22cebb65f791760de79e7e1f467a74d2d5199929658bc6c277913df8c78459ef0dd2b063bd38a
+  languageName: node
+  linkType: hard
+
 "@credo-ts/core@patch:@credo-ts/core@npm%3A0.5.13#./.yarn/patches/@credo-ts-core-npm-0.5.13-725ab940d0.patch::locator=bifold-wallet-root%40workspace%3A.":
   version: 0.5.13
   resolution: "@credo-ts/core@patch:@credo-ts/core@npm%3A0.5.13#./.yarn/patches/@credo-ts-core-npm-0.5.13-725ab940d0.patch::version=0.5.13&hash=b37c4f&locator=bifold-wallet-root%40workspace%3A."
@@ -3088,17 +3204,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@credo-ts/indy-sdk-to-askar-migration@npm:0.5.13":
-  version: 0.5.13
-  resolution: "@credo-ts/indy-sdk-to-askar-migration@npm:0.5.13"
+"@credo-ts/indy-sdk-to-askar-migration@npm:0.5.17":
+  version: 0.5.17
+  resolution: "@credo-ts/indy-sdk-to-askar-migration@npm:0.5.17"
   dependencies:
-    "@credo-ts/anoncreds": "npm:0.5.13"
-    "@credo-ts/askar": "npm:0.5.13"
-    "@credo-ts/core": "npm:0.5.13"
-    "@credo-ts/node": "npm:0.5.13"
+    "@credo-ts/anoncreds": "npm:0.5.17"
+    "@credo-ts/askar": "npm:0.5.17"
+    "@credo-ts/core": "npm:0.5.17"
+    "@credo-ts/node": "npm:0.5.17"
   peerDependencies:
     "@hyperledger/aries-askar-shared": ^0.2.3
-  checksum: 10c0/5fcf324e5a8a698df28c623a09c6ed0283cd25be3884d2accce2419cf53c0e4a12a89ec7b099c4ee4896892973e9da5a680aed14c7072dae3ed2bb74ae5588f8
+  checksum: 10c0/a6207729b9445f4fc2e28ab3fa6582f0372eca7257fef957ad513f4c857b54285bcb12e781ff3db66b9a84af67ccede5c5da4dcabc3a0c40dc88b796b5d99ae2
   languageName: node
   linkType: hard
 
@@ -3126,18 +3242,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@credo-ts/node@npm:0.5.13":
-  version: 0.5.13
-  resolution: "@credo-ts/node@npm:0.5.13"
+"@credo-ts/node@npm:0.5.17":
+  version: 0.5.17
+  resolution: "@credo-ts/node@npm:0.5.17"
   dependencies:
     "@2060.io/ffi-napi": "npm:^4.0.9"
     "@2060.io/ref-napi": "npm:^3.0.6"
-    "@credo-ts/core": "npm:0.5.13"
+    "@credo-ts/core": "npm:0.5.17"
     "@types/express": "npm:^4.17.15"
     express: "npm:^4.17.1"
     rxjs: "npm:^7.8.0"
     ws: "npm:^8.13.0"
-  checksum: 10c0/bfc5579e0b2e2610d668375f41d66090084ec364f741d47d0ff38b33e1b9ef052343c6331e2ff2497ab83bb41415c1bd5f5761cbc29128e760158279ff7d1754
+  checksum: 10c0/13c514d58580fb888dd5ce99072e94861316ad2bcfe3769d67bdede012c220f4bb19b38f8cdaabf82b62d57483b5a30083798003cf5f1801750b828456b0c7fa
   languageName: node
   linkType: hard
 
@@ -5698,7 +5814,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sd-jwt/present@npm:0.7.2":
+"@sd-jwt/present@npm:0.7.2, @sd-jwt/present@npm:^0.7.2":
   version: 0.7.2
   resolution: "@sd-jwt/present@npm:0.7.2"
   dependencies:
@@ -5738,7 +5854,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sd-jwt/types@npm:0.7.2, @sd-jwt/types@npm:^0.7.0":
+"@sd-jwt/types@npm:0.7.2, @sd-jwt/types@npm:^0.7.0, @sd-jwt/types@npm:^0.7.2":
   version: 0.7.2
   resolution: "@sd-jwt/types@npm:0.7.2"
   checksum: 10c0/3679d0db6cae0cc86bfc2c76acd7e7ad90219fc10f17bd41293aea438aa9d707f729ceca953d3196f2481a71ed9f4e4512f0233ba69d62cadcb7921ba4df9a09
@@ -8506,7 +8622,7 @@ __metadata:
     "@credo-ts/anoncreds": "npm:0.5.13"
     "@credo-ts/askar": "npm:0.5.13"
     "@credo-ts/core": "npm:0.5.13"
-    "@credo-ts/indy-sdk-to-askar-migration": "npm:0.5.13"
+    "@credo-ts/indy-sdk-to-askar-migration": "npm:0.5.17"
     "@credo-ts/indy-vdr": "npm:0.5.13"
     "@credo-ts/openid4vc": "npm:0.5.13"
     "@credo-ts/push-notifications": "npm:0.7.0"
